@@ -1,0 +1,56 @@
+body {
+    background-color: #faf2da;
+}
+header {
+    height: 100px;
+}
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+.swift {
+    margin: 0 auto;
+    width: 80%;
+    height: 100px; 
+    background-color: #ff8474;
+    border-radius: 10px;
+    padding: 20px;
+}
+.swift ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.swift ul li {
+    position: relative;
+    padding: 5px 15px;
+    height: 30px;
+    background-color: #3edbf0;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    
+}
+.swift ul li a {
+    color: #393e46;
+    font-size: 16px;  
+}
+.swift ul li img {
+    display: none;
+    position: absolute;
+    left: -100px;
+    top: 50px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    border: 3px solid #3edbf0;
+}
+.swift ul li:hover {
+    border: 5px solid #ffe9d6;
+    border-radius: 15px;
+}
+
+.swift ul li:hover>img {
+    display: block; 
+}
