@@ -1,0 +1,211 @@
+
+/* -----------关于我们 ------------ */
+.about-us {
+    height: 457px;
+    padding-top: 26px;
+    margin-bottom: 22px;
+    background-color: #fafafa;
+}
+.us-text {
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 22px;
+    border: 1px solid #6db6ff;
+    width: 143px;
+    height: 34px; 
+}
+.us-text:last-of-type {
+    margin-top: 35px;
+}
+.us-text-contain {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    width: 102px;
+    margin-left: -54px;
+    padding: 3px;
+    background-color: #fafafa;
+    text-align: center;
+}
+.us-text-contain h3 {
+    font-size: 24px;
+}
+.us-text-contain h4 {
+    font-size: 12px;
+}
+ 
+
+.us-list {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 900px;
+}
+.us-list li {
+    width: 268px;
+    height: 301px;
+    padding-top: 18px;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+.us-list li img {
+    margin-bottom: 15px;
+}
+
+.us-list li h3 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.us-list li p {
+    width: 245px;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 26px;
+    letter-spacing: 2px;
+    text-align: justify;
+    color: #838383;
+}
+
+/* -----------关于我们 ------------ */
+
+
+
+/* -----------投资案例图文列表 ------------ */
+.case-list {
+    height: 663px;
+    /* background-color: purple; */
+}
+
+.case-list-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 900px;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.case-list-wrap li {
+    width: 295px;
+    height: 307px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.case-list-wrap li img {
+    width: 295px;
+
+}
+
+.case-list-wrap li p {
+    line-height: 47px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.case-list-wrap li a {
+    display: block;
+    margin: 0 auto;
+    width: 135px;
+    height: 27px;
+    line-height: 27px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #6db6ff;
+}
+.case-list-wrap li a:hover {
+    color: #fa4d86;
+}
+/* -----------投资案例图文列表 ------------ */
+
+
+/* -----------友情链接 ------------ */
+.blogroll {
+    height: 333px; 
+}
+
+.blogroll-bg {
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+    height: 305px;
+    background: url(../img/index/14625916669c405f593ff89f419079c1.png) no-repeat;
+}
+.blogroll-wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 890px;
+    height: 81px;
+    transform: translate(-50% , -50%);
+    /* background-color: royalblue; */
+}
+.blogroll-wrap>a { 
+    display:inline-block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 36px;
+    height: 70px; 
+    background-color: rgba(0, 0, 0, .3);
+    text-align: center;
+    line-height: 70px;
+    margin-top: 5px; 
+}
+
+.blogroll-wrap>a:hover {
+    border: 1px solid #fff;
+}
+.blogroll-list {
+    overflow: hidden;  
+    width: 738px;
+    height: 87px;
+    margin: 0 38px;
+    /* background-color: yellowgreen; */
+
+}
+.blogroll-list li {
+    float: left;
+    margin-right: 22px;
+}
+.blogroll-list li a {
+    display: block;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.blogroll-list li a:hover {
+    border: 3px solid #6db6ff;
+}
+
+.blogroll-list img{
+    border-radius: 5px;
+    width: 222px;
+    height: 81px;
+}
+
+
+.fie-text {
+    position: absolute;
+    top: 21px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 145px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-color: #6db6ff;
+    color: #fff;
+}
+.fie-text>p {
+    margin: 3px auto 0;
+    font-size: 16px; 
+    line-height: 24px;
+   
+}
+ 
+.fie-text legend>p {
+   font-size: 24px;
+   line-height: 24px;
+}
+/* -----------友情链接 ------------ */

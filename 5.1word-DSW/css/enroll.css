@@ -1,0 +1,152 @@
+/* -----上半部分 和登录页一样--------- */
+.login-info-wrap {
+    margin: 0 auto;
+    width: 747px; 
+}
+.login-text-wrap { 
+    overflow: hidden;
+    /* height: 143px; */
+}
+    /* ------------这里是我要转让 的样式 ------------- */
+.login-text {
+    position: relative;
+    margin: 53px auto 31px;
+    padding: 0 20px; 
+    width: 153px;
+    text-align: left;
+}
+.login-text::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -125px;
+    display: block;
+    width: 105px;
+    border-top: 1px solid #9ac1c0;
+}
+
+.login-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 173px;
+    display: block;
+    width: 105px;
+    border-top: 1px solid #9ac1c0;
+}
+
+    /* -------------------- */
+.login-text h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 20px;
+    line-height: 20px;
+}
+.login-text h4 {
+    font-size: 12px;
+    font-weight: 600; 
+    line-height: 12px;
+    text-transform:uppercase
+}
+/* -----上半部分--------- */
+
+/* ---注册页内容开始---- */
+.enroll-article>p { 
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+.enroll-form-wrap table{
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 40px;
+}
+.enroll-form-wrap table tr>td:first-child {
+    width: 76px;
+}
+.enroll-form-wrap table tr>td p span {
+    color: red;
+}
+.enroll-form-wrap table tr:nth-of-type(-n+7) td input {
+    width: 206px;
+    height: 16px;
+    margin-right: 23px;
+    border: 1px solid #9ac1c0;
+}
+.enroll-form-wrap table p {
+    display: inline-block;
+}
+
+/* ---安全问题下拉框 ------ */
+#safe-quei-sel {
+    width: 165px;
+    height: 18px; 
+    border: 1px solid #9ac1c0;
+    outline: none;
+    appearance: none;
+    background: url(../img/enroll/形状13.png) no-repeat;
+    background-position: 148px;
+}
+/* ----验证码--- */
+#auCode {
+    width: 63px;
+    height: 18px;
+    border: 1px solid #9ac1c0;
+
+}
+.enroll-form-wrap table tr:nth-of-type(9) a {
+    color: red;
+}
+
+/* ----会员注册协议------ */
+.clause { 
+    margin: 30px 0 36px 189px;
+    font-size: 14px;
+}
+.clause p {
+    display: inline-block;
+    font-size: 12px;
+    height: 114px;
+    width: 548px;
+    vertical-align: top;
+    border: 1px solid #9ac1c0;
+}
+
+.clausebox-wrap {
+    display: block;
+    width: 230px; 
+    margin: 10px 0 33px 100px;
+}
+.clausebox-wrap>label { 
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border: 1px solid #ffbbbb;
+}
+ 
+
+.clause-text-box {
+    float: right;
+    padding-left: 20px;
+}
+
+#clauseBox:checked+label {
+    width: 15px;
+    height: 15px;
+    border: none;
+    background: url(../img/enroll/gg.png) no-repeat ;
+    background-size: 15px 15px;
+}
+
+#SignUp {
+    display: block; 
+    margin: 0 auto 38px;
+    width: 120px;
+    height: 33px;
+    background-color: #6db6ff;
+    color: #fff;
+    font-size: 16px;
+    line-height: 33px;
+    text-align: center;
+    border-radius: 5px;
+}

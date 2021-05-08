@@ -1,0 +1,131 @@
+/* ------ login start ------*/
+    /* -----上半部分--------- */
+.login-info-wrap {
+    margin: 0 auto;
+    width: 747px;
+    height: 454px;
+}
+.login-text-wrap { 
+    overflow: hidden;
+    height: 143px;
+}
+    /* ------------这里是我要转让 的样式 ------------- */
+.login-text {
+    position: relative;
+    margin: 53px auto;
+    padding: 0 20px; 
+    width: 153px;
+    text-align: left;
+}
+.login-text::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -125px;
+    display: block;
+    width: 105px;
+    border-top: 1px solid #9ac1c0;
+}
+
+.login-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 173px;
+    display: block;
+    width: 105px;
+    border-top: 1px solid #9ac1c0;
+}
+
+    /* -------------------- */
+.login-text h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 20px;
+    line-height: 20px;
+}
+.login-text h4 {
+    font-size: 12px;
+    font-weight: 600; 
+    line-height: 12px;
+    text-transform:uppercase
+}
+/* -----上半部分--------- */
+
+
+
+/* -------表单区---------- */
+
+.login-form-wrap {
+    width: 368px;
+    height: 258px;
+}
+
+    /* -----两个按钮---------- */
+.login-form-wrap>a:nth-of-type(-n+2) {
+    display: inline-block;
+    width: 93px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #eeeeee;
+} 
+.login-form-wrap>a:nth-of-type(-n+2):hover {
+    background-color: #b3d9ff;
+    color: #fff;
+}
+.login-form-wrap>a:first-child {
+    margin: 0 8px 17px 65px;
+}
+    /* -----两个按钮---------- */
+
+    /* ---------------table样式-------------- */
+.login-form-wrap table>tbody>tr>td:first-child {
+    width: 50px;
+}
+
+.user-info-input  {
+    width: 266px;
+    height: 20px;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #ecf5ff;
+    vertical-align: center; 
+}
+    /* ----- 验证码输入框----------  */
+.login-form-wrap #authCode{
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    background-color: #ecf5ff;
+    width: 97px ; 
+}
+.login-form-wrap #authCodeImg {
+    vertical-align: bottom;
+}
+.login-form-wrap #authCodeChange{
+    color: #c10000;
+    vertical-align: bottom;
+
+}
+
+    /* ----登录按钮 忘记密码？------- */
+.login-form-wrap>a:nth-of-type(3) {
+    display: inline-block;
+    margin: 10px 7px 0 84px;
+    width: 93px;
+    height: 24px;
+    background-color: #b3d9ff;
+    border-radius: 5px;
+    color: #fff;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}   
+.login-form-wrap>a:nth-of-type(4) {
+    color: red;
+}
+/* -------表单区---------- */

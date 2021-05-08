@@ -1,0 +1,125 @@
+/* ---投资列表开始----- */
+.invest-contain-wrap {
+    margin: 48px auto 18px;
+    width: 900px;
+    border-top: 1px solid #6db6ff;
+    background: url(../img/invest/tt7.png) no-repeat top left;
+    /* background-color: pink; */
+}
+
+    /* --当前位置--- */
+.invest-current-site p{
+    margin-left: 6px;
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 30px;
+}
+.invest-current-site p span {
+    color: #000;
+}
+    /* --当前位置--- */
+ 
+    /* --类型列表-- */
+.invest-categories-list {
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 24px;
+}
+.categories-item {
+    margin-bottom: 8px;
+}
+.categories-item p {
+    font-size: 16px;
+}
+.categories-item p, 
+.categories-item ul li,
+.categories-item img{
+    float: left; 
+    line-height: 38px;
+}
+.categories-item ul li {
+    padding: 0 2px;
+    font-size: 12px;
+}
+.categories-item img{
+    margin-right: 10px;
+}
+
+.categories-item ul>li:first-child a{
+    font-size: 16px;
+    color: #6db6ff;
+}
+    /* --类型列表-- */
+
+    /* --投资信息列表-- */
+ 
+.invest-info-wrap {
+    
+    margin: 0 auto;
+    width: 900px;   
+    background: url(../img/invest/tt8_03.png) no-repeat;
+    background-color: #fafafa;
+
+}
+
+.invest-info-wrap>table {
+    width: 756px;  
+    margin: 0 auto;
+    text-align: center;
+}
+.invest-info-wrap>table thead { 
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 38px; 
+}
+.invest-info-wrap>table thead tr th:first-child {
+    width: 169px;
+}
+.invest-info-wrap>table tbody { 
+    line-height: 36px;
+}
+
+.invest-info-footer {
+    height: 500px;
+}
+
+    /* --投资信息列表-- */
+
+    /* --分页器--- */
+.invest-page-wrap {
+    display: flex;
+    margin: 20px auto 17px;
+    justify-content: space-between;
+    width: 212px;
+    height: 18px;
+    text-align: center; 
+}
+.invest-page-wrap>a{
+    display: inline-block;
+    width: 47px;
+    height: 16px;
+    background-color: #e5e5e5;
+    border: 1px solid #c9c9c9;
+}
+.page-list {
+    display: flex;
+    width: 106px;
+    height: 16px;
+    justify-content: space-between;
+
+}
+.page-list li a {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #e5e5e5;
+    border: 1px solid #c9c9c9;
+}
+
+.page-list li a:hover {
+    color: #fff;
+    border: 1px solid #aaaaaa;
+    background-color: #6db6ff;
+}
+/* ---投资列表开始----- */

@@ -1,0 +1,191 @@
+/* 显示安全区 固定宽度且居中 */
+.container { 
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* 左 - 右浮动 */
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+/* ----------------header start -----------------*/
+.header-top {
+    height: 24px;
+    background-color: #6db6ff;
+}
+
+.header-bot {
+    height: 116px;
+    /* background-color: pink; */
+}
+ 
+.header-bot .logo {
+    width: 121px;
+    height: 63px;
+    background: url(../img/common/logo.png) no-repeat;
+    margin:38px 63px 15px 74px;
+}
+
+.nav { 
+    overflow: hidden;
+    margin: 70px 42px 18px 0;
+}
+.nav ul {
+    height: 30px;
+}
+
+.nav ul li {
+    float: left;
+    padding: 7px;
+}
+
+.nav ul li:hover {
+    border-radius: 10px;
+    background-color:#6db6ff;
+}
+.nav ul li:hover a {
+    color: #fff;
+}
+
+.search {
+    border: 1px solid #000;
+    padding: 4px 7px 3px 4px;
+    width: 203px;
+    height: 26px;
+    line-height: 26px;
+    margin-top: 70px;
+}
+.search input {
+    border: none;
+    width: 177px;
+    height: 26px;
+}
+.search-ico {
+    display: inline-block;
+    width: 26px;
+    height: 21px;
+    background: url(../img/common/形状1.png) no-repeat;
+    margin-top: 2px;
+}
+/* ----------------header end -----------------*/
+
+/* ----------------大图开始------------------- */
+.nic-pic {
+    position: relative;
+    overflow: hidden;
+}
+.nic-pic,.nic-pic .pic li {
+    height: 400px;
+}
+
+.nic-pic .pic img {
+    width: 1000px;
+    height: 400px;
+}
+
+.page-radius  {
+    position: absolute;
+    display: flex;
+    width: 67px;
+    justify-content: space-between;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+}
+.page-radius li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #395674;
+}
+.page-radius li:hover {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: #7A4A15;
+    cursor: pointer;
+    opacity: .4;
+}
+/* ----------------大图结束------------------- */
+
+/* ---------------footer start ------------------ */
+.footer-top {
+    height: 168px;
+    border-top: 1px solid #6db6ff;
+}
+.help-list{
+    float: left;
+    width: 110px;
+    height: 100px;
+    margin: 44px 0 24px 50px;
+}
+.help-list dt {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+.help-list dd {
+    line-height: 22px;
+    font-size: 12px;
+}
+/* .help-list dd a {
+    display: block;
+    width: 100%;
+    height: 100%;
+} */
+.info-wrap {
+    margin-top: 44px;
+    width: 322px;
+    height: 115px;
+} 
+
+.help-phone,.help-time{
+    width: 160px;
+    height: 48px;
+    margin-bottom: 14px;
+}
+.help-phone img {
+    float: left;
+    margin-top: 4px;
+    margin-right: 3px;
+}
+.help-phone h3 {
+    font-size: 16px; 
+}
+.help-phone p {
+    text-align: right;
+}
+.help-phone h3:first-of-type {
+    letter-spacing: 3px;
+}
+
+.help-time {
+    margin-top: 7px;
+}
+
+.help-time p{
+    font-size: 10px;
+}
+.dy-info {
+    height: 45px;
+}
+.dy-info img {
+    vertical-align: baseline;
+}
+.dy-info span {
+    font-size: 16px;
+    font-weight: 700;
+}
+ 
+.footer-bot { 
+    padding: 42px 0 14px 0;
+    text-align: center;
+    height: 14px;
+    background-color: #6db6ff;
+    font-size: 14px;
+}
+ 
+/* ---------------footer start ------------------ */

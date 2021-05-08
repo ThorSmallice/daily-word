@@ -1,0 +1,49 @@
+/* 清除元素默认内外边距 */
+* {
+    margin:0;
+    padding: 0;
+}
+body {
+    overflow-x: hidden;
+}
+body,li,a,span,h2,h3,h4,h5,p,div,rt,ol,ul{
+    font-family: "\5FAE\8F6F\96C5\9ED1";
+}
+/* 清除a标签默认颜色和下划线 */
+a  {
+    color: #000;
+    text-decoration: none;
+} 
+/* 去除图片边框(IE6) 去除与文字对齐留白 */
+img {
+    border: none;  
+    vertical-align: middle;
+}
+/* 清除按钮 输入控件外轮廓线 */
+button,input {
+    outline: none;
+}
+/* 固定主体背景 文字颜色大小 防止浏览器篡改 */
+body {
+    background-color: #fff;
+    color: #000;
+    font-size: 12px;
+}
+/* 清除li默认样式 */
+li {
+    list-style: none;
+}
+/* 清除浮动 */
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* 清除浮动 兼容IE */
+.clearfix {
+    *zoom: 1;   
+}
+
+ 

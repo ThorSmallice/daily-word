@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼎搜网-登录 注册</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/enroll.css">
+</head>
+<body>
+    <!-- 头部开始 common区域 -->
+    <header class="container">
+        <div class="header-top"></div>
+
+        <div class="header-bot">
+            <!-- logo -->
+            <div class="logo fl"></div>
+
+            <!-- 导航 -->
+            <div class="nav fl">
+                <ul>
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="./detail.html">关于鼎搜</a></li>
+                    <li><a href="./enroll.html">鼎搜服务</a></li>
+                    <li><a href="./invest.html">鼎搜动态</a></li>
+                    <li><a href="login.html">鼎搜诚聘</a></li>
+                    <li><a href="#">鼎搜公益</a></li>
+                </ul>
+            </div>
+            <div class="search fl">
+                <input type="text">
+                <span class="search-ico fr"></span>
+            </div>
+        </div>
+    </header>
+    <!-- 头部结束  -->
+
+    <!-- 大图开始   common区域-->
+    <div class="nic-pic container">
+        <!-- 大图列表 -->
+        <ul class="pic">
+            <li> <img src="./img/common/服务全网.png" alt=""> </li>
+        </ul>
+
+        <!-- 小圆点换页器 -->
+        <ol class="page-radius">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <!-- 大图结束 -->
+
+    <!-- 登录页内容 -->
+    <article class="container enroll-article">
+        <div class="login-info-wrap">
+            <div class="login-text-wrap">
+                <div class="login-text">
+                    <h3>我要转让</h3>
+                    <h4>woyaozhuanrang</h4>
+                </div>
+            </div>   
+        </div>
+
+
+        <!-- 注册页的内容 -->
+        <p>(带 * 号的表示为必填项目，用户名必须大于3位小于20位，密码必须大于3位)</p>
+
+        <div class="enroll-form-wrap">
+            <form action="#" name="enroll-form">
+                <table>
+                    <tr>
+                        <td>用户名：</td>
+                        <td>
+                            <input type="text"> 
+                            <p>
+                                <span>* </span>
+                                (可以使用中文，但禁止除[@][.]以外的特殊符号)
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>公司名称：</td>
+                        <td>
+                            <input type="text"> 
+                            <p>
+                                <span>* </span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>登陆密码：</td>
+                        <td>
+                            <input type="text"> 
+                            <p>
+                                <span>* </span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>确认密码：</td>
+                        <td>
+                            <input type="text"> 
+                            <p>
+                                <span>* ×两次输入密码不一致</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>电子邮箱：</td>
+                        <td>
+                            <input type="text"> 
+                            <p>
+                                <span>* </span>
+                                (每个电子邮邮箱只能注册一个帐号)
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>安全问题：</td>
+                        <td>
+                            <select name="question" id="safe-quei-sel">
+                                <option value="0" selected></option>
+                                <option value="1">你出生的城市是？</option>
+                            </select>
+                            <p>
+                                (忘记密码时重设密码用)
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>问题答案：</td>
+                        <td>
+                            <input type="text"> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>性别：</td>
+                        <td>
+                            <input type="radio" name="sex"> 男
+                            <input type="radio" name="sex"> 女
+                            <input type="radio" name="sex"> 保密
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>验证码：</td>
+                        <td>
+                            <input type="text" id="auCode">
+                            <img src="./img/enroll/2.png" alt="" >
+                            <span>看不清？</span>
+                            <a href="javascript:;">点击更换</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div class="clause">
+                <span>会员注册协议：</span>
+                <p>1、在本站注册的会员，必须遵守《互联网电子公告服务管理规定》，不得在本站发表诽谤他人，<br>侵犯他人隐私，侵犯他人知识产权，传播病毒，政治言论，商业讯息等信息。<br>
+                    2、在所有在本站发表的文章，本站都具有最终编辑权，并且保留用于印刷或向第三方发表的权利，<br>如果你的资料不齐全，我们将有权不作任何通知使用你在本站发布的作品。<br>
+                    3、在登记过程中，您将选择注册名和密码。注册名的选择应遵守法律法规及社会公德。您必须对<br>您的密码保密，您将对您注册名和密码下发生的所有活动承担责任。
+                </p>
+
+                 
+                <div class="clausebox-wrap">
+                    <input type="checkbox"  name="clauseBox" id="clauseBox" hidden>
+                    <label for="clauseBox"></label>
+                    <span class="clause-text-box"> 
+                        <label for="clauseBox">
+                            我已阅读并完全接受服务协议
+                        </label>
+                    </span>
+                </div>
+            </div>
+
+            <a href="javascript:;" id="SignUp">注册</a>
+        </div>
+    </article>
+    <!--登录页内容 -->
+
+
+    <!-- 页脚开始 common区域 -->
+    <footer class="container">
+        <div class="footer-top">
+            <dl class="help-list">
+                <dt>简介</dt>
+                <dd><a href="javascript:;">鼎搜网简介</a></dd>
+                <dd><a href="javascript:;">鼎搜服务</a></dd>
+                <dd><a href="javascript:;">会员身份实名认证</a></dd>
+            </dl>
+
+            <dl class="help-list">
+                <dt>帮助</dt>
+                <dd><a href="javascript:;">用户注册</a></dd>
+                <dd><a href="javascript:;">关于鼎搜</a></dd>
+                <dd><a href="javascript:;">在线咨询</a></dd>
+            </dl>
+
+            <dl class="help-list">
+                <dt>共赢</dt>
+                <dd><a href="javascript:;">网站合作</a></dd>
+                <dd><a href="javascript:;">用户协议</a></dd>
+                <dd><a href="javascript:;">会员身份实名认证</a></dd>
+            </dl>
+
+            <dl class="help-list">
+                <dt>导航</dt>
+                <dd><a href="javascript:;">地图首页</a></dd>
+                <dd><a href="javascript:;">职能分类</a></dd>
+                <dd><a href="javascript:;">企业名录</a></dd>
+            </dl>
+                
+            
+            <div class="info-wrap fr">
+                <div class="help-phone fl  ">
+                    <img src="./img/common/phone.png" alt="">
+                    <h3>全国服务热线</h3>
+                    <h3>440-880-1779</h3>
+                    <p>邮箱:dinsoo@163.com</p>
+                </div>
+    
+                <div class="help-time fr  ">
+                    <p>投诉电话：4408801779</p>
+                    <p>周一至周六：9:20-20:00</p>
+                    <img src="./img/common/gzgz.png" alt="">
+                </div>
+
+                <div class="dy-info fl">
+                    <img src="./img/common/eem.png" alt="">
+                    <span>订阅信息</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="footer-bot">
+            <p>Copyright ©2015 鼎搜网(www.dinsoo.com) 版权所有</p>
+        </div>
+    </footer>
+    <!-- 页脚结束 -->
+</body>
+</html>

@@ -1,0 +1,90 @@
+/* ---投资列表开始----- */
+.detail-contain-wrap {
+    margin: 48px auto 18px;
+    width: 900px;
+    border-top: 1px solid #6db6ff;
+    background: url(../img/invest/tt7.png) no-repeat top left;
+    /* background-color: pink; */
+}
+
+    /* --当前位置--- */
+.detail-current-site p{
+    margin-left: 6px;
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 30px;
+}
+.detail-current-site p span {
+    color: #000;
+}
+    /* --当前位置--- */
+
+    /* -----详情内容----- */
+.detail-list-wrap {
+    width: 750px; 
+    margin: 0 auto; 
+    background: url(../img/detail/xt.png) no-repeat 0 83px,
+                url(../img/detail/xf.png) no-repeat 0 810px,
+                url(../img/detail/xt.png) no-repeat 0 1405px,
+                url(../img/detail/xf.png) no-repeat 0 2113px,
+                url(../img/detail/xt.png) no-repeat 0 2737px,
+                url(../img/detail/xf.png) no-repeat 0 3425px;
+}
+.detail-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.detail-title p { 
+    font-weight: 600;
+    font-size: 18px;
+}
+.detail-title rt {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+    /*-----详情内容列表开始 -----  */
+.detail-list li {
+    margin-bottom: 28px; 
+}
+.detail-list li h3, .detail-list li rt, .detail-list li span {
+    display: block;
+    text-align: center;
+}
+.detail-list li h3 {
+    font-weight: 600;
+    font-size: 16px; 
+}
+.detail-list li rt {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+.detail-list li span {
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+.detail-list li p {
+    line-height: 24px; 
+    margin-bottom: 14px;
+}
+.detail-list li:first-child>p {
+    text-indent: 2em;
+}
+.detail-list li:last-child>span {
+    width: 345px;
+    margin: 0 auto 16px;
+    text-align: left;
+}
+.detail-page-wrap  {
+    text-align: center;
+}
+.detail-page-wrap a {
+    margin-right: 16px;
+}
+.detail-page-wrap a:nth-child(2) {
+    color: #595959;
+}
