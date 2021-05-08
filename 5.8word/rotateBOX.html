@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .box {
+            position: relative;
+            margin: 0 auto;
+            width: 800px;
+            height: 800px;
+            perspective: 1500px;
+        }
+
+        .box ul {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -100px 0 0 -150px;
+            transform-style: preserve-3d;
+            font-size: 14px;
+            animation: boxRotate 5s linear infinite;
+        }
+        .box>ul>li:first-child {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            background-color: deepskyblue;
+            border: 2px solid red;
+        }
+        .box>ul>li:last-child {
+            position: absolute;
+            width: 300px;
+            height: 100px;
+            border: 2px solid yellow;
+            transform: translateZ(100px);
+            transition: all 1s ease;
+        }
+        .box>ul>li:last-child:hover {
+            transform: translateZ(0);
+        }
+
+        @keyframes boxRotate {
+            0% {
+                transform: rotate3d(1,0,1,0deg)
+            }
+            25% {
+                transform: rotate3d(1,0,1,90deg);
+            }
+            50% {
+                transform: rotate3d(1,0,1,180deg);
+            }
+            75% {
+                transform: rotate3d(1,0,1,270deg);
+            }
+            100% {
+                transform: rotate3d(1,0,1,360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+
+            </li>
+            <li>
+                什么是快乐星球？什么是快乐星球？如果你想知道什么是快乐星球的话，现在就带你研究！
+                什么是快乐星球？什么是快乐星球？如果你想知道什么是快乐星球的话，现在就带你研究！
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
