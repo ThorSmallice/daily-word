@@ -20,6 +20,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-content: space-around;
 }
 .swift ul li {
     position: relative;
