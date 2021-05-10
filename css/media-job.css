@@ -1,0 +1,37 @@
+@media screen and (max-width:680px) {
+    body {
+        width: 100%;
+        height: 100%;
+       
+    }
+    .container {
+        display: flex;
+        width: 90%;
+        height: 90%;
+        justify-content: center;
+        align-items: center;
+        background-color: #ccc;
+    }
+    .swift {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+        padding: 5%;
+    }
+    .swift ul {
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: space-around;
+        align-content: space-around;
+    }
+    .swift ul li a { 
+        padding: 5px 15px;
+        background-color: #3edbf0;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        text-align: center;
+        color: #393e46;
+        font-size: 14px;  
+    }
+}
