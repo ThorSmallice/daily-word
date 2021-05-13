@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAOA;;;;;;EAME;AAEF;;;;;EAKE;AAGF;;;;;EAKE;AAEF;;;;;;;;;;EAUE;ACtCF,IAAK;EACD,KAAK,EAAE,KAAO;;AAElB,wCAAiC;EAC7B,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;;AAEd,CAAE;EACE,KAAK,EAAE,IAAI;EACX,eAAe,EAAE,IAAI;;AAEzB,EAAG;EACC,UAAU,EAAE,IAAI",
+"sources": ["../scss/_method.scss","../scss/commont.scss"],
+"names": [],
+"file": "commont.css"
+}

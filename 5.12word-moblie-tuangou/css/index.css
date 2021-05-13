@@ -1,0 +1,286 @@
+@charset "UTF-8";
+/* 
+flex($pri, $cou,$flW) 改成flex容器
+    参数
+    $pri：主轴排列方式 默认center
+    $cou：副轴单行排列方式 默认center
+    $flW：控制是否换行 默认换行（可选）
+*/
+/*
+bgcJL( X , Y) 添加精灵图背景
+    参数
+    位置 X Y 
+
+*/
+/*
+eleSize(width, height) 设置宽高
+    参数
+    width 必填
+    height 必填
+*/
+/*
+posiTL(pattern,top,left)
+    参数
+    定位模式 必填
+    上 左  默认 0
+
+posiBR(pattern,bottom,right)
+    参数
+    定位模式 必填
+    下 右 默认 0
+*/
+body {
+  position: relative; }
+
+.index-header {
+  width: 100vw;
+  height: 20vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; }
+  .index-header .logo {
+    width: 16.4vw;
+    height: 16.4vw;
+    background: url(../images/index/LOGO.png) no-repeat 0 0/100%; }
+  .index-header .search {
+    position: relative;
+    width: 36vw;
+    height: 6.6666666667vw;
+    line-height: 6.6666666667vw;
+    vertical-align: middle;
+    border-radius: 3.4666666667vw;
+    border: 0.2666666667vw solid #ff9344;
+    padding: 0 2.1333333333vw 0; }
+    .index-header .search::after {
+      content: "";
+      position: absolute;
+      right: 2vw;
+      top: 50%;
+      transform: translateY(-50%);
+      display: block;
+      width: 4.8vw;
+      height: 4.5333333333vw;
+      background: url(../images/1Xicon/搜索矩.png) no-repeat 0 0/100%; }
+    .index-header .search input {
+      width: 29.3333333333vw;
+      height: 3.4666666667vw;
+      border: none;
+      outline: none; }
+      .index-header .search input::-webkit-input-placeholder {
+        font-size: 3.2vw; }
+  .index-header .city {
+    width: 20.9333333333vw;
+    height: 7.2vw;
+    border: 0.2666666667vw solid #ff9344; }
+    .index-header .city select {
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      padding-left: 1.8666666667vw;
+      font-size: 3.3333333333vw;
+      background-color: transparent;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: url(../images/index/城市切换下拉.png) no-repeat center right 10%;
+      background-size: 4vw 2.1333333333vw; }
+
+.scr-pic {
+  width: 100vw;
+  height: 38vw;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  margin-bottom: 4.6666666667vw; }
+  .scr-pic ul {
+    width: 300%;
+    height: 38vw; }
+    .scr-pic ul li {
+      float: left; }
+      .scr-pic ul li a {
+        display: inline-block;
+        width: 100%; }
+        .scr-pic ul li a img {
+          width: 100vw;
+          height: 38vw; }
+  .scr-pic .scr-bar {
+    width: 100vw;
+    height: 1.6vw;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); }
+    .scr-pic .scr-bar .bar {
+      width: 17.3333333333vw;
+      height: 1.6vw;
+      position: absolute;
+      top: 0;
+      left: 20%;
+      background-color: #c8c7c7; }
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; }
+  .main .each-col span {
+    display: inline-block; }
+  .main .each-col .each-col-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 94.6666666667vw;
+    height: 7.2vw;
+    margin-bottom: 2.2666666667vw;
+    line-height: 7.2vw; }
+    .main .each-col .each-col-title .each-col-title-logo {
+      width: 7.4666666667vw;
+      height: 7.2vw;
+      vertical-align: middle; }
+    .main .each-col .each-col-title .each-col-title-text {
+      font-size: 4vw; }
+  .main .each-col .more {
+    font-size: 3.2vw; }
+  .main .each-col .ico-rig-jiantou {
+    width: 3.4666666667vw;
+    height: 3.4666666667vw;
+    background-image: url(../images/jinglingtu.png);
+    background-repeat: no-repeat;
+    background-position: -39.6vw -45.2vw;
+    background-size: 61.8666666667vw 56.2666666667vw;
+    vertical-align: middle; }
+  .main .buying {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 4.6666666667vw; }
+    .main .buying .buying-logo {
+      background-image: url(../images/jinglingtu.png);
+      background-repeat: no-repeat;
+      background-position: 0vw -22.5333333333vw;
+      background-size: 61.8666666667vw 56.2666666667vw; }
+    .main .buying .buying-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: space-between;
+      flex-wrap: wrap;
+      align-content: space-between;
+      width: 78.1333333333vw;
+      height: 28.8vw; }
+      .main .buying .buying-content a {
+        width: 32vw;
+        height: 12.5333333333vw; }
+        .main .buying .buying-content a img {
+          width: 32vw;
+          height: 12.5333333333vw; }
+  .main .guess-like {
+    margin-bottom: 18.1333333333vw; }
+    .main .guess-like .guess-logo {
+      background-image: url(../images/jinglingtu.png);
+      background-repeat: no-repeat;
+      background-position: -11.3333333333vw -22.5333333333vw;
+      background-size: 61.8666666667vw 56.2666666667vw; }
+    .main .guess-like .guess-content .guess-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap; }
+      .main .guess-like .guess-content .guess-list li h2, .main .guess-like .guess-content .guess-list li h3, .main .guess-like .guess-content .guess-list li p, .main .guess-like .guess-content .guess-list li span {
+        display: inline-block;
+        font-weight: normal; }
+      .main .guess-like .guess-content .guess-list li .guess-img {
+        position: relative;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        width: 28vw;
+        height: 21.8666666667vw; }
+        .main .guess-like .guess-content .guess-list li .guess-img img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0.6); }
+      .main .guess-like .guess-content .guess-list li .guess-list-info {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: no-wrap;
+        flex-direction: column; }
+        .main .guess-like .guess-content .guess-list li .guess-list-info > div {
+          width: 64.6666666667vw;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap; }
+        .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-top h2 {
+          font-size: 3.7333333333vw; }
+        .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-top p, .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-top span {
+          font-size: 2.4vw;
+          color: #b3b3b3; }
+        .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-middle {
+          font-size: 2.9333333333vw;
+          color: #b3b3b3; }
+        .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-bottom {
+          font-size: 3.4666666667vw; }
+          .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-bottom h3, .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-bottom h3 > span {
+            color: #ff9344; }
+          .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-bottom p, .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-bottom p > span {
+            font-size: 2.8vw;
+            color: #b3b3b3; }
+
+.nav-footer {
+  width: 100vw;
+  height: 18.1333333333vw;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #fff; }
+  .nav-footer ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: no-wrap; }
+    .nav-footer ul li a {
+      display: block;
+      text-align: center;
+      width: 10.1333333333vw;
+      height: 14.1333333333vw; }
+      .nav-footer ul li a span {
+        display: block;
+        width: 10.1333333333vw;
+        height: 10.1333333333vw; }
+    .nav-footer ul li p {
+      font-size: 3.2vw; }
+    .nav-footer ul li .icon-index {
+      background-image: url(../images/jinglingtu.png);
+      background-repeat: no-repeat;
+      background-position: 0vw -11.3333333333vw;
+      background-size: 61.8666666667vw 56.2666666667vw; }
+    .nav-footer ul li .icon-classify {
+      background-image: url(../images/jinglingtu.png);
+      background-repeat: no-repeat;
+      background-position: -11.4666666667vw 0vw;
+      background-size: 61.8666666667vw 56.2666666667vw; }
+    .nav-footer ul li .icon-find {
+      background-image: url(../images/jinglingtu.png);
+      background-repeat: no-repeat;
+      background-position: -22.4vw 0vw;
+      background-size: 61.8666666667vw 56.2666666667vw; }
+    .nav-footer ul li .icon-my {
+      background-image: url(../images/jinglingtu.png);
+      background-repeat: no-repeat;
+      background-position: -33.8666666667vw 0vw;
+      background-size: 61.8666666667vw 56.2666666667vw; }
+
+/*# sourceMappingURL=index.css.map */

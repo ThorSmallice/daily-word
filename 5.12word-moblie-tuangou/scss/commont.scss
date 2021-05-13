@@ -1,0 +1,16 @@
+@import './method';
+
+body {
+    width: wh(750);
+}
+body,ul,li,html,img,a,div,p,span {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}

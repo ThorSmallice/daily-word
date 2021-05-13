@@ -1,0 +1,264 @@
+@import "./method";
+
+
+$fontColor1:#b3b3b3;  //更改猜你喜欢中间小字颜色
+$fontColor2:#ff9344;  //主题颜色
+
+body {
+    position: relative;
+}
+// 头部start
+.index-header {
+    @include eleSize(750,150);
+    @include flex(space-around);
+    // background-color: pink;
+    .logo {
+        @include eleSize(123,123);
+        background: url(../images/index/LOGO.png) no-repeat 0 0 / 100%;
+    }
+    .search {
+        position: relative;
+        @include eleSize(270,50);
+        line-height: wh(50);
+        vertical-align: middle;
+        border-radius: wh(26);
+        border: wh(2) solid #ff9344;
+        padding: 0  wh(16) 0;
+        &::after {
+            content: "";
+            position: absolute;
+            right: wh(15);
+            top: 50%;
+            transform: translateY(-50%);
+            display: block;
+            @include eleSize(36,34); 
+            background: url(../images/1Xicon/搜索矩.png) no-repeat 0 0 / 100% ;
+        }
+        input {
+            @include eleSize(220,26);
+            border: none;
+            outline: none;
+            &::-webkit-input-placeholder {
+                font-size: wh(24);
+            }
+        }
+    }
+    .city {
+        @include eleSize(157,54);
+        border: wh(2) solid $fontColor2;
+        select {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            padding-left:wh(14);
+            font-size: wh(25);
+            background-color: transparent;
+            appearance: none;
+            -webkit-appearance: none; //去除chrome浏览器下拉框默认样式
+            -moz-appearance: none;  //去除firefox浏览器下拉框默认样式
+            background: url(../images/index/城市切换下拉.png) no-repeat center right 10%;
+            background-size: wh(30) wh(16);
+        }
+         
+    }
+}
+// 头部end
+
+// banner start
+.scr-pic {
+    @include eleSize(750,285);
+    @include posiTL(relative);
+    overflow: hidden;
+    margin-bottom: wh(35);
+    ul {
+        width: 300%;
+        height: wh(285);
+        li {
+            
+            float: left;
+            a {
+                display: inline-block;
+                width: 100%; 
+                img {
+                    @include eleSize(750,285);
+                }
+            }
+        }
+    }
+    .scr-bar {
+        @include eleSize(750,12);
+        @include posiBR(absolute,0,0);
+        bottom: 0;
+        background-color: rgba( 0,0,0,.4);
+        .bar {
+            @include eleSize(130,12);
+            @include posiTL(absolute,0,20%);
+            background-color:#c8c7c7;
+        }
+    }
+}
+// banner end
+
+//  main start
+
+.main {
+    @include flex;
+    // background-color: pink;
+    .each-col {
+        span {
+            display: inline-block;
+        }
+        .each-col-title {
+            @include flex(space-between);
+            @include eleSize(710,54);
+            margin-bottom: wh(17);
+            line-height: wh(54);
+            .each-col-title-logo {
+                @include eleSize(56,54);
+                vertical-align: middle;
+            }
+            .each-col-title-text {
+                font-size: wh(30);
+            };
+        }
+        .more {
+            font-size: wh(24);
+        }
+        .ico-rig-jiantou {
+            @include eleSize(26,26);
+            @include bgcJL(-297,-339);
+            vertical-align: middle;
+        }
+    }
+    
+   .buying {
+        @include flex;
+        margin-bottom: wh(35);
+        // span {
+        //     display: inline-block;
+        // }
+        .buying-logo {
+            @include bgcJL(0,-169);
+        }
+        // background-color: #ccc;
+        
+        .buying-content {
+            @include flex(space-between,space-between);
+            align-content: space-between;
+            @include eleSize(586,216);
+            a {
+                @include eleSize(240,94);
+                img {
+                    @include eleSize(240,94);
+                }
+            }
+        }
+    }
+   .guess-like{
+        margin-bottom: wh(136);
+        .guess-logo{
+            @include bgcJL(-85,-169);
+        }
+        .guess-content {
+            // height: wh(390);
+           .guess-list {
+               li {
+                    @include flex(space-between);
+                    h2,h3,p,span {
+                        display: inline-block;
+                        font-weight: normal;
+                    }
+                    .guess-img {
+                        @include posiTL(relative);
+                        overflow: hidden;
+                        @include eleSize(210,164);
+                        img {
+                            @include posiTL(absolute,50%,50%);
+                            transform: translate(-50%,-50%) scale(.6);
+                        }
+                    }
+                    .guess-list-info {
+                        & > div {
+                            width: wh(485);
+                            @include flex(space-between);
+                        }
+                        @include flex(space-around,flex-start,no-wrap);
+                        flex-direction: column;
+                        // @include eleSize(485,164);
+                        .guess-list-info-top {
+                            h2 {
+                                font-size: wh(28);
+                            }
+                            p,span {
+                                font-size: wh(18);
+                                color: $fontColor1;
+                            }
+                        }
+                        .guess-list-info-middle {
+                            font-size: wh(22);
+                            color: $fontColor1;
+                        }
+                        .guess-list-info-bottom {
+                            font-size: wh(26);
+                            h3,h3>span{
+                                color: $fontColor2;
+                            }
+                            p,p>span {
+                                font-size: wh(21);
+                                color: $fontColor1;
+                            }
+                        }
+                    }
+               }
+           } 
+        }
+   }
+}
+
+//  main end 
+
+
+// footer start 
+    .nav-footer {
+        @include eleSize(750,136);
+        @include posiBR(fixed);
+        @include flex;
+        background-color: #fff;
+        
+        ul {
+            width: 100%;
+            @include flex(space-around,center,no-wrap);
+            li {
+                a {
+                    display: block;
+                    text-align: center;
+                    @include eleSize(76,106);
+                    span {
+                        display: block;
+                        @include eleSize(76,76);
+                    }
+
+                }
+                p {
+                    font-size: wh(24);
+                }
+                .icon-index {
+                    @include bgcJL(0, -85);
+                }
+                .icon-classify {
+                    @include bgcJL(-86,0);
+                    
+                }
+                .icon-find {
+                    @include bgcJL(-168, 0);
+                }
+                .icon-my {
+                    @include bgcJL(-254 ,0);
+                }
+            }
+
+        }
+    }
+
+// footer end
