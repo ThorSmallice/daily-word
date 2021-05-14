@@ -10,8 +10,7 @@ header {
 }
 .swift {
     margin: 0 auto;
-    width: 80%;
-    height: 100px; 
+    width: 80%; 
     background-color: #ff8474;
     border-radius: 10px;
     padding: 20px;
@@ -24,6 +23,7 @@ header {
 }
 .swift ul li {
     position: relative;
+    margin-bottom: 20px;
 }
 .swift ul li a {
     padding: 5px 15px;
@@ -37,7 +37,7 @@ header {
     font-size: 16px;  
 }
 .swift ul li img {
-    /* display: none; */
+    display: none;
     /* visibility: hidden; */
     opacity: 0;
     position: absolute;
@@ -61,6 +61,7 @@ header {
     color: #fff;
 }
 .swift ul li a:hover+img {
+    display: block;
     opacity: 1;
 }
 
