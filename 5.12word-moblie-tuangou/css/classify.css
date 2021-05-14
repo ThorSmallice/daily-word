@@ -286,7 +286,9 @@ img {
   .ban-pic .pic-page-list {
     position: absolute;
     bottom: 0vw;
-    right: 6.6666666667%vw;
+    right: 0vw;
+    bottom: 0;
+    right: 50%;
     transform: translateX(50%);
     width: 14.6666666667vw;
     display: flex;

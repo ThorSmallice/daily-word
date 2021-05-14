@@ -41,7 +41,9 @@
         
     }
     .pic-page-list {
-        @include posiBR (absolute, 0, 50%);
+        @include posiBR (absolute);
+        bottom: 0;
+        right: 50%;
         transform: translateX(50%);
         width: wh(110);
         @include flex(space-between);
