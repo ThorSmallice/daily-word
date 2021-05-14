@@ -1,0 +1,160 @@
+@import "./commont";
+
+// 产品内容区 start 
+
+section {
+    margin-bottom: wh(136);
+    a {
+        display: block;
+    }
+    width: wh(695);
+    .master-pic {
+        height: wh(260);
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .price {
+        @include flex(space-between);
+        line-height: wh(120);
+        span {
+            font-size: wh(62);
+            color: $fontColor2;
+        }
+        a { 
+            @include eleSize(110,58);
+            @include aFont(58,30,#fff,$fontColor2);
+            border-radius: wh(14);
+        }
+    }
+    .evaluate {
+        @include flex(space-between);
+        line-height: wh(100);
+        p:first-child{
+            
+            font-size: wh(30);
+            
+            .icon-xiaoxingxing {
+                @include eleSize(38,36);
+                display: inline-block;
+                background: url(./../images/produce/形状12.png) no-repeat 0 0 / wh(38) wh(36);
+            }
+            .fav-rate {
+                color: $fontColor2;
+            }
+        }
+        p:last-child {
+            font-size: wh(24);
+            color: $fontColor1;
+        }
+    }
+
+    .merchants-wrap {
+        width: wh(664);
+        margin: 0 auto ;
+        .merchants-title {
+            @include flex(space-between);
+            font-size: wh(28);
+            line-height: wh(68);
+            padding: 0  wh(10) 0 ;
+            background-color: $fontColor2;
+            color: #fff;
+            margin-bottom: wh(10);
+        }
+
+        .merchants-item {
+            @include flex(space-between);
+            margin-bottom: wh(10);
+            .merchants-pic {
+                @include eleSize(176,176);
+                @include posiTL(relative);
+                overflow: hidden;
+                img {
+                    height: 100%;
+                    transform: scale(2);
+                }
+                span {
+                    @include posiTL(absolute,92,0);
+                    width: 100%;
+                    text-align: center;
+                    font-size: wh(20);
+                    line-height: wh(38);
+                    background-color: rgba(224,201,192,.6);
+                }
+            }
+
+            .merchants-info {
+                h3 {
+                    margin: 0;
+                    padding: 0;
+                }
+                width: wh(462);
+                @include flex(space-between);
+                .merchants-info-text {
+                    width: wh(352);
+                    .merchants-info-title {
+                        font-size: wh(30); 
+                        line-height: wh(58);
+                        font-weight: normal;
+                    }
+                    .pingjiashu {
+                        ul {
+                            height: wh(36);
+                            line-height: (36);
+                            display: inline-block;
+                            // vertical-align: middle;
+                            overflow: hidden;
+                            li {
+                                @include eleSize(38,36);
+                                float: left;
+                                margin-right: wh(8);
+                                background: url(./../images/produce/形状12.png) no-repeat 0 0 / wh(38) wh(36);
+                                // vertical-align: middle;
+                            }
+                        } 
+                    }
+                    p {
+                        display: inline-block;
+                        font-size: wh(24);
+                        line-height: wh(40);
+                        color: $fontColor1;
+                    }
+                    .lookmore {
+                        color: $fontColor2;
+                        font-size: wh(18);
+                        line-height: wh(32);
+                    }
+                }
+                .coming { 
+                    @include eleSize(110,58);
+                    @include aFont(58,30,#fff,$fontColor2);
+                    border-radius: wh(14); 
+                    transform: translateY(wh(40));
+                }
+            }
+            
+        }
+    }
+}
+
+// 产品内容区 end  
+
+
+// footer start
+.nav-footer {
+    ul {
+        li {
+            .icon-index {
+                @include bgcJL(0,0);
+            }
+            .icon-classify {
+                @include bgcJL(-86,0);
+            }
+            .icon-find {
+                @include bgcJL(-168, 0);
+            }
+        }
+    }
+}
+// footer end

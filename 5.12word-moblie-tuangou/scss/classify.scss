@@ -61,7 +61,6 @@
 // main start
 main {
     @include flex;
-    margin-bottom: wh(136);
     .classify-main-content {
         margin: wh(37) 0 wh(54);
         ul {

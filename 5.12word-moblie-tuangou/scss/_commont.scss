@@ -5,8 +5,11 @@ $fontColor2:#ff9344;  //主题颜色
 
 body {
     width: wh(750);
+    // height: 100%;
+    // overflow-y: scroll;
     @include flex;
-    position: relative;
+    position: relative; 
+
 }
 body,ul,li,html,img,a,div,p,span {
     margin: 0;
@@ -20,10 +23,28 @@ li {
     list-style: none;
 }
 
+
 main {
     margin-bottom: wh(136);
+    -webkit-overflow-scrolling: touch;
 }
-
+// 去除移动端a标签点击高亮背景
+a {
+    -webkit-tap-highlight-color:  transparent;
+    -webkit-user-select: none;
+    -moz-user-focus: none;
+    -moz-user-select: none;
+}
+// 去除IOS端选中图片时的背景
+img {
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-user-select: none;
+	-moz-user-focus: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+ 
 // 公共搜索栏
 .search {
     position: relative;
@@ -141,13 +162,21 @@ main {
             color: #fff;
         }
     }
+    .header-favorite {
+        @include bgcJL(-170,-170);
+        @include  eleSize(55,55);
+    }
 }
 
 // footer start 
-.nav-footer {
+
+.nav-footer { 
     @include eleSize(750,136);
-    @include posiBR(fixed);
+    @include posiBR(fixed); 
     @include flex;
+    background-attachment:fixed;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
     background-color: #fff;
     
     ul {

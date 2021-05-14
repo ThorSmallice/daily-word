@@ -29,6 +29,16 @@ posiBR(pattern,bottom,right)
     定位模式 必填
     下 右 默认 0
 */
+/*
+aFont($linHei,$afontSize,$fontCol,$bgcCol)
+用于a标签设置大小
+    参数
+    行高 必填
+    字体大小 必填
+    字体颜色 默认#fff
+    背景颜色 默认#fff
+
+*/
 body {
   width: 100vw;
   display: flex;
@@ -49,7 +59,22 @@ li {
   list-style: none; }
 
 main {
-  margin-bottom: 18.1333333333vw; }
+  margin-bottom: 18.1333333333vw;
+  -webkit-overflow-scrolling: touch; }
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-focus: none;
+  -moz-user-select: none; }
+
+img {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-user-select: none;
+  -moz-user-focus: none;
+  -moz-user-select: none;
+  user-select: none; }
 
 .search {
   position: relative;
@@ -166,17 +191,27 @@ main {
       line-height: 3.6vw;
       font-size: 1.6vw;
       color: #fff; }
+  .commont-header .header-favorite {
+    background-image: url(../images/jinglingtu.png);
+    background-repeat: no-repeat;
+    background-position: -22.6666666667vw -22.6666666667vw;
+    background-size: 61.8666666667vw 56.2666666667vw;
+    width: 7.3333333333vw;
+    height: 7.3333333333vw; }
 
 .nav-footer {
   width: 100vw;
   height: 18.1333333333vw;
   position: fixed;
-  bottom: 0;
-  right: 0;
+  bottom: 0vw;
+  right: 0vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  background-attachment: fixed;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   background-color: #fff; }
   .nav-footer ul {
     width: 100%;
