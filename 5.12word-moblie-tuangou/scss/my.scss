@@ -1,0 +1,153 @@
+@import "./commont";
+
+// header start
+
+// header end
+
+// 个人信息栏 start 
+.peo-info-wrap {
+    @include eleSize(695,170);
+    @include flex(space-between);
+    .photo {
+        @include eleSize(170,170);
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+            @include eleSize(170,170);
+            transform: scale(1.2);
+        }
+    }
+
+    .peo-info-rg {
+        @include eleSize(510,170);
+        @include flex(space-between);
+        .peo-info {
+            line-height: wh(63);
+            p {
+                font-size: wh(26);
+                color: $fontColor1;
+            }
+        }
+        .peo-more { 
+            font-size: wh(45);
+        }
+    }
+}
+
+// 个人信息栏   end
+
+// 点评 收藏 优惠价 start
+
+.scene {
+    height: wh(206);
+    @include flex(center);
+    flex-direction: column;
+    ul {
+        @include flex(space-between,center);
+        width: wh(695);
+        li {
+            @include flex(center);
+            align-content:center;
+            @include eleSize(194,150);
+            &:nth-child(1) {
+                background-color: #b2e0a0;
+            }
+            &:nth-child(2) {
+                background-color: #a0dce0;
+            }
+            &:nth-child(3) {
+                background-color: #e0b7a0;
+            }
+            img {
+                height: wh(86);
+                margin-bottom: wh(12);
+            }
+            
+        }
+    }
+
+}
+
+// 点评 收藏 优惠价 end
+
+// 功能区 start 
+.functional-wrap {
+    .each-col {
+        height: wh(98);
+        line-height: wh(98);
+        .each-col-title {
+            .each-col-title-logo {
+                @include eleSize(60,60);
+            }
+        }
+    }
+    .burse {
+       .burse-logo {
+           @include bgcJL(-255,-169);
+       } 
+    }
+    .remark {
+        .remark-logo {
+            @include bgcJL(-85,-340);
+        }
+    }
+    .fFirend {
+        .fFirend-logo {
+            @include bgcJL(-340,-169);
+        }
+    }
+    .track {
+        .track-logo {
+            @include bgcJL(-339,0);
+        }
+    }
+    .setting {
+        .setting-logo {
+            @include bgcJL(-255,-254);
+        }
+    }
+    .touch {
+        .touch-logo {
+            @include bgcJL(-170,-340);
+        }
+    }
+}
+
+// 功能区 end 
+
+// 操作按钮 start
+.operat {
+    @include flex(space-between);
+    width: wh(538);
+    a {
+        // display: block;
+        @include eleSize(145,75);
+        line-height: wh(75);
+        text-align: center;
+        color: #fff;
+        border-radius: wh(37.5);
+        background: $fontColor2;
+    }
+}
+// 操作按钮 end
+
+// footer start
+.nav-footer {
+    ul {
+        li {
+            .icon-index {
+                @include bgcJL(0,0);
+            }
+            .icon-classify {
+                @include bgcJL(-86,0);
+            }
+            .icon-find {
+                @include bgcJL(-168, 0);
+            }
+            .icon-my {
+                @include bgcJL(-255, -85);
+            }
+        }
+    }
+}
+// footer end

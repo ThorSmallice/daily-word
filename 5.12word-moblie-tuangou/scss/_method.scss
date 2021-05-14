@@ -68,6 +68,8 @@ posiBR(pattern,bottom,right)
  
 @mixin posiTL($pattern,$t:0,$l:0) {
     position:$pattern;
+    $t: wh($t);
+    $l:wh($l);
     top: $t;
     left: $l;
 }

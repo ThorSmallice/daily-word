@@ -1,0 +1,117 @@
+// @import "./method";
+
+@import "./commont";
+
+
+// header start
+
+
+// header end
+
+// banner start 
+ 
+.ban-pic {
+    @include eleSize(695,218);
+    position: relative;
+    // background-color: pink;
+    overflow: hidden;
+    .pic-list {
+        width: 200%;
+        height: wh(183); 
+        li {
+            float: left; 
+            @include eleSize(695,218);
+            @include flex(space-between,flex-start);
+            div {
+                @include eleSize(149,183);
+                text-align: center;
+                font-size: wh(25);
+                a {
+                    display: block;
+                    border-radius: 50%;
+                    @include eleSize(149,149);
+                    margin-bottom: wh(9);
+                    overflow: hidden;
+                    img {
+                        @include eleSize(149,149);
+                    }
+                }
+            }
+        }
+        
+    }
+    .pic-page-list {
+        @include posiBR (absolute, 0, 50%);
+        transform: translateX(50%);
+        width: wh(110);
+        @include flex(space-between);
+        li {
+            @include eleSize(18,18); 
+            border-radius: 50%;
+            background-color: #ffc9a1;
+            &:nth-child(1) {
+                background-color: $fontColor2;
+            }
+        }
+    }
+}
+
+// banner end 
+
+// main start
+main {
+    @include flex;
+    margin-bottom: wh(136);
+    .classify-main-content {
+        margin: wh(37) 0 wh(54);
+        ul {
+            @include flex(space-between);
+            li { 
+                @include eleSize(133,133);
+                overflow: hidden;
+                a {
+                    display: block;
+                    img {
+                        @include eleSize(133,133); 
+                        transform: scale(1.5);
+                    }
+                }
+                 
+               
+            }
+        }
+    }
+    .gourmet {
+        .gourmet-logo {
+            @include bgcJL(-85,-254);
+        }
+    }
+    .sports {
+        .sports-logo {
+            @include bgcJL(0,-254);
+        }
+    }
+    .movie {
+        .movie-logo {
+            @include bgcJL(-169,-254);
+        }
+    }
+}
+// main end
+
+
+// footer start 
+.nav-footer {
+    ul {
+        li {
+            .icon-index {
+                @include bgcJL(0, 0);
+            }
+            .icon-classify {
+                @include bgcJL(-85, -85);
+            }
+        }
+    }
+}
+
+// footer end

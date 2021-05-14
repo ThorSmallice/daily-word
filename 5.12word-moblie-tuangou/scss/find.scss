@@ -1,0 +1,128 @@
+@import "./commont";
+
+a {
+    display: block;
+}
+.commont-header {
+    margin-bottom: wh(35);
+}
+//  大家都在搜 start
+.every-search { 
+    width: wh(695);
+    margin-bottom: wh(47);
+    .search , .dictionary-wrap {
+        margin: 0 auto;
+    }
+    .search{
+        margin-bottom: wh(31);
+    }
+    
+    p {
+        font-size: wh(26);
+        text-align: center;
+        margin-bottom: wh(15);
+    }
+    .dictionary-wrap {
+        @include flex(space-between);
+        align-content: space-between;
+        @include eleSize(512, 130);
+        a {
+
+            @include eleSize(124,64);
+            background: #dcdcdc;
+            text-align: center;
+            line-height: wh(64);
+            color: #898989;
+            &:hover {
+                background: $fontColor2;
+                color: #fff;
+            }
+
+        }
+    }
+}
+
+//  大家都在搜 end
+
+
+// main start 
+.find-main {
+    .each-col-title {
+        margin-bottom: wh(33);
+    }
+    .hot-search {
+        margin-bottom: wh(49);
+        .hot-search-logo {
+            @include bgcJL(-411, -286);
+        }
+
+        .hot-search-content {
+            @include eleSize(707,352);
+            @include flex(space-between);
+            .hot-search-content-lf {
+                a { 
+                    img {
+                        @include eleSize(278,352);
+                    }
+                }
+            }
+            .hot-search-content-rig {
+                .hot-search-content-rig-top {
+                    a { 
+                        img {
+                            @include eleSize(418,146);
+                        }
+                    }
+                }
+                .hot-search-content-rig-bottom {
+                    @include flex(space-between);
+                    @include eleSize(418,196);
+                    a {
+                        img {
+                            @include eleSize(200,196);
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    .recommend-search {
+        .recommend-search-logo{
+            @include bgcJL(-169, -169);
+        }
+
+        .recommend-search-content {
+            margin-bottom: wh(20);
+            .recommend-seacrch-content-item {
+                @include flex(space-between,center,no-wrap);
+                @include eleSize(709,200);
+                a {
+                    img {
+                        @include eleSize(230,200); 
+                    }
+                }
+            }
+        }
+    }
+}
+// main end 
+
+// footer start
+.nav-footer {
+    ul {
+        li {
+            .icon-index {
+                @include bgcJL(0,0);
+            }
+            .icon-classify {
+                @include bgcJL(-86,0);
+            }
+            .icon-find {
+                @include bgcJL(-168, -85);
+            }
+        }
+    }
+}
+// footer end

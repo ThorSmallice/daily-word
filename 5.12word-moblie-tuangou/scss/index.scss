@@ -1,12 +1,8 @@
-@import "./method";
+// @import "./method";
+
+@import "./commont.scss";
 
 
-$fontColor1:#b3b3b3;  //更改猜你喜欢中间小字颜色
-$fontColor2:#ff9344;  //主题颜色
-
-body {
-    position: relative;
-}
 // 头部start
 .index-header {
     @include eleSize(750,150);
@@ -15,53 +11,7 @@ body {
     .logo {
         @include eleSize(123,123);
         background: url(../images/index/LOGO.png) no-repeat 0 0 / 100%;
-    }
-    .search {
-        position: relative;
-        @include eleSize(270,50);
-        line-height: wh(50);
-        vertical-align: middle;
-        border-radius: wh(26);
-        border: wh(2) solid #ff9344;
-        padding: 0  wh(16) 0;
-        &::after {
-            content: "";
-            position: absolute;
-            right: wh(15);
-            top: 50%;
-            transform: translateY(-50%);
-            display: block;
-            @include eleSize(36,34); 
-            background: url(../images/1Xicon/搜索矩.png) no-repeat 0 0 / 100% ;
-        }
-        input {
-            @include eleSize(220,26);
-            border: none;
-            outline: none;
-            &::-webkit-input-placeholder {
-                font-size: wh(24);
-            }
-        }
-    }
-    .city {
-        @include eleSize(157,54);
-        border: wh(2) solid $fontColor2;
-        select {
-            width: 100%;
-            height: 100%;
-            border: none;
-            outline: none;
-            padding-left:wh(14);
-            font-size: wh(25);
-            background-color: transparent;
-            appearance: none;
-            -webkit-appearance: none; //去除chrome浏览器下拉框默认样式
-            -moz-appearance: none;  //去除firefox浏览器下拉框默认样式
-            background: url(../images/index/城市切换下拉.png) no-repeat center right 10%;
-            background-size: wh(30) wh(16);
-        }
-         
-    }
+    } 
 }
 // 头部end
 
@@ -93,7 +43,7 @@ body {
         background-color: rgba( 0,0,0,.4);
         .bar {
             @include eleSize(130,12);
-            @include posiTL(absolute,0,20%);
+            @include posiTL(absolute,0,200);
             background-color:#c8c7c7;
         }
     }
@@ -104,33 +54,6 @@ body {
 
 .main {
     @include flex;
-    // background-color: pink;
-    .each-col {
-        span {
-            display: inline-block;
-        }
-        .each-col-title {
-            @include flex(space-between);
-            @include eleSize(710,54);
-            margin-bottom: wh(17);
-            line-height: wh(54);
-            .each-col-title-logo {
-                @include eleSize(56,54);
-                vertical-align: middle;
-            }
-            .each-col-title-text {
-                font-size: wh(30);
-            };
-        }
-        .more {
-            font-size: wh(24);
-        }
-        .ico-rig-jiantou {
-            @include eleSize(26,26);
-            @include bgcJL(-297,-339);
-            vertical-align: middle;
-        }
-    }
     
    .buying {
         @include flex;
@@ -156,7 +79,7 @@ body {
         }
     }
    .guess-like{
-        margin-bottom: wh(136);
+        // margin-bottom: wh(136);
         .guess-logo{
             @include bgcJL(-85,-169);
         }
@@ -174,7 +97,9 @@ body {
                         overflow: hidden;
                         @include eleSize(210,164);
                         img {
-                            @include posiTL(absolute,50%,50%);
+                            @include posiTL(absolute,0,0);
+                            left: 50%;
+                            top: 50%;
                             transform: translate(-50%,-50%) scale(.6);
                         }
                     }
@@ -220,45 +145,13 @@ body {
 
 
 // footer start 
-    .nav-footer {
-        @include eleSize(750,136);
-        @include posiBR(fixed);
-        @include flex;
-        background-color: #fff;
-        
-        ul {
-            width: 100%;
-            @include flex(space-around,center,no-wrap);
-            li {
-                a {
-                    display: block;
-                    text-align: center;
-                    @include eleSize(76,106);
-                    span {
-                        display: block;
-                        @include eleSize(76,76);
-                    }
-
-                }
-                p {
-                    font-size: wh(24);
-                }
-                .icon-index {
-                    @include bgcJL(0, -85);
-                }
-                .icon-classify {
-                    @include bgcJL(-86,0);
-                    
-                }
-                .icon-find {
-                    @include bgcJL(-168, 0);
-                }
-                .icon-my {
-                    @include bgcJL(-254 ,0);
-                }
+.nav-footer {
+    ul {
+        li {
+            .icon-index {
+                @include bgcJL(0, -85);
             }
-
         }
     }
-
+}
 // footer end

@@ -217,142 +217,139 @@ main {
       background-position: -33.8666666667vw 0vw;
       background-size: 61.8666666667vw 56.2666666667vw; }
 
-.index-header {
-  width: 100vw;
-  height: 20vw;
+.peo-info-wrap {
+  width: 92.6666666667vw;
+  height: 22.6666666667vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap; }
-  .index-header .logo {
-    width: 16.4vw;
-    height: 16.4vw;
-    background: url(../images/index/LOGO.png) no-repeat 0 0/100%; }
-
-.scr-pic {
-  width: 100vw;
-  height: 38vw;
-  position: relative;
-  top: 0vw;
-  left: 0vw;
-  overflow: hidden;
-  margin-bottom: 4.6666666667vw; }
-  .scr-pic ul {
-    width: 300%;
-    height: 38vw; }
-    .scr-pic ul li {
-      float: left; }
-      .scr-pic ul li a {
-        display: inline-block;
-        width: 100%; }
-        .scr-pic ul li a img {
-          width: 100vw;
-          height: 38vw; }
-  .scr-pic .scr-bar {
-    width: 100vw;
-    height: 1.6vw;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); }
-    .scr-pic .scr-bar .bar {
-      width: 17.3333333333vw;
-      height: 1.6vw;
-      position: absolute;
-      top: 0vw;
-      left: 26.6666666667vw;
-      background-color: #c8c7c7; }
-
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; }
-  .main .buying {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 4.6666666667vw; }
-    .main .buying .buying-logo {
-      background-image: url(../images/jinglingtu.png);
-      background-repeat: no-repeat;
-      background-position: 0vw -22.5333333333vw;
-      background-size: 61.8666666667vw 56.2666666667vw; }
-    .main .buying .buying-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: space-between;
-      flex-wrap: wrap;
-      align-content: space-between;
-      width: 78.1333333333vw;
-      height: 28.8vw; }
-      .main .buying .buying-content a {
-        width: 32vw;
-        height: 12.5333333333vw; }
-        .main .buying .buying-content a img {
-          width: 32vw;
-          height: 12.5333333333vw; }
-  .main .guess-like .guess-logo {
-    background-image: url(../images/jinglingtu.png);
-    background-repeat: no-repeat;
-    background-position: -11.3333333333vw -22.5333333333vw;
-    background-size: 61.8666666667vw 56.2666666667vw; }
-  .main .guess-like .guess-content .guess-list li {
+  .peo-info-wrap .photo {
+    width: 22.6666666667vw;
+    height: 22.6666666667vw;
+    border-radius: 50%;
+    overflow: hidden; }
+    .peo-info-wrap .photo img {
+      width: 22.6666666667vw;
+      height: 22.6666666667vw;
+      transform: scale(1.2); }
+  .peo-info-wrap .peo-info-rg {
+    width: 68vw;
+    height: 22.6666666667vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap; }
-    .main .guess-like .guess-content .guess-list li h2, .main .guess-like .guess-content .guess-list li h3, .main .guess-like .guess-content .guess-list li p, .main .guess-like .guess-content .guess-list li span {
-      display: inline-block;
-      font-weight: normal; }
-    .main .guess-like .guess-content .guess-list li .guess-img {
-      position: relative;
-      top: 0vw;
-      left: 0vw;
-      overflow: hidden;
-      width: 28vw;
-      height: 21.8666666667vw; }
-      .main .guess-like .guess-content .guess-list li .guess-img img {
-        position: absolute;
-        top: 0vw;
-        left: 0vw;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%) scale(0.6); }
-    .main .guess-like .guess-content .guess-list li .guess-list-info {
+    .peo-info-wrap .peo-info-rg .peo-info {
+      line-height: 8.4vw; }
+      .peo-info-wrap .peo-info-rg .peo-info p {
+        font-size: 3.4666666667vw;
+        color: #b3b3b3; }
+    .peo-info-wrap .peo-info-rg .peo-more {
+      font-size: 6vw; }
+
+.scene {
+  height: 27.4666666667vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column; }
+  .scene ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 92.6666666667vw; }
+    .scene ul li {
       display: flex;
-      justify-content: space-around;
-      align-items: flex-start;
-      flex-wrap: no-wrap;
-      flex-direction: column; }
-      .main .guess-like .guess-content .guess-list li .guess-list-info > div {
-        width: 64.6666666667vw;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap; }
-      .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-top h2 {
-        font-size: 3.7333333333vw; }
-      .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-top p, .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-top span {
-        font-size: 2.4vw;
-        color: #b3b3b3; }
-      .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-middle {
-        font-size: 2.9333333333vw;
-        color: #b3b3b3; }
-      .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-bottom {
-        font-size: 3.4666666667vw; }
-        .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-bottom h3, .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-bottom h3 > span {
-          color: #ff9344; }
-        .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-bottom p, .main .guess-like .guess-content .guess-list li .guess-list-info .guess-list-info-bottom p > span {
-          font-size: 2.8vw;
-          color: #b3b3b3; }
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      align-content: center;
+      width: 25.8666666667vw;
+      height: 20vw; }
+      .scene ul li:nth-child(1) {
+        background-color: #b2e0a0; }
+      .scene ul li:nth-child(2) {
+        background-color: #a0dce0; }
+      .scene ul li:nth-child(3) {
+        background-color: #e0b7a0; }
+      .scene ul li img {
+        height: 11.4666666667vw;
+        margin-bottom: 1.6vw; }
+
+.functional-wrap .each-col {
+  height: 13.0666666667vw;
+  line-height: 13.0666666667vw; }
+  .functional-wrap .each-col .each-col-title .each-col-title-logo {
+    width: 8vw;
+    height: 8vw; }
+.functional-wrap .burse .burse-logo {
+  background-image: url(../images/jinglingtu.png);
+  background-repeat: no-repeat;
+  background-position: -34vw -22.5333333333vw;
+  background-size: 61.8666666667vw 56.2666666667vw; }
+.functional-wrap .remark .remark-logo {
+  background-image: url(../images/jinglingtu.png);
+  background-repeat: no-repeat;
+  background-position: -11.3333333333vw -45.3333333333vw;
+  background-size: 61.8666666667vw 56.2666666667vw; }
+.functional-wrap .fFirend .fFirend-logo {
+  background-image: url(../images/jinglingtu.png);
+  background-repeat: no-repeat;
+  background-position: -45.3333333333vw -22.5333333333vw;
+  background-size: 61.8666666667vw 56.2666666667vw; }
+.functional-wrap .track .track-logo {
+  background-image: url(../images/jinglingtu.png);
+  background-repeat: no-repeat;
+  background-position: -45.2vw 0vw;
+  background-size: 61.8666666667vw 56.2666666667vw; }
+.functional-wrap .setting .setting-logo {
+  background-image: url(../images/jinglingtu.png);
+  background-repeat: no-repeat;
+  background-position: -34vw -33.8666666667vw;
+  background-size: 61.8666666667vw 56.2666666667vw; }
+.functional-wrap .touch .touch-logo {
+  background-image: url(../images/jinglingtu.png);
+  background-repeat: no-repeat;
+  background-position: -22.6666666667vw -45.3333333333vw;
+  background-size: 61.8666666667vw 56.2666666667vw; }
+
+.operat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 71.7333333333vw; }
+  .operat a {
+    width: 19.3333333333vw;
+    height: 10vw;
+    line-height: 10vw;
+    text-align: center;
+    color: #fff;
+    border-radius: 5vw;
+    background: #ff9344; }
 
 .nav-footer ul li .icon-index {
   background-image: url(../images/jinglingtu.png);
   background-repeat: no-repeat;
-  background-position: 0vw -11.3333333333vw;
+  background-position: 0vw 0vw;
+  background-size: 61.8666666667vw 56.2666666667vw; }
+.nav-footer ul li .icon-classify {
+  background-image: url(../images/jinglingtu.png);
+  background-repeat: no-repeat;
+  background-position: -11.4666666667vw 0vw;
+  background-size: 61.8666666667vw 56.2666666667vw; }
+.nav-footer ul li .icon-find {
+  background-image: url(../images/jinglingtu.png);
+  background-repeat: no-repeat;
+  background-position: -22.4vw 0vw;
+  background-size: 61.8666666667vw 56.2666666667vw; }
+.nav-footer ul li .icon-my {
+  background-image: url(../images/jinglingtu.png);
+  background-repeat: no-repeat;
+  background-position: -34vw -11.3333333333vw;
   background-size: 61.8666666667vw 56.2666666667vw; }
 
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=my.css.map */

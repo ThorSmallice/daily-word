@@ -1,0 +1,189 @@
+@import './method';
+
+$fontColor1:#b3b3b3;  //更改猜你喜欢中间小字颜色
+$fontColor2:#ff9344;  //主题颜色
+
+body {
+    width: wh(750);
+    @include flex;
+    position: relative;
+}
+body,ul,li,html,img,a,div,p,span {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
+main {
+    margin-bottom: wh(136);
+}
+
+// 公共搜索栏
+.search {
+    position: relative;
+    @include eleSize(270,50);
+    line-height: wh(50);
+    vertical-align: middle;
+    border-radius: wh(26);
+    border: wh(2) solid #ff9344;
+    padding: 0  wh(16) 0;
+    &::after {
+        content: "";
+        position: absolute;
+        right: wh(15);
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        @include eleSize(36,34); 
+        background: url(../images/1Xicon/搜索矩.png) no-repeat 0 0 / 100% ;
+    }
+    input {
+        @include eleSize(220,26);
+        border: none;
+        outline: none;
+        &::-webkit-input-placeholder {
+            font-size: wh(24);
+        }
+    }
+}
+
+// 城市选择下拉框
+.city {
+    @include eleSize(157,54);
+    border: wh(2) solid $fontColor2;
+    select {
+        width: 100%;
+        height: 100%;
+        line-height: 100%;
+        border: none;
+        outline: none;
+        padding-left:wh(14);
+        font-size: wh(25);
+        background-color: transparent;
+        appearance: none;
+        -webkit-appearance: none; //去除chrome浏览器下拉框默认样式
+        -moz-appearance: none;  //去除firefox浏览器下拉框默认样式
+        background: url(../images/index/城市切换下拉.png) no-repeat center right 10%;
+        background-size: wh(30) wh(16);
+    }
+     
+}
+
+
+// main分栏
+.each-col {
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .each-col-title {
+        @include flex(space-between);
+        @include eleSize(710,54);
+        margin-bottom: wh(17);
+        line-height: wh(54);
+        .each-col-title-logo {
+            @include eleSize(56,54);
+            vertical-align: middle;
+        }
+        .each-col-title-text {
+            font-size: wh(30);
+        };
+    }
+    .more {
+        a{
+            font-size: wh(24);
+        }
+    }
+    .ico-rig-jiantou {
+        @include eleSize(26,26);
+        @include bgcJL(-297,-339);
+        // vertical-align: middle;
+    }
+}
+
+// 分类页 - 发现页 公共头部
+.commont-header {
+    @include flex(space-between);
+    @include eleSize(695,58);
+    line-height: wh(58);
+    margin: wh(48) 0 wh(18);
+    .back {
+        @include eleSize(117,51);
+        line-height: wh(51);
+        border: wh(3) solid $fontColor2;
+        border-radius: wh(17);
+        text-align: center;
+        font-size: wh(20);
+        font-weight: 600;
+    }
+    .page-title {
+        font-size: wh(25);
+    }
+    .header-info {
+        position: relative;
+        @include  eleSize(62,42);
+        @include bgcJL(-340,-254);
+        .header-info-num {
+            display: block;
+            @include posiTL(absolute,-13,32);
+            @include eleSize(27,27);
+            background: #fa5050;
+            border-radius: 50%;
+            text-align: center;
+            line-height: wh(27);
+            font-size: wh(12);
+            color: #fff;
+        }
+    }
+}
+
+// footer start 
+.nav-footer {
+    @include eleSize(750,136);
+    @include posiBR(fixed);
+    @include flex;
+    background-color: #fff;
+    
+    ul {
+        width: 100%;
+        @include flex(space-around,center,no-wrap);
+        li {
+            a {
+                display: block;
+                text-align: center;
+                @include eleSize(76,106);
+                span {
+                    display: block;
+                    @include eleSize(76,76);
+                }
+
+            }
+            p {
+                font-size: wh(24);
+                line-height: wh(34);
+            }
+            .icon-index {
+                @include bgcJL(0, -85);
+            }
+            .icon-classify {
+                @include bgcJL(-86,0);
+                
+            }
+            .icon-find {
+                @include bgcJL(-168, 0);
+            }
+            .icon-my {
+                @include bgcJL(-254 ,0);
+            }
+        }
+
+    }
+}
+
+// footer end
