@@ -1,0 +1,97 @@
+@charset "UTF-8";
+/* 
+flex($pri, $cou,$flW) 改成flex容器
+    参数
+    $pri：主轴排列方式 默认center
+    $cou：副轴单行排列方式 默认center
+    $flW：控制是否换行 默认换行（可选）
+*/
+/*
+bgcJL( X , Y) 添加精灵图背景
+    参数
+    位置 X Y 
+
+*/
+/*
+eleSize(width, height) 设置宽高
+    参数
+    width 必填
+    height 必填
+*/
+/*
+posiTL(pattern,top,left)
+    参数
+    定位模式 必填
+    上 左  默认 0
+
+posiBR(pattern,bottom,right)
+    参数
+    定位模式 必填
+    下 右 默认 0
+*/
+/*
+aFont($linHei,$afontSize,$fontCol,$bgcCol)
+用于a标签设置大小
+    参数
+    行高 必填
+    字体大小 必填
+    字体颜色 默认#fff
+    背景颜色 默认#fff
+
+*/
+body {
+  padding-top: 50px;
+  overflow-x: hidden; }
+
+.da-nav {
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
+  background-color: #222222; }
+  .da-nav .nav-logo {
+    display: flex;
+    align-items: center; }
+
+.footer {
+  width: 100%;
+  padding: 37px 0;
+  background-color: #3b3b3b; }
+  .footer .container a, .footer .container p {
+    color: #a1a3ab;
+    text-decoration: none;
+    line-height: normal; }
+  .footer .container .info-text-wrap {
+    float: left; }
+    .footer .container .info-text-wrap .info-top {
+      margin-bottom: 15px; }
+      .footer .container .info-text-wrap .info-top a {
+        margin-right: 10px; }
+      .footer .container .info-text-wrap .info-top a:hover {
+        color: #fff; }
+  .footer .container .info-way {
+    float: right; }
+    .footer .container .info-way ul li {
+      cursor: pointer;
+      position: relative;
+      float: left;
+      margin-right: 18px;
+      list-style: none; }
+      .footer .container .info-way ul li .info-wayimg {
+        display: none;
+        position: absolute;
+        top: 0vw;
+        left: 0vw;
+        top: -158px;
+        left: -52px; }
+      .footer .container .info-way ul li > img:hover + .info-wayimg {
+        display: block; }
+
+@media screen and (min-width: 768px) {
+  .navbar-collapse {
+    position: relative; }
+
+  .navbar-right {
+    position: absolute;
+    right: 15px; } }
+
+/*# sourceMappingURL=commont.css.map */

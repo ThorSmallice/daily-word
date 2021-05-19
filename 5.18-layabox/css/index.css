@@ -1,0 +1,322 @@
+@charset "UTF-8";
+/* 
+flex($pri, $cou,$flW) 改成flex容器
+    参数
+    $pri：主轴排列方式 默认center
+    $cou：副轴单行排列方式 默认center
+    $flW：控制是否换行 默认换行（可选）
+*/
+/*
+bgcJL( X , Y) 添加精灵图背景
+    参数
+    位置 X Y 
+
+*/
+/*
+eleSize(width, height) 设置宽高
+    参数
+    width 必填
+    height 必填
+*/
+/*
+posiTL(pattern,top,left)
+    参数
+    定位模式 必填
+    上 左  默认 0
+
+posiBR(pattern,bottom,right)
+    参数
+    定位模式 必填
+    下 右 默认 0
+*/
+/*
+aFont($linHei,$afontSize,$fontCol,$bgcCol)
+用于a标签设置大小
+    参数
+    行高 必填
+    字体大小 必填
+    字体颜色 默认#fff
+    背景颜色 默认#fff
+
+*/
+.first-figure {
+  width: 100%;
+  background-color: #2b80d9; }
+  .first-figure .container {
+    text-align: center; }
+    .first-figure .container img {
+      width: 80%; }
+
+.engine {
+  width: 100%;
+  background-color: #fbfaf7;
+  padding: 88px 0 42px; }
+  .engine .container .engine-h1 {
+    font-size: 47px;
+    font-weight: 600;
+    color: #0078d7;
+    line-height: 81px; }
+  .engine .container .engine-h2 {
+    font-size: 28px;
+    color: #666666;
+    line-height: 62px;
+    margin-bottom: 30px; }
+  .engine .container .engine-h3 {
+    font-size: 18px;
+    margin-top: 0; }
+  .engine .container .engine-text-p {
+    font-size: 10px;
+    line-height: 25px; }
+  .engine .container .engine-text-wrap {
+    margin-bottom: 40px; }
+  .engine .container .engine-textimg-wrap {
+    margin-right: -15px; }
+    .engine .container .engine-textimg-wrap img {
+      width: 100%; }
+  .engine .container .engine-bgimg img {
+    padding-top: 85px;
+    width: 100%; }
+
+.superiority .container {
+  padding: 100px 0; }
+  .superiority .container .super-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; }
+  .superiority .container .super-bgimg img {
+    width: 100%; }
+  .superiority .container .super-textbox {
+    padding-left: 15%; }
+  .superiority .container .super-h1 {
+    font-size: 47px;
+    font-weight: 600;
+    color: #8fc31f;
+    margin-bottom: 45px; }
+  .superiority .container .super-textwrap {
+    line-height: 54px;
+    margin-bottom: 16px; }
+  .superiority .container .super-text {
+    padding-left: 40px;
+    font-size: 14px;
+    color: #666666; }
+
+.pro-family {
+  width: 100%;
+  padding: 100px 0  0;
+  background-color: #0079d7; }
+  .pro-family h1 {
+    font-size: 47px;
+    font-weight: 600; }
+  .pro-family h2 {
+    font-size: 28px; }
+  .pro-family h3 {
+    font-size: 18px;
+    margin-top: 0; }
+  .pro-family p {
+    font-size: 10px;
+    line-height: 30px;
+    max-width: 280px; }
+  .pro-family h1, .pro-family h2, .pro-family h3, .pro-family p {
+    color: #fffefe;
+    margin: 0;
+    padding: 0; }
+  .pro-family .container {
+    padding: 0 65px; }
+    .pro-family .container h1 {
+      text-align: center;
+      font-size: 47px;
+      margin-bottom: 70px; }
+    .pro-family .container .pro-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 80px; }
+      .pro-family .container .pro-wrap .pro-wrapbox {
+        height: 120px; }
+      .pro-family .container .pro-wrap .pro-textwrap {
+        padding-left: 50px; }
+
+.wondgame {
+  padding: 50px 0 20px 0;
+  width: 100%;
+  color: #2a2a2a;
+  background-color: #ffffff; }
+  .wondgame .container .game-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 45px; }
+    .wondgame .container .game-title h3 {
+      display: inline-block;
+      font-size: 35px; }
+    .wondgame .container .game-title a {
+      color: #2a2a2a; }
+  .wondgame .container .game-video img {
+    border-radius: 5px;
+    width: 100%; }
+  .wondgame .container .game-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 34px; }
+    .wondgame .container .game-list .game-item {
+      display: inline-block;
+      width: 67px;
+      height: 87px;
+      text-align: center; }
+      .wondgame .container .game-list .game-item img {
+        margin-bottom: 8px; }
+
+.partner {
+  width: 100%;
+  background-color: #f4f4f4;
+  padding: 40px 0; }
+  .partner .partner-h2 {
+    margin-bottom: 32px; }
+  .partner small {
+    font-size: 20%; }
+  .partner .partner-item {
+    margin-bottom: 20px; }
+    .partner .partner-item .partner-imgwrap {
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      background-color: #fff;
+      text-align: center;
+      overflow: hidden; }
+      .partner .partner-item .partner-imgwrap img {
+        width: 100%; }
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 6.2666666667vw;
+    font-weight: 600; }
+
+  h2 {
+    font-size: 3.7333333333vw; }
+
+  h3 {
+    font-size: 2.4vw;
+    margin-top: 0; }
+
+  p {
+    font-size: 1.3333333333vw;
+    line-height: 4vw; }
+
+  .engine {
+    padding: 10px 0 0 20px; }
+    .engine .container .engine-h1 {
+      font-size: 6vw;
+      color: #0078d7;
+      line-height: 4vw;
+      text-align: center; }
+    .engine .container .engine-h2 {
+      font-size: 3.7333333333vw;
+      text-align: center;
+      color: #666666;
+      line-height: 8.2666666667vw;
+      margin-bottom: 2.6666666667vw; }
+    .engine .container .engine-h3 {
+      font-size: 2.4vw; }
+    .engine .container .engine-text-p {
+      font-size: 1.3333333333vw;
+      line-height: 4vw; }
+    .engine .container .engine-text-wrap {
+      margin-bottom: 5.3333333333vw; }
+
+  .superiority {
+    width: 100%; }
+    .superiority .container {
+      padding: 20px 0; }
+      .superiority .container .super-textbox .super-textimg img {
+        width: 7.2vw;
+        height: 7.2vw; }
+      .superiority .container .super-h1 {
+        font-size: 6.2666666667vw;
+        font-weight: 600;
+        color: #8fc31f;
+        margin-bottom: 6vw; }
+      .superiority .container .super-textwrap {
+        line-height: 7.2vw;
+        margin-bottom: 2.1333333333vw; }
+      .superiority .container .super-text {
+        font-size: 1.8666666667vw;
+        color: #666666; }
+
+  .pro-family {
+    width: 100%;
+    padding: 80px 0  0;
+    background-color: #0079d7; }
+    .pro-family h1 {
+      font-size: 6.2666666667vw;
+      font-weight: 600; }
+    .pro-family h2 {
+      font-size: 3.7333333333vw; }
+    .pro-family h3 {
+      font-size: 2.4vw;
+      margin-top: 0; }
+    .pro-family p {
+      font-size: 1.3333333333vw;
+      line-height: 4vw;
+      max-width: 280px; }
+    .pro-family h1, .pro-family h2, .pro-family h3, .pro-family p {
+      color: #fffefe;
+      margin: 0;
+      padding: 0; }
+    .pro-family .container {
+      padding: 0 65px; }
+      .pro-family .container h1 {
+        text-align: center;
+        margin-bottom: 9.3333333333vw;
+        font-size: 6.2666666667vw; }
+      .pro-family .container .pro-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 10.6666666667vw; }
+        .pro-family .container .pro-wrap .pro-wrapbox {
+          height: 120px; }
+        .pro-family .container .pro-wrap .pro-textwrap {
+          padding-left: 50px; }
+
+  .wondgame .container .game-title {
+    margin-bottom: 6vw; }
+    .wondgame .container .game-title h3 {
+      display: inline-block;
+      font-size: 4.6666666667vw; }
+    .wondgame .container .game-title a {
+      color: #2a2a2a;
+      color: 1.6vw; }
+  .wondgame .container .game-video {
+    text-align: center;
+    margin-bottom: 2.6666666667vw; }
+    .wondgame .container .game-video img {
+      border-radius: 0.6666666667vw;
+      width: 70%; }
+  .wondgame .container .game-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 6.6666666667vw; }
+    .wondgame .container .game-list .game-item {
+      display: inline-block;
+      width: 8.9333333333vw;
+      height: 11.6vw;
+      text-align: center; }
+      .wondgame .container .game-list .game-item img {
+        width: 8.9333333333vw;
+        height: 8.9333333333vw;
+        margin-bottom: 1.0666666667vw; } }
+@media screen and (min-width: 768px) {
+  .wondgame .container .game-video {
+    text-align: center;
+    margin-bottom: 2.6666666667vw; }
+    .wondgame .container .game-video img {
+      width: 70%; } }
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,110 @@
+// @function
+// wh($widthH) 返回元素宽度或者高度 参数$widthH ： width/height设计稿尺寸
+
+
+// ---------------------------------------
+// @mixin 
+
+/* 
+flex($pri, $cou,$flW) 改成flex容器
+    参数
+    $pri：主轴排列方式 默认center
+    $cou：副轴单行排列方式 默认center
+    $flW：控制是否换行 默认换行（可选）
+*/
+
+/*
+bgcJL( X , Y) 添加精灵图背景
+    参数
+    位置 X Y 
+
+*/
+
+
+/*
+eleSize(width, height) 设置宽高
+    参数
+    width 必填
+    height 必填
+*/
+
+/*
+posiTL(pattern,top,left)
+    参数
+    定位模式 必填
+    上 左  默认 0
+
+posiBR(pattern,bottom,right)
+    参数
+    定位模式 必填
+    下 右 默认 0
+*/
+
+/*
+aFont($linHei,$afontSize,$fontCol,$bgcCol)
+用于a标签设置大小
+    参数
+    行高 必填
+    字体大小 必填
+    字体颜色 默认#fff
+    背景颜色 默认#fff
+
+*/
+@function wh($widthH) {
+    @return ($widthH / 750) * 100 + vw;
+}
+
+@mixin eleSize ($width,$height) {
+    width: wh($width);
+    height: wh($height);
+}
+
+@mixin flex($pri:center,$cou:center,$flW:wrap) {
+    display: flex;
+    justify-content: $pri;
+    align-items: $cou;
+    flex-wrap: $flW;
+}
+
+@mixin bgcJL( $posiX,$posiY) {
+    $posiX: wh($posiX);
+    $posiY: wh($posiY);
+    background-image: url(../images/jinglingtu.png); 
+    background-repeat: no-repeat;
+    background-position:  $posiX $posiY;
+    // background-size: 232px 211px;
+    background-size: wh(464) wh(422);
+}
+
+ 
+@mixin posiTL($pattern,$t:0,$l:0) {
+    position:$pattern;
+    $t: wh($t);
+    $l:wh($l);
+    top: $t;
+    left: $l;
+}
+
+@mixin posiBR($pattern,$b:0,$r:0) {
+    position:$pattern;
+    $b:wh($b);
+    $r:wh(($r));
+    bottom: $b;
+    right: $r;
+}
+
+@mixin aFont ($linHei,$afontSize,$fontCol:#fff,$bgcCol:transparent){
+    line-height: wh($linHei);
+    color: $fontCol;
+    background-color: $bgcCol;
+    text-align: center;
+    font-size: wh($afontSize);
+}
+
+@mixin imgSize($minW) {
+    width: $minW * 970 / 1200 + px;
+    height: $minW * 658 / 1200 + px;
+}
+@function dtHe($minW) {
+    @return  $minW * 658 / 1200 + px;
+}

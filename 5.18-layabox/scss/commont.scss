@@ -1,0 +1,81 @@
+@import "./method";
+body {
+    padding-top: 50px;
+    overflow-x: hidden;
+}
+// 导航栏-----------
+.da-nav {
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    background-color: #222222;
+    .nav-logo {
+        display: flex;
+        align-items: center;
+    }
+
+
+}
+
+//---------底部栏---------------
+.footer {
+    width: 100%;
+    padding: 37px 0;
+    background-color: #3b3b3b;
+    .container { 
+        
+        a,p{
+            color: #a1a3ab;
+            text-decoration: none; 
+            line-height: normal; 
+        }
+        .info-text-wrap {
+            float: left;
+            .info-top {
+                margin-bottom: 15px;
+                a {
+                    margin-right: 10px;
+                }
+                a:hover {
+                    color: #fff;
+                }
+            }
+        }
+        .info-way {
+            float: right;
+            ul {
+                li {
+                    cursor: pointer;
+                    position: relative;
+                    float: left;
+                    margin-right: 18px;
+                    list-style: none;
+                    .info-wayimg {  
+                        display: none;
+                        @include posiTL(absolute);
+                        top: -158px;
+                        left: -52px;
+                    }
+                    > img:hover + .info-wayimg {
+                        display: block;
+                    }
+                }
+            }
+           
+        }
+    }
+}
+
+
+//  ------ 768px 以上---------
+@media screen and (min-width : 768px) {
+    .navbar-collapse {
+        position: relative;
+    }
+    .navbar-right {
+        position: absolute;
+        right: 15px;
+    }
+}
+
+
