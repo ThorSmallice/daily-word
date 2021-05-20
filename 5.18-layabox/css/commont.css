@@ -52,6 +52,9 @@ body {
     display: flex;
     align-items: center; }
 
+.out-box {
+  width: 100%; }
+
 .footer {
   width: 100%;
   padding: 37px 0;
@@ -92,6 +95,12 @@ body {
 
   .navbar-right {
     position: absolute;
-    right: 15px; } }
+    right: 15px; }
+
+  body {
+    padding-top: 100px; } }
+@media screen and (min-width: 992px) {
+  body {
+    padding-top: 50px; } }
 
 /*# sourceMappingURL=commont.css.map */

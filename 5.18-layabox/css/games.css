@@ -1,0 +1,131 @@
+@charset "UTF-8";
+/* 
+flex($pri, $cou,$flW) 改成flex容器
+    参数
+    $pri：主轴排列方式 默认center
+    $cou：副轴单行排列方式 默认center
+    $flW：控制是否换行 默认换行（可选）
+*/
+/*
+bgcJL( X , Y) 添加精灵图背景
+    参数
+    位置 X Y 
+
+*/
+/*
+eleSize(width, height) 设置宽高
+    参数
+    width 必填
+    height 必填
+*/
+/*
+posiTL(pattern,top,left)
+    参数
+    定位模式 必填
+    上 左  默认 0
+
+posiBR(pattern,bottom,right)
+    参数
+    定位模式 必填
+    下 右 默认 0
+*/
+/*
+aFont($linHei,$afontSize,$fontCol,$bgcCol)
+用于a标签设置大小
+    参数
+    行高 必填
+    字体大小 必填
+    字体颜色 默认#fff
+    背景颜色 默认#fff
+
+*/
+/*-----本页字体样式重置 ----------*/
+h1 {
+  font-size: .350515rem;
+  color: #2a2a2a; }
+
+h2 {
+  font-size: .309278rem;
+  color: #2a2a2a; }
+
+h4 {
+  font-size: .134021rem;
+  color: #2a2a2a; }
+
+p {
+  font-size: .123711rem;
+  color: #898989;
+  line-height: .309278rem; }
+
+.hot {
+  padding: .360825rem 0; }
+  .hot .container .hot-wrap {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; }
+    .hot .container .hot-wrap .hot-buoy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+      position: absolute;
+      top: 0vw;
+      left: 0vw;
+      top: -.360825rem;
+      width: .43299rem;
+      height: 1.030928rem;
+      background: url(./../images/games/图层55.png) no-repeat; }
+      .hot .container .hot-wrap .hot-buoy .buoy-text {
+        width: .206186rem;
+        font-size: .206186rem;
+        color: #fff; }
+    .hot .container .hot-wrap .hot-left {
+      width: 30%; }
+      .hot .container .hot-wrap .hot-left img {
+        width: 100%; }
+    .hot .container .hot-wrap .hot-right {
+      width: 6.597938rem;
+      text-align: right; }
+      .hot .container .hot-wrap .hot-right .show-wrap {
+        height: 3.092784rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        align-content: space-between; }
+        .hot .container .hot-wrap .hot-right .show-wrap img {
+          width: 3.123711rem;
+          height: 1.381443rem;
+          border-radius: .051546rem; }
+
+.zhugong .container .hot-wrap {
+  flex-direction: row-reverse; }
+  .zhugong .container .hot-wrap .hot-right {
+    text-align: left; }
+
+.more-game {
+  padding: .360825rem 0; }
+  .more-game .more-game-title {
+    margin-bottom: .340206rem; }
+  .more-game .more-game-list {
+    text-align: center;
+    margin-bottom: .360825rem; }
+    .more-game .more-game-list img {
+      width: 100%;
+      border-radius: .051546rem; }
+
+@media screen and (max-width: 992px) {
+  .hot .container .hot-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; }
+    .hot .container .hot-wrap .hot-right {
+      text-align: center; } }
+
+/*# sourceMappingURL=games.css.map */

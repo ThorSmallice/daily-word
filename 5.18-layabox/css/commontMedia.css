@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* 
+除首页外 将设计稿宽度以版心  划分为10  等份  为了方便计算 
+结合bootstrap定义的各个屏幕的宽度 
+以下为标准 从md(992px) 及以上 一个尺寸 此时版心为970
+min-with :992px => html { font-size =  970 / 10 }
+min-width : 768px => html { font-size = 750 /10 }
+max-width : 767px => html { font-size = 540 /10 }
+*/
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 54px; } }
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 75px; } }
+@media screen and (min-width: 992px) {
+  html {
+    font-size: 97px; } }
+
+/*# sourceMappingURL=commontMedia.css.map */

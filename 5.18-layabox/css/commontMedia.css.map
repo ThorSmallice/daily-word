@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAAA;;;;;;;EAOE;AAIF,oCAAqC;EACjC,IAAK;IACD,SAAS,EAAE,IAAI;AAKvB,oCAAqC;EACjC,IAAK;IACD,SAAS,EAAE,IAAI;AAKvB,oCAAqC;EACjC,IAAK;IACD,SAAS,EAAE,IAAI",
+"sources": ["../scss/commontMedia.scss"],
+"names": [],
+"file": "commontMedia.css"
+}

@@ -17,6 +17,10 @@ body {
 
 }
 
+// 公共左外层盒子
+.out-box {
+    width: 100%;
+}
 //---------底部栏---------------
 .footer {
     width: 100%;
@@ -75,6 +79,15 @@ body {
     .navbar-right {
         position: absolute;
         right: 15px;
+    }
+    body {
+        padding-top: 100px;
+    }
+}
+
+@media screen and (min-width:992px ) {
+    body {
+        padding-top: 50px;
     }
 }
 

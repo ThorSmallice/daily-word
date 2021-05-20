@@ -1,0 +1,113 @@
+@import "./method";
+/*-----本页字体样式重置 ----------*/
+$fontColor1:#2a2a2a;
+$fontColor2:#898989;
+
+h1 {
+    font-size: .350515rem;
+    color: $fontColor1;
+}
+h2 {
+    font-size: .309278rem;
+    color: $fontColor1;
+}
+h4 {
+    font-size: .134021rem;
+    color: $fontColor1;
+}
+p {
+    font-size: .123711rem;
+    color: $fontColor2;
+    line-height: .309278rem;
+}
+
+//  ----------热门 ----------
+.hot {
+    padding: .360825rem 0;
+    .container {
+        .hot-wrap {
+            position: relative;
+            width: 100%;
+            @include flex(space-between);
+            .hot-buoy { 
+                @include flex;
+                flex-direction: column;
+                @include posiTL(absolute,0,0);
+                top: -.360825rem;
+                width: .43299rem;
+                height: 1.030928rem; 
+                background: url(./../images/games/图层55.png) no-repeat;
+                .buoy-text {
+                    width: .206186rem;
+                    font-size: .206186rem;
+                    color: #fff;
+                }
+            }
+            .hot-left {
+                width: 30%;
+                img {
+                    width: 100%;
+                }
+            }
+            .hot-right { 
+                width: 6.597938rem;
+                text-align: right;
+                .show-wrap {
+                    height: 3.092784rem;
+                    @include flex(space-between);
+                    align-content: space-between;
+                    img {
+                        width: 3.123711rem;
+                        height: 1.381443rem;
+                        border-radius: .051546rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// -----热门 上吧主公 ---------
+.zhugong {
+    .container {
+        .hot-wrap {
+            flex-direction: row-reverse;
+            .hot-right {
+                text-align: left;
+            }
+        }
+
+    }
+}
+
+// --------更多游戏 ----------
+.more-game {
+    padding: .360825rem 0;
+    .more-game-title {
+        margin-bottom: .340206rem;
+    }
+    .more-game-list {
+        text-align: center;
+        margin-bottom: .360825rem;
+        img {
+            width: 100%;
+            border-radius: .051546rem;
+        }
+    }
+}
+
+// ----------992px 以下 ----------
+@media screen and (max-width:992px) {
+    .hot {
+        .container {
+            .hot-wrap {
+                width: 100%;
+                @include flex(center);  
+                .hot-right {  
+                    text-align: center; 
+                }
+
+            }
+        }
+    }
+}
