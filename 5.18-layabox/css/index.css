@@ -170,6 +170,10 @@ aFont($linHei,$afontSize,$fontCol,$bgcCol)
       text-align: center; }
       .wondgame .container .game-list .game-item img {
         margin-bottom: 8px; }
+      .wondgame .container .game-list .game-item a {
+        display: block;
+        text-decoration: none;
+        color: #2a2a2a; }
 
 .partner {
   width: 100%;
@@ -189,6 +193,8 @@ aFont($linHei,$afontSize,$fontCol,$bgcCol)
       overflow: hidden; }
       .partner .partner-item .partner-imgwrap img {
         width: 100%; }
+      .partner .partner-item .partner-imgwrap a {
+        display: block; }
 
 @media screen and (max-width: 768px) {
   h1 {
