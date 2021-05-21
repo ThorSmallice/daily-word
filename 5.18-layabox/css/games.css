@@ -57,6 +57,13 @@ p {
   color: #898989;
   line-height: .309278rem; }
 
+.container a {
+  display: inline-block;
+  text-decoration: none; }
+
+.carousel-indicators {
+  bottom: -10px; }
+
 .hot {
   padding: .360825rem 0; }
   .hot .container .hot-wrap {
@@ -117,6 +124,8 @@ p {
     .more-game .more-game-list img {
       width: 100%;
       border-radius: .051546rem; }
+    .more-game .more-game-list a {
+      width: 100%; }
 
 @media screen and (max-width: 992px) {
   .hot .container .hot-wrap {

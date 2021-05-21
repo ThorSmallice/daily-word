@@ -20,7 +20,18 @@ p {
     color: $fontColor2;
     line-height: .309278rem;
 }
+.container {
 
+    a {
+        display:inline-block;
+        text-decoration: none;
+    }
+}
+
+
+.carousel-indicators {
+    bottom: -10px;
+}
 //  ----------热门 ----------
 .hot {
     padding: .360825rem 0;
@@ -92,6 +103,9 @@ p {
         img {
             width: 100%;
             border-radius: .051546rem;
+        }
+        a {
+            width: 100%;
         }
     }
 }
