@@ -1,0 +1,113 @@
+$fontColor1:#ff6b08;;
+$fontColor2:#666666;
+$fontColor3:#fff;
+
+//  -----------新闻-------------
+.news {
+    padding: .309278rem 0;
+
+    .news-title {
+        h1 {
+            font-size: .309278rem;
+            color: $fontColor1;
+        }
+    }
+
+    .news-item {
+        position: relative;
+        border: 1px solid #ccc;
+        img {
+            width: 100%;
+        }
+        .news-item-text {
+            width: 100%;
+            color: $fontColor3;
+            text-decoration: none;
+            font-size: .14433rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0 .206186rem;
+            text-align: center;
+            line-height: .42268rem;
+            background-color: rgba(0,0,0,.5);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+
+// -------------动态 -------------
+.trends {
+    padding: .56701rem 0;
+    .container {
+        border-bottom: 1px dashed #ccc;
+
+        .trends-items {
+            margin-bottom: .412371rem;
+        }
+        .trends-img-wrap {
+            padding: .072165rem;
+            border: .010309rem solid #ccc;
+            img {
+                width: 100%;
+            }
+        }
+        .trends-text {
+            cursor: pointer;
+            h2 {
+                margin: 0;
+                padding-top: .103093rem;
+                color: $fontColor2;
+                font-size: .185567rem;
+                line-height: .185567rem;
+                &:hover {
+                    color: $fontColor1;
+                }
+            }
+            h4 {
+                font-size: .134021rem;
+                line-height: .463918rem;
+            }
+            p {
+                font-size: .14433rem;
+                line-height: .257732rem;
+            }
+            .examine-wrap {
+                width: 100%;
+                text-align: right;
+                a {
+                    display: block;
+                    float: right;
+                    width: 1.020619rem;
+                    height: .329897rem;
+                    line-height: .329897rem;
+                    text-align: center;
+                    border-radius: .164948rem;
+                    border: 1px solid $fontColor1;
+                    text-decoration: none;
+                    color: $fontColor1;
+                    font-size: .123711rem;
+                    &:hover {
+                        background-color: $fontColor1;
+                        color: $fontColor3;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------- 分页器----------
+.sorter {
+    .pagination>li>a, .pagination>li>span {
+        color: $fontColor2; 
+    }
+
+    .pagination>li>a:hover ,.pagination>li>span:hover {
+        background-color: #e34637;
+        color: $fontColor3;
+    }
+}
