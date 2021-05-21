@@ -1,0 +1,82 @@
+h1 {
+  font-size: 34px;
+  color: #2a2a2a; }
+
+h2 {
+  font-size: 34px;
+  color: #fff; }
+
+h3 {
+  font-size: 20px;
+  color: #2a2a2a;
+  line-height: 30px; }
+
+h4 {
+  font-size: 25px;
+  color: #8cc11f;
+  line-height: 70px; }
+
+h5 {
+  font-size: 17px; }
+
+ul {
+  list-style: none; }
+
+p {
+  font-size: 15px;
+  color: #2a2a2a;
+  line-height: 30px; }
+
+.bg-pic img {
+  width: 100%; }
+
+.out-box:nth-of-type(n + 2) {
+  padding: 50px 0 50px 0; }
+
+.company-profile {
+  background-color: #fff; }
+  .company-profile .container h1 {
+    line-height: 85px; }
+  .company-profile .container h3 {
+    line-height: 30px; }
+  .company-profile .container p {
+    text-indent: 2em; }
+
+.recruitment {
+  background-color: #8cc11f; }
+  .recruitment .container h2 {
+    line-height: 85px; }
+  .recruitment .container p {
+    color: #fff; }
+  .recruitment .container .email {
+    width: 220px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+    mix-blend-mode: screen;
+    background-color: #fff;
+    color: #2a2a2a; }
+
+.recruitment-info .container ul > li {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 40px; }
+  .recruitment-info .container ul > li:last-child {
+    border-bottom: none; }
+.recruitment-info .container ol li {
+  line-height: 35px; }
+
+.contact-way {
+  background-color: #f4f4f4; }
+  .contact-way .container h1 {
+    margin-bottom: 25px; }
+  .contact-way .container .way-items {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc; }
+    .contact-way .container .way-items img {
+      margin-right: 10px; }
+
+/*# sourceMappingURL=aboutus.css.map */

@@ -1,0 +1,128 @@
+$fontColor1:#2a2a2a;
+$fontColor2:#fff;
+$fontColor3: #8cc11f;
+
+
+// -------- 本页字体样式重置 ------------
+
+h1 {
+    font-size: 34px;
+    color: $fontColor1;
+}
+
+h2 {
+    font-size: 34px;
+    color: $fontColor2;
+}
+
+h3 {
+    font-size: 20px;
+    color: $fontColor1;
+    line-height: 30px;
+}
+
+h4 {
+    font-size: 25px;
+    color: $fontColor3;  
+    line-height: 70px;
+}
+
+h5 {
+    font-size: 17px;
+}
+ul {
+    list-style: none;
+}
+
+p {
+    font-size: 15px;
+    color: $fontColor1;
+    line-height: 30px;
+}
+// ---------大图 -------------
+.bg-pic {
+    img {
+        width: 100%;
+    }
+}
+.out-box:nth-of-type(n + 2) {
+    padding: 50px 0 50px 0;
+}
+//  ------- 公司简介 ----------
+.company-profile {
+    background-color: #fff;
+    .container {
+        h1 {
+            line-height: 85px;
+        }
+        h3 {
+            line-height: 30px;
+        }
+        p {
+            text-indent: 2em;
+        }
+    }
+}
+
+// ------- 人才招聘 ------------
+.recruitment {
+    background-color: #8cc11f; 
+    .container {
+        h2 {
+            line-height: 85px;
+        }
+        p {
+            color: $fontColor2;
+        }
+        .email {
+            width: 220px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 20px;
+            border-radius: 5px;
+            mix-blend-mode: screen;
+            background-color: #fff; 
+            color: $fontColor1;
+        }
+    }
+}
+
+// -----------招聘信息 ---------------
+.recruitment-info {
+    .container {
+        ul {
+            > li {
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 40px;
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+        ol {
+            li {
+                line-height: 35px;
+            }
+        }
+    }
+}
+
+//  -------------联系方式 -------------
+.contact-way {
+    background-color: #f4f4f4; 
+    .container {
+        h1 {
+            margin-bottom: 25px;
+        }
+        .way-items {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            img {
+                margin-right: 10px;
+            }
+        }
+    }
+}
