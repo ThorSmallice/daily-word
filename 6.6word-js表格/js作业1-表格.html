@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		
+		<button class="add">添加一条新的访客信息</button>
+		<button class="del">删除选中</button>
+		<button class="sort">从小到大</button>
+		<button class="allSelect">全选功能</button>
+		<button class="reverse">反选</button>
+		<table border="1" cellspacing="0" cellpadding="10" id="table">
+			<tr>
+				<th>序列号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>操作</th>
+				<th>选择</th>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			var info = [{
+					name: "胡杭",
+					age: 16
+				},
+				{
+					name: "胜明",
+					age: 22
+				},
+				{
+					name: "军毅",
+					age: 21
+				},
+				{
+					name: "晓华",
+					age: 13
+				},
+				{
+					name: "盛聪",
+					age: 23
+				},
+				{
+					name: "侦剑",
+					age: 32
+				},
+				{
+					name: "红翔",
+					age: 25
+				},
+				{
+					name: "超维",
+					age: 18
+				},
+				{
+					name: "士琪",
+					age: 22
+				},
+				{
+					name: "艳华",
+					age: 20
+				}
+			];
+
+			
+
+
+
+			let addBtn = document.querySelector('.add');  				// 添加新信息按钮
+			let delBtn = document.querySelector('.del');				// 删除选中按钮
+			let sortBtn = document.querySelector('.sort');				// 排序按钮
+			let allSelectBtn = document.querySelector('.allSelect');	// 全选按钮
+			let reverseBtn = document.querySelector('.reverse');		// 反选按钮
+
+			let table = document.querySelector('#table');	
+			// 添加按钮的点击事件
+			//  点击事件用到的变量
+			let tableInfoList = [];  // 存储添加进列表的数据 
+			let infoIndex = 0;		 // 记录已提取Info数据的下标
+			let trIndex = 0;		 // 记录有几行 同时也是添加过的行的序号
+			addBtn.addEventListener("click", function() {
+				trIndex++;  // 行数应该是存储的数据的数组长度
+				infoIndex == info.length?  infoIndex = 1 : infoIndex++;  // 数据有限循环用 先判断 如果提取的数据的下标值= info的长度了 就归1 否则 ++ 
+				// 从info中抽取一个值 添加checked状态 和 行序号 添加到tableInfoList中  用作与后续 序号排序和删除选中的功能
+				// 不能印象原来数组的值 这里要进行深拷贝 再去添加自定义的属性
+				let newInfo = info.slice(infoIndex - 1, infoIndex);
+				let newData = JSON.parse(JSON.stringify(newInfo[0]));
+				newData.index = trIndex;
+				newData.checked = false;					 // 该条数据的选中状态 默认为false 不选中 ，true为选中
+				tableInfoList.push( newData );
+			
+				showTable();
+			})
+
+		
+			// 删除选中按钮的点击事件
+			delBtn.addEventListener("click", function() {
+				tableInfoList =  tableInfoList.filter(function (item) {			// 过滤掉要删除的数据 返回没被选中状态的数据 
+					return item.checked == false;
+				})
+				showTable();
+				// console.log(tableInfoList);
+			})
+
+			// 排序按钮的点击事件
+			let sortcount = 0;  // 记录排序点击次数 奇数按年龄从小到大 偶数按序号从小到大
+			sortBtn.addEventListener("click", function() {
+				sortcount++;
+				tableInfoList.sort(function(a, b) {
+					if (sortcount % 2)  return a.age - b.age; 
+					return a.index - b.index;							 
+				}) 
+				showTable();
+			})
+
+			// 全选按钮的点击事件
+			allSelectBtn.addEventListener("click", function() {
+				
+				// let checkInput = document.querySelectorAll('.check-td');	// 获取所有checkbox
+				// checkInput.forEach(function(item) {							// 所有checkbox 设置checked状态
+				// 	item.checked = 'checked';
+				// })
+				tableInfoList.forEach(function(item) {						// 所有的数据更改checked状态
+					item.checked = true;						
+				})
+				showTable()
+
+			})
+
+			// 反选按钮的点击事件
+			reverseBtn.addEventListener("click", function() {
+				tableInfoList.forEach(function(item) {
+					item.checked = !item.checked
+				})
+				console.log(tableInfoList);
+				showTable()
+			})
+
+			
+			
+			table.addEventListener("click", function (e) {
+			 
+				// 每行删除按钮的点击事件
+				if(e.target.className == "delThis") {
+					let delThisBtn = e.target;
+					// console.log(delThisBtn.dataset);
+					tableInfoList.splice(delThisBtn.dataset.index, 1);
+					showTable();
+				}
+				// 每行Input 复选框的点击事件
+				if(e.target.className == "check-td") {
+					let checkInput = e.target;
+					tableInfoList[checkInput.dataset.index].checked = true;
+					showTable();
+				}
+			})
+
+			// 渲染table
+			function showTable() {
+				table.innerHTML = `
+					<tr>
+						<th>序列号</th>
+						<th>姓名</th>
+						<th>年龄</th>
+						<th>操作</th>
+						<th>选择</th>
+					</tr>
+				`;
+				tableInfoList.forEach(function(item,index) {
+					if(item.checked) {
+						table.innerHTML += `
+							<tr>
+								<td>${item.index}</td>
+								<td>${item.name}</td>
+								<td>${item.age}</td>
+								<td><button class="delThis" data-index=${index}>删除</button></td>
+								<td> <input type="checkbox" class="check-td" data-index=${index} checked > </td>
+							</tr>
+						`
+					}else {
+						table.innerHTML += `
+							<tr>
+								<td>${item.index}</td>
+								<td>${item.name}</td>
+								<td>${item.age}</td>
+								<td><button class="delThis" data-index=${index}>删除</button></td>
+								<td> <input type="checkbox" class="check-td" data-index=${index}> </td>
+							</tr>
+						`
+					}
+				}) 
+			}
+		</script>
+	</body>
+
+</html>
