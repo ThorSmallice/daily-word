@@ -79,19 +79,16 @@
 			// 添加按钮的点击事件
 			//  点击事件用到的变量
 			let tableInfoList = [];  // 存储添加进列表的数据 
-			let infoIndex = 0;		 // 记录已提取Info数据的下标
-			let trIndex = 0;		 // 记录有几行 同时也是添加过的行的序号
+			let infoIndex = 0;		 // 记录已提取Info数据的下标 
 			addBtn.addEventListener("click", function() {
-				trIndex++;  // 行数应该是存储的数据的数组长度
 				infoIndex == info.length?  infoIndex = 1 : infoIndex++;  // 数据有限循环用 先判断 如果提取的数据的下标值= info的长度了 就归1 否则 ++ 
 				// 从info中抽取一个值 添加checked状态 和 行序号 添加到tableInfoList中  用作与后续 序号排序和删除选中的功能
 				// 不能印象原来数组的值 这里要进行深拷贝 再去添加自定义的属性
 				let newInfo = info.slice(infoIndex - 1, infoIndex);
 				let newData = JSON.parse(JSON.stringify(newInfo[0]));
-				newData.index = trIndex;
+				// newData.index = trIndex;
 				newData.checked = false;					 // 该条数据的选中状态 默认为false 不选中 ，true为选中
 				tableInfoList.push( newData );
-			
 				showTable();
 			})
 
@@ -153,7 +150,7 @@
 				// 每行Input 复选框的点击事件
 				if(e.target.className == "check-td") {
 					let checkInput = e.target;
-					tableInfoList[checkInput.dataset.index].checked = true;
+					tableInfoList[checkInput.dataset.index].checked = !tableInfoList[checkInput.dataset.index].checked;
 					showTable();
 				}
 			})
@@ -173,7 +170,7 @@
 					if(item.checked) {
 						table.innerHTML += `
 							<tr>
-								<td>${item.index}</td>
+								<td>${index + 1}</td>
 								<td>${item.name}</td>
 								<td>${item.age}</td>
 								<td><button class="delThis" data-index=${index}>删除</button></td>
@@ -183,7 +180,7 @@
 					}else {
 						table.innerHTML += `
 							<tr>
-								<td>${item.index}</td>
+								<td>${index + 1 }</td>
 								<td>${item.name}</td>
 								<td>${item.age}</td>
 								<td><button class="delThis" data-index=${index}>删除</button></td>
