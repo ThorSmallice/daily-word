@@ -75,7 +75,7 @@
 			let allSelectBtn = document.querySelector('.allSelect');	// 全选按钮
 			let reverseBtn = document.querySelector('.reverse');		// 反选按钮
 
-			let table = document.querySelector('#table');	
+			let tbody = document.querySelector('#table tbody');	
 			// 添加按钮的点击事件
 			//  点击事件用到的变量
 			let tableInfoList = [];  // 存储添加进列表的数据 
@@ -190,7 +190,7 @@
 						`
 					}
 				}) 
-				table.innerHTML = tableInner;
+				tbody.innerHTML = tableInner;
 			}
 		</script>
 	</body>
