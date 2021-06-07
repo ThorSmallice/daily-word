@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.active {
+				color: black;
+				background-color: #87ceeb;
+				border: none;
+				outline: none;
+			}
+
+			th {
+				position: relative;
+			}
+
+			.topArrow {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-left: 8px solid transparent;
+				border-right: 8px solid transparent;
+				border-bottom: 8px solid black;
+				top: 20px;
+				right: 3px;
+			}
+
+			.lowArrow {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-left: 8px solid transparent;
+				border-right: 8px solid transparent;
+				border-top: 8px solid black;
+				top: 35px;
+				right: 3px;
+			}
+
+			.borderActive {
+				border-color: red;
+				border-left: 8px solid transparent;
+				border-right: 8px solid transparent;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button class="add">添加一条新的访客信息</button>
+		<button class="del">删除选中</button>
+		<button class="sort">年龄排序</button>
+
+		<label>全选功能<input type="checkbox" class="allSelect"></label>
+
+		<button class="reverse">反选</button>
+		<button class="num active">序号排序</button>
+		<a href="./js作业1-表格.html" style="font-size: 30px;">表格版本1 点我跳转</a>
+		<hr>
+		<table border="1" cellspacing="0" cellpadding="20" id="table">
+			<tr>
+				<th>
+					<span>序列号</span>
+					<span class="topArrow numUp"></span>
+					<span class="lowArrow borderActive numDown"></span>
+				</th>
+				<th>姓名</th>
+				<th>
+					<span>年龄</span>
+					<span class="topArrow ageUp"></span>
+					<span class="lowArrow ageDown"></span>
+				</th>
+				<th>操作</th>
+				<th>选择</th>
+			</tr>
+			<tbody id="tbody"></tbody>
+		</table>
+
+		<script src="./table.js"></script>
+	</body>
+</html>

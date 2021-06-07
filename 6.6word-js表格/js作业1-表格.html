@@ -13,6 +13,9 @@
 		<button class="sort">从小到大</button>
 		<button class="allSelect">全选功能</button>
 		<button class="reverse">反选</button>
+
+		<a href="./01table.html" style="font-size: 30px;">表格版本2 点我跳转</a>
+
 		<table border="1" cellspacing="0" cellpadding="10" id="table">
 			<tr>
 				<th>序列号</th>
@@ -107,8 +110,11 @@
 			sortBtn.addEventListener("click", function() {
 				sortcount++;
 				tableInfoList.sort(function(a, b) {
-					if (sortcount % 2)  return a.age - b.age; 
-					return a.index - b.index;							 
+					if (sortcount % 2) {
+						return a.age - b.age; 
+					} else {
+						return a.index - b.index;							 
+					}
 				}) 
 				showTable();
 			})
