@@ -171,7 +171,7 @@
 					if(item.checked) {
 						tableInner += `
 							<tr>
-								<td>${index + 1}</td>
+								<td>${String(index + 1).padStart(2, '0')}</td>
 								<td>${item.name}</td>
 								<td>${item.age}</td>
 								<td><button class="delThis" data-index=${index}>删除</button></td>
@@ -181,7 +181,7 @@
 					}else {
 						tableInner += `
 							<tr>
-								<td>${index + 1 }</td>
+								<td>${String(index + 1).padStart(2, '0')}</td>
 								<td>${item.name}</td>
 								<td>${item.age}</td>
 								<td><button class="delThis" data-index=${index}>删除</button></td>
