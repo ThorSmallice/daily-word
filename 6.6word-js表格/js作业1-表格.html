@@ -157,7 +157,7 @@
 
 			// 渲染table
 			function showTable() {
-				table.innerHTML = `
+				let tableInner = `
 					<tr>
 						<th>序列号</th>
 						<th>姓名</th>
@@ -166,9 +166,10 @@
 						<th>选择</th>
 					</tr>
 				`;
+
 				tableInfoList.forEach(function(item,index) {
 					if(item.checked) {
-						table.innerHTML += `
+						tableInner += `
 							<tr>
 								<td>${index + 1}</td>
 								<td>${item.name}</td>
@@ -178,7 +179,7 @@
 							</tr>
 						`
 					}else {
-						table.innerHTML += `
+						tableInner += `
 							<tr>
 								<td>${index + 1 }</td>
 								<td>${item.name}</td>
@@ -189,6 +190,7 @@
 						`
 					}
 				}) 
+				table.innerHTML = tableInner;
 			}
 		</script>
 	</body>
