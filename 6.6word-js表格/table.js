@@ -53,8 +53,8 @@ let numSortBtn = document.querySelector('.num');            // 序号排序按�
 let numUpBtn = document.querySelector('.numUp');	        // 序号升序按钮
 let numDownBtn = document.querySelector('.numDown');	    // 序号降序按钮
 
-let topArrow = document.querySelectorAll(".topArrow");      // 升序按钮
-let lowArrow = document.querySelectorAll(".lowArrow");      // 降序按钮
+let Arrow = document.querySelectorAll("span[class *= 'Arrow'");      // 升降序小三角形按钮
+ 
 
 
 let allSelectBtn = document.querySelector('.allSelect');	// 全选按钮
@@ -228,17 +228,8 @@ updateTable();
 
 // 动态添加小三角样式类名
 function setSpanClass (activeTarget) {
-    topArrow.forEach((item) => { 
-        if(item.classList.contains("borderActive")) {
-            item.classList.remove("borderActive")
-        }
-    });
-    lowArrow.forEach((item) => { 
-        if(item.classList.contains("borderActive")) {
-            item.classList.remove("borderActive")
-            // console.log(item.classList);
-        }
+    Arrow.forEach((item) => { 
+        item.classList.remove("borderActive")
     });
     activeTarget.classList.add("borderActive")
-    console.log(activeTarget.classList);
 }
