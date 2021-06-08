@@ -94,7 +94,7 @@ addBtn.addEventListener("click", function() {
 })
 
 // 全部选中
-allSelectBtn.addEventListener("click",() => {
+allSelectBtn.addEventListener("change",() => {
     tableInfoList.forEach((item) => {
         item.checked = allSelectBtn.checked;                // 列表里所有的复选框跟随全选按钮的状态
     })
