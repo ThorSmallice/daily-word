@@ -53,10 +53,17 @@ rightArrow.addEventListener("click", function() {
 })
 
 // 小圆点点击时
-pointList.forEach(function(item, i) {
+pointList.forEach(function(item, index) {
     item.addEventListener("click", function() {
-        nowIndex = i; 
-        togglePoint(nowIndex);
+        if(flag) {
+            flag = false;
+            nowIndex = index; 
+            carAnimate(ul, -nowIndex * carouseWidth, function() {
+                flag = true;
+            });
+            togglePoint(nowIndex);
+        }
+        
     })
 })
 
