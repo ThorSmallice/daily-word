@@ -73,4 +73,10 @@
   .web .carouseBox:hover .pointBox {
     opacity: 1; }
 
+.tiaozhuan {
+  display: block;
+  font-size: 40px;
+  margin: 50px 0;
+  text-align: center; }
+
 /*# sourceMappingURL=index.css.map */
