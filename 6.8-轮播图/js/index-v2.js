@@ -119,6 +119,22 @@ pointList.forEach(function(item,index) {
     })
 })
 
+// 自动轮播
+let autoPlay = setInterval(function(){
+    rightArrow.click();
+}, 2000);
+
+// 鼠标移入，取消轮播
+carouseBox.addEventListener("mouseenter", function() {
+    clearInterval(autoPlay);
+})
+
+// 鼠标移出，继续轮播
+carouseBox.addEventListener("mouseleave", function() {
+    autoPlay = setInterval(function() {
+        rightArrow.click();
+    }, 2000) 
+})
 
 
 
