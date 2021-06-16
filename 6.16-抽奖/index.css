@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none; }
+
+.web {
+  width: 680px;
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  transform: translateX(-50%); }
+  .web .select-prize {
+    margin: 10px auto;
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 26px;
+    text-align: center;
+    border: 2px solid #87ceeb; }
+  .web .drawBox {
+    display: flex;
+    box-sizing: border-box;
+    border: 2px solid red;
+    width: 680px;
+    height: 680px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around; }
+    .web .drawBox li {
+      user-select: none;
+      width: 200px;
+      height: 200px;
+      box-sizing: border-box;
+      border: 2px solid #87ceeb;
+      background-color: pink;
+      font-size: 28px;
+      line-height: 200px;
+      text-align: center;
+      color: #fff; }
+      .web .drawBox li:nth-child(1) {
+        order: 1; }
+      .web .drawBox li:nth-child(2) {
+        order: 2; }
+      .web .drawBox li:nth-child(3) {
+        order: 3; }
+      .web .drawBox li:nth-child(4) {
+        order: 6; }
+      .web .drawBox li:nth-child(5) {
+        order: 9; }
+      .web .drawBox li:nth-child(6) {
+        order: 8; }
+      .web .drawBox li:nth-child(7) {
+        order: 7; }
+      .web .drawBox li:nth-child(8) {
+        order: 4; }
+      .web .drawBox li:nth-child(9) {
+        order: 5;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer; }
+      .web .drawBox li.active {
+        border-radius: 25%;
+        background-color: #fff;
+        border: 2px solid pink;
+        color: #87ceeb; }
+  .web .select-pic {
+    position: absolute;
+    left: -300px;
+    top: -100px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #87ceeb;
+    background-color: #fff;
+    overflow: hidden; }
+    .web .select-pic ul {
+      transition: all .3s;
+      width: 100%;
+      height: 100%; }
+      .web .select-pic ul li {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        line-height: 200px;
+        text-align: center;
+        font-size: 26px;
+        color: #fff;
+        background-color: pink; }
+
+/*# sourceMappingURL=index.css.map */
