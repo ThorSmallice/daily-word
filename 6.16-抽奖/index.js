@@ -17,7 +17,8 @@ let isRun = true;   // 控制可否点击开始
 
 
 
-function run(index , targetIndex, picIndex) {
+function run() {
+
     timer = setTimeout(() => {
         if (index) {    // index不为0时 选中的奖品要删除激活类
             prize[(index - 1) % 8].classList.remove("active");
@@ -32,7 +33,7 @@ function run(index , targetIndex, picIndex) {
         prize[ index % 8 ].classList.add("active");  // 选中的奖品添加激活类
         selectPrize.innerText = prize[index % 8].innerText; // 更改中奖提示中的文字
         
-        animat(picIndex); // 左侧轮播图开启
+        animat(); // 左侧轮播图开启
         // console.log(picIndex);
         if (index < targetIndex) {
             run();
@@ -52,7 +53,7 @@ function run(index , targetIndex, picIndex) {
     },times)
 }
 
-function animat(picIndex) {
+function animat() {
     selectUl.style.transform = `translateY(-${picIndex}00%)`;
 }
 
