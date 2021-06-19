@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none; }
+
+.container .bottom .draw-area .disc {
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background-color: #330000;
+  box-shadow: 0 0 15px #000; }
+  .container .bottom .draw-area .disc li {
+    box-shadow: 0 0 1px #000 inset;
+    position: absolute;
+    display: block;
+    width: 300px;
+    height: 300px;
+    transform-origin: right bottom 0;
+    -webkit-transform-origin: right bottom 0; }
+    .container .bottom .draw-area .disc li:nth-child(odd) {
+      background-color: #F1AAA6; }
+    .container .bottom .draw-area .disc li:nth-child(even) {
+      background-color: #FD5B78; }
+    .container .bottom .draw-area .disc li:nth-child(1) {
+      transform: rotate(0deg) skewY(60deg); }
+    .container .bottom .draw-area .disc li:nth-child(2) {
+      transform: rotate(60deg) skewY(60deg); }
+    .container .bottom .draw-area .disc li:nth-child(3) {
+      transform: rotate(120deg) skewY(60deg); }
+    .container .bottom .draw-area .disc li:nth-child(4) {
+      transform: rotate(180deg) skewY(60deg); }
+    .container .bottom .draw-area .disc li:nth-child(5) {
+      transform: rotate(240deg) skewY(60deg); }
+    .container .bottom .draw-area .disc li:nth-child(6) {
+      transform: rotate(300deg) skewY(60deg); }
+
+/*# sourceMappingURL=index.css.map */

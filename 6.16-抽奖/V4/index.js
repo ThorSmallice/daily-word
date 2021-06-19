@@ -31,7 +31,7 @@ let prizeList = [{
         name: "可乐"
     }];
 let index;
-let targetIndex = 84;
+let targetIndex;
 let timer;
 let times;;
 
@@ -55,11 +55,7 @@ let times;;
     row为偶数 那么row需要+1 比如加上按钮一共10个占位 就需要 4*4 但是按钮无法居中 就做成 5*5
 
     row为奇数 那么row不需要变化
-    [0, 1, 2, 3, 4, 9, 13, 18, 23, 22, 21, 20, 19, 14, 10, 5, 6, 7, 8, 12, 17, 16, 15, 11]
-    0 1 2 3 4 row-1 2row-1 3row-1 4row-1 5row-1 
-
- <li class ="startBtn" style="width:${liWidth}px;height:${liWidth}px;line-height:${liWidth}px"">开始抽奖</li> 
-<li style="width:${liWidth}px;height:${liWidth}px;line-height:${liWidth}px"></li> 
+    
 */
 
 let row = Math.ceil( Math.pow( prizeList.length + 1 , 1/2 ) );
@@ -82,6 +78,7 @@ for (let i = 0; i < row * row; i++) {
     drawBox.appendChild(newLi);
 }   
 
+let allLi =  drawBox.querySelectorAll("li"); 
 // 获取到列表里所有可填充奖品的格子 然后根据prizeList将内容填充进去
 let li = drawBox.querySelectorAll("li:not(.startBtn)"); 
 let allIndex = []; // 所有参与抽奖的项目的序号
@@ -114,31 +111,9 @@ uselessIndex.forEach((item) => {
     li[item].innerHTML = '谢谢参与';
 })
 
-// 动画路径
-let indexPath = {
-	"3": [0, 1, 2, 4, 7, 6, 5, 3],
-	"5": [0, 1, 2, 3, 4, 9, 13, 18, 23, 22, 21, 20, 19, 14, 10, 5, 6, 7, 8, 12, 17, 16, 15, 11],
-	"7": [0, 1, 2, 3, 4, 5, 6, 13, 20, 27, 34, 41, 48, 47, 46, 45, 44, 43, 42, 35, 28, 21, 14, 7, 8, 9, 10, 11, 12,
-		19, 26, 33, 40, 39, 38, 37, 36, 29, 22, 15, 16, 17, 18, 25, 32, 31, 30, 23
-	],
-}
-// switch (row) {
-//     case 3 :
-//         indexPath =  [0, 1, 2, 4, 7, 6, 5, 3];
-//         break;
-//     case 5 :
-//         indexPath = [0, 1, 2, 3, 4, 9, 13, 18, 23, 22, 21, 20, 19, 14, 10, 5, 6, 7, 8, 12, 17, 16, 15, 11];
-//         break;
-// }
-// let indexPath = [];
-// for (let i = 0; i < row * row - 1; i++) {
-//     if(i < row) {
-//         indexPath[i] = i;
-//     }
-//     if ()
-// } 
+// 获取动画路径 
+let indexPath = getPathArr(row); 
 // console.log(indexPath);
-
 
 
 // 点击开始按钮
@@ -146,19 +121,38 @@ let startBtn = document.querySelector(".startBtn");
 startBtn.addEventListener("click", () => {
     index = 0;
     times = 300;
-    // targetIndex = Math.floor( Math.random() * 10 + 90);
+    targetIndex = (5* (row*row - 1)) + getTargetIndex(5);
+    // console.log(targetIndex);
     li.forEach((item) => {
         item.classList.remove("active")
     })
     startDraw();
 })
 
+// 传入奖品Id 获取要中奖商品在页面中的布局位置 
+function getTargetIndex(id) {
+
+    let targetID = prizeList.filter((item) => {
+        return item.id == id
+    })
+    console.log(targetID);
+    let targetI;
+    indexPath.forEach( (item, i) => {
+        if (item == targetID[0].placeIndex) {
+            targetI = i;
+        }
+    })
+    return targetI;
+  
+}
+
+
 function toggleClass(currentIndex) {
-    li.forEach((item) => {
+    allLi.forEach((item) => {
         item.classList.remove("active")
     })
-    li[ indexPath[row][ currentIndex  % (li.length)] ].classList.add("active");
-    selectPrize.innerText = li[ indexPath[ currentIndex  % (li.length)] ].innerText;
+    allLi[ indexPath[ currentIndex  % indexPath.length] ].classList.add("active");
+    selectPrize.innerText = allLi[ indexPath[ currentIndex  % indexPath.length] ].innerText;
 }
 
 function startDraw() {
@@ -171,10 +165,10 @@ function startDraw() {
             isRun = true;
         }
         index++;
-        if (times > 30 && index < 20) {
+        if (times > 30 && index < targetIndex * 0.2) {
             // 总的动画时间大于30ms, 并且index抽奖进度小于20的时候让它加速 
             times -= 20;
-        }else if (index > 60) {
+        }else if (index > targetIndex * 0.9) {
             // 抽奖进度> 60了 动画减速 
             times += 20;
         }
