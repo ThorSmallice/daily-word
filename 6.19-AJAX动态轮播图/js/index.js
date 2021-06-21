@@ -12,12 +12,12 @@ let nodeStr = '';
 
 
 
-let nowIndex = 1;			// 当前显示图片的下标
+let nowIndex;			// 当前显示图片的下标
 let timer;
-let isRun = true;			// 控制可否点击，点击节流
+let isRun;			// 控制可否点击，点击节流
 let xhr = new XMLHttpRequest(); // 初始化请求体
 function getNewData (listId) {
-    console.log(listId);
+    // console.log(listId);
     let url = `http://student.0melon0.cn/index/index/get_carousel?position_id=${listId}`;
     xhr.open("GET",url); // 定义请求参数
     xhr.send(); // 发送请求
@@ -61,10 +61,14 @@ xhr.addEventListener("readystatechange", function() {
 
             ul.insertBefore(ul.lastElementChild.cloneNode(true),ul.firstElementChild);
             ul.style.transition = 'none';
-            ul.style.transform = `translateX(-100%)`;
+            nowIndex = 1;
+            isRun = true;
+            ul.style.transform = `translateX(-${nowIndex * 100}%)`;
             getComputedStyle(ul).transition;
             ul.style.transition = '';
             ul.appendChild(ul.children[1].cloneNode(true));
+
+            
 
             // 小圆点的点击事件
             for( let i = 0; i < pointList.length; i++) {
