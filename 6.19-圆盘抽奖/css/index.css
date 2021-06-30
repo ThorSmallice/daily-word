@@ -10,6 +10,7 @@ div {
   box-sizing: border-box; }
 
 .container {
+  position: relative;
   margin: 100px auto;
   width: 967px; }
   .container .lucky-user {
@@ -146,8 +147,96 @@ div {
             transform: translateX(-50%) scale(0.8);
             width: 94px; }
     .container .bottom .draw-res-wrap {
+      padding-top: 25px;
       width: 273px;
       height: 100%;
       background-color: #201a48; }
+      .container .bottom .draw-res-wrap .draw-res-top {
+        position: relative;
+        margin: 0 auto 16px;
+        width: 163px;
+        height: 37px;
+        line-height: 37px;
+        background-color: #4e3eb4;
+        color: #fff;
+        border-radius: 18.5px;
+        font-size: 14px;
+        text-align: center; }
+        .container .bottom .draw-res-wrap .draw-res-top p span {
+          color: #cd9356;
+          font-weight: 600; }
+        .container .bottom .draw-res-wrap .draw-res-top::before, .container .bottom .draw-res-wrap .draw-res-top::after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #4e3eb4;
+          top: 50%;
+          transform: translateY(-50%); }
+        .container .bottom .draw-res-wrap .draw-res-top::before {
+          left: -20px; }
+        .container .bottom .draw-res-wrap .draw-res-top::after {
+          right: -20px; }
+      .container .bottom .draw-res-wrap .draw-res-bottom table {
+        text-align: center;
+        margin: 0 auto;
+        border-collapse: collapse;
+        width: 230px; }
+        .container .bottom .draw-res-wrap .draw-res-bottom table tr {
+          line-height: 40px; }
+        .container .bottom .draw-res-wrap .draw-res-bottom table thead {
+          color: #8f7ef3;
+          font-size: 13px; }
+      .container .bottom .draw-res-wrap .draw-res-bottom .tbody-wrap {
+        height: 475px;
+        overflow-y: scroll; }
+        .container .bottom .draw-res-wrap .draw-res-bottom .tbody-wrap table tbody {
+          font-size: 12px;
+          color: #fff;
+          height: 490px; }
+          .container .bottom .draw-res-wrap .draw-res-bottom .tbody-wrap table tbody tr {
+            border-top: 1px solid #1d1347; }
+  .container .alert-box {
+    display: block;
+    transition: all 1s ease;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px 0px #ccc;
+    z-index: 30;
+    text-align: center;
+    padding: 10px 0; }
+    .container .alert-box p {
+      font-size: 28px;
+      line-height: 40px;
+      font-weight: 600;
+      color: orange;
+      margin-bottom: 80px; }
+    .container .alert-box span {
+      display: block;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      position: absolute;
+      right: 20px;
+      top: 5px;
+      cursor: pointer; }
+  .container .alert-box-block {
+    z-index: 30;
+    opacity: 1; }
+  .container .alert-box-none {
+    opacity: 0;
+    z-index: 0; }
 
 /*# sourceMappingURL=index.css.map */
