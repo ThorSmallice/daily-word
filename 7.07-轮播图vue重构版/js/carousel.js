@@ -6,17 +6,17 @@ let app = new Vue({
 		canClick: true,
 		autoRunTimer: null,
 		ulStyle: { 
+            transition: "",
 			transform: "translateX(-100%)"
 		},
-		carouselArr: ["img/1.png","img/2.png","img/3.png"],
-		
+		carouselArr: ["img/1.png","img/2.png","img/3.png"]
 	},
 	methods:{
 		rightClick() {
 			if (this.canClick) {
 				this.canClick = false;
 				this.nowIndex++; 
-				this.Run(); 
+				this.Run();
 			}
 		},
 		leftClick() {
@@ -26,6 +26,13 @@ let app = new Vue({
 				this.Run()
 			}
 		},
+        pointClick (index) {
+            if (this.canClick) {
+                this.canClick = false;
+                this.nowIndex = index;
+                this.Run()
+            }
+        },
 		// 轮播图切换
 		Run() {
 			this.ulStyle.transform = `translateX(-${this.nowIndex}00%)`
@@ -33,11 +40,12 @@ let app = new Vue({
 		// 自动轮播
 		autoRun () {
 			this.autoRunTimer = setInterval(() => { 
-				if (this.canClick) {
-					this.canClick = false;
-					this.nowIndex++; 
-					this.Run(); 
-				}
+				// if (this.canClick) {
+				// 	this.canClick = false;
+				// 	this.nowIndex++; 
+				// 	this.Run(); 
+				// }
+                this.rightClick()
 			}, 3500)
 		},
 		// 取消自动轮播
@@ -45,20 +53,31 @@ let app = new Vue({
 			clearInterval(this.autoRunTimer)
 		},
 		// 偷龙转凤
-		togglePic () {
-			if (this.nowIndex  == this.carouselArr.length - 1 || this.nowIndex == 0) {
-				this.$refs.ul.style.transition = "none";
+		togglePic (e) {
+			// if (this.nowIndex  == this.carouselArr.length - 1 || this.nowIndex == 0) {
+			// 	this.$refs.ul.style.transition = "none";
+			// }
+			// if (this.nowIndex == this.carouselArr.length - 1) {
+			// 	this.nowIndex = 1;
+			// }
+			// if ( this.nowIndex == 0 ) {
+			// 	this.nowIndex = this.carouselArr.length - 2;
+			// }
+			// this.$refs.ul.style.transform = `translateX(-${this.nowIndex}00%)`; 
+			// getComputedStyle(this.$refs.ul).transition;  
+			// this.$refs.ul.style.transition = ""; 
+			// this.canClick = true;
+
+            if (this.nowIndex  == this.carouselArr.length - 1 || this.nowIndex == 0) {
+				this.ulStyle.transition = "none";
+                !this.nowIndex? this.nowIndex = this.carouselArr.length - 2: this.nowIndex = 1;
+                this.ulStyle.transform = `translateX(-${this.nowIndex}00%)`;
+                this.$nextTick( function () {
+                    getComputedStyle(e.target).transition
+                    this.ulStyle.transition = "";
+                })
 			}
-			if (this.nowIndex == this.carouselArr.length - 1) {
-				this.nowIndex = 1;
-			}
-			if ( this.nowIndex == 0 ) {
-				this.nowIndex = this.carouselArr.length - 2;
-			}
-			this.$refs.ul.style.transform = `translateX(-${this.nowIndex}00%)`; 
-			getComputedStyle(this.$refs.ul).transition;  
-			this.$refs.ul.style.transition = ""; 
-			this.canClick = true;
+            this.canClick = true;
 		}
 	},
 	computed:{

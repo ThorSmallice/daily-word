@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="app"> 
+        <header>
+            <div class="container">
+                <h2>todoList</h2>
+                <div>
+                    <input type="text" v-model.lazy.trim="inputText" @keyup.enter="addItem" placeholder="输入你即将要做的事情吧~"> 
+                    <button @click="addItem" >添加</button>
+                    
+                    <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut">
+                        <p class="aleat-box" v-if="!hasContent">
+                            没填内容哦~
+                        </p>
+                    </transition>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="listbox listbox1">
+                    <div class="title">
+                        <h2>正在进行</h2>
+                        <span>{{loginList.length}}</span>
+                    </div>
+                    <transition-group tag="ul" 
+                    enter-active-class="animate__animated animate__bounceInRight" leave-active-class="animate__animated animate__bounceOutLeft"
+                    @after-enter="toggleChangeStatus"    
+                    @after-leave="toggleChangeStatus">
+                        <template  v-for="(item, index) in loginList">
+                            <li :key="index">
+                                <div class="content">
+                                    <input type="checkbox" @change="changeStatus(item)" :checked="item.isFinish"> 
+                                    {{item.text}} 
+                                </div>
+                                <button @click="delItem(item)">删除</button>
+                            </li>
+                        </template>
+                    </transition-group>
+                </div>
+            </div>
+            <div class="container">
+                <div class="listbox listbox2">
+                    <div class="title">
+                        <h2>已经完成</h2>
+                        <span>{{finishList.length}}</span>
+                    </div>
+                    <transition-group tag="ul" enter-active-class="animate__animated animate__bounceInRight" leave-active-class="animate__animated animate__bounceOutLeft">
+                        <template  v-for="(item,index) in finishList"> 
+                            <li :key="index"> 
+                                <div class="content">
+                                    <input type="checkbox" @change="changeStatus(item)" :checked="item.isFinish"> 
+                                    {{ item.text }} 
+                                </div>
+                                <button @click="delItem(item)">删除</button>
+                            </li>
+                        </template>
+                    </transition-group>
+                </div>
+            </div>
+        </main>
+       
+        
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>

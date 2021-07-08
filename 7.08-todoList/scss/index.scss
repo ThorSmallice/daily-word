@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+#app {
+    width: 80%; 
+    margin: 0 auto;
+    .container {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 10px 50px; 
+    }
+    header {
+        width: 100%;
+        background-color: #FFBCBC;
+        line-height: 50px;
+        border-radius: 20px 20px 0px 0px;
+        h2 {
+            font-size: 36px;
+            display: inline-block;
+        }
+        div {
+            position: relative;
+            input {
+                height: 30px;
+                line-height: 30px;
+                padding: 10px 30px;
+                width:400px;
+                border-radius: 15px;
+                margin-right: 10px;
+                font-size: 22px;
+                outline: none;
+                border: 2px solid #87ceeb;
+            }
+            button {
+                height: 40px;
+                width: 60px;
+                border-radius: 5px;
+                font-size: 22px;
+                background-color: #87ceeb;
+                color: #fff;
+                border: 2px solid #000;
+                cursor: pointer;
+            }
+            .aleat-box {
+                user-select: none;
+                position: absolute;
+                left: 428px;
+                top: 55px;
+                display: block;
+                width: 140px;
+                font-size: 15px;
+                text-align: center;
+                line-height: 50px;
+                height: 50px;
+                z-index: 20;
+                background-color: #fff;
+                border-radius:  50% / 50%;
+                border: 2px dotted #87ceeb;
+                color: #687980;
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    transform: rotate(120deg);
+                    z-index: 1;
+                    left: 17px;
+                    top: -6px;
+                    width: 20px;
+                    height:20px;
+                    border-left: 2px dotted #87ceeb;
+                    border-bottom: 2px dotted #87ceeb;
+                    background-image:linear-gradient(45deg,#fff 50%, rgba(0,0,0,0) 0);
+                  
+                }
+            } 
+        }
+
+    }
+    main { 
+        width: 100%;
+        background-color: #FFEACA;
+        padding: 20px 0 30px 0;
+        border-radius: 0px 0px 20px 20px;
+        .listbox { 
+            width: 100%;
+            border-radius: 20px;
+            padding: 20px 30px ;
+            
+            .title {
+            
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                line-height: 50px;
+                span {
+                    display: block;
+                    width: 35px;
+                    text-align: center;
+                    line-height: 35px;
+                    font-size: 22px;
+                    height: 35px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                }
+            }
+            ul {
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    line-height: 60px;
+                    font-size: 26px; 
+                    input {
+                        width: 30px;
+                        height: 30px;
+                        vertical-align: middle;
+                        margin-right: 10px;
+                    }
+                    button { 
+                        cursor: pointer;
+                        user-select: none;
+                        box-sizing: content-box;
+                        width: 60px;
+                        height: 30px;
+                        text-align: center;
+                        font-size: 18px; 
+                        line-height: 30px;
+                        padding:5px;
+                        vertical-align: middle;
+                        background-color: #ccc;
+                        border-radius: 5px;
+                        border: 2px solid #000;
+                        color: #fff;
+                        font-weight: 600;
+                    }
+                } 
+            }
+        }
+        .listbox1 {
+            background-color: #A2DBFA;
+            border: 5px solid #343F56;
+            .title {
+                span {
+                    border: 3px solid #F7A440; 
+                }
+            }
+            ul {
+                li {
+                    
+                    border-bottom: 2px dashed #A0937D;
+                }
+            }
+        }
+        .listbox2 {
+            background-color: #C2B8A3;
+            border: 5px solid #FF6701;
+            .title {
+                span {
+                    border: 3px solid #687980; 
+                }
+            }
+            ul {
+                li {
+                    
+                    border-bottom: 2px dashed #FAF3F3;
+                }
+            }
+        }
+    }
+}
+

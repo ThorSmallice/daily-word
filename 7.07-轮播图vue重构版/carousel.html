@@ -20,7 +20,7 @@
 				<section class="pointBox">
 					<ol>
 						<template v-for="(item, i) in carouselArr.length -2">
-							<li :key="i" :class="{active: nowIndex == i + 1}"></li>
+							<li :key="i" :class="{active: nowIndex == i + 1}" @click="pointClick(i+1)"></li>
 						</template>
 					</ol>
 				</section>
