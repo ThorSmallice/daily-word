@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none; }
+
+.web .carouselBox {
+  width: 1000px;
+  height: 562px;
+  border: 2px dashed red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden; }
+  .web .carouselBox ul {
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0;
+    transition: all .5s;}
+    .web .carouselBox ul li {
+      display: inline-block;
+      width: 100%; }
+      .web .carouselBox ul li img {
+        width: 100%; }
+  .web .carouselBox .arrow {
+    width: 160px;
+    height: 562px;
+    text-align: center;
+    line-height: 562px;
+    font-size: 36px;
+    position: absolute;
+    top: 0;
+    color: #fff;
+    transition: all .3s;
+    cursor: pointer; }
+  .web .carouselBox .leftArrow {
+	user-select: none;
+    left: 0;
+    background: linear-gradient(90deg, #000, transparent);
+    transform: translateX(-100%); }
+  .web .carouselBox .rightArrow {
+	user-select: none;
+    right: 0;
+    background: linear-gradient(-90deg, #000, transparent);
+    transform: translateX(100%); }
+  .web .carouselBox:hover .arrow {
+    transform: translateX(0%); }
+  .web .carouselBox .pointBox {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 0;
+    transition: all .3s; }
+    .web .carouselBox .pointBox ol {
+      display: inline-block;
+      white-space: nowrap;
+      background-color: #87ceeb;
+      border-radius: 50% 0%;
+      padding: 12px 8px; }
+      .web .carouselBox .pointBox ol li {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        background-color: #fff;
+        margin: 0 8px;
+        cursor: pointer;
+        border-radius: 50%; }
+      .web .carouselBox .pointBox ol .active {
+        background-color: orange; }
+  .web .carouselBox:hover .pointBox {
+    bottom: 30px; }
+
+/*# sourceMappingURL=index.css.map */

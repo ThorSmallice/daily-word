@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div id="app" class="web" ref="webBox">
+			<div class="carouselBox" @mouseenter="clearAutoRun" @mouseleave="autoRun" >
+				<ul :style="ulStyle" ref="ul" @transitionend="togglePic">
+					<template v-for="(item, index) in resCarouselArr">
+						<li :key="index">
+							<img :src="item">
+						</li>
+					</template>
+				</ul>
+				<section class="arrow leftArrow" @click="leftClick">&lt;</section>
+				<section class="arrow rightArrow" @click="rightClick">&gt;</section>
+				<section class="pointBox">
+					<ol>
+						<template v-for="(item, i) in carouselArr.length -2">
+							<li :key="i" :class="{active: nowIndex == i + 1}"></li>
+						</template>
+					</ol>
+				</section>
+			</div>
+		</div>
+		
+        <script src="./../../自定义插件/ajax/_promise_ajax.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/carousel.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

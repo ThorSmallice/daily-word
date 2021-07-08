@@ -225,6 +225,7 @@ let page = 1;
 let scrollLength = 0;
 let canUpdata = true; // 控制可否请求新数据 控制器
 tbodyWrap.addEventListener("scroll", (e) => { 
+    // e.target.scrollTop + e.target.clientHeight > e.target.scrollHeight - 50
     if (canUpdata && Math.ceil(e.target.scrollTop) >= e.target.scrollHeight - e.target.clientHeight) {
         // 当控制器允许请求数据 并且 滚动条到最底部了
         canUpdata = false;  // 控制器关闭 禁止再次请求

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+		<div class="web">
+			<div class="box box1">
+				<ul>
+					<li><a href=""><img src="img/1.png" alt=""></a></li>
+					<li><a href=""><img src="img/2.png" alt=""></a></li>
+				</ul>
+				<section class="arrow leftArrow">&lt;</section>
+				<section class="arrow rightArrow">&gt;</section>
+				<ol class="pointList">
+					<li class="active"></li>
+					<li></li>
+				</ol>
+			</div>
+			<div class="box box2">
+				<ul>
+					<li><a href=""><img src="img/2.png" alt=""></a></li>
+					<li><a href=""><img src="img/3.png" alt=""></a></li>
+					<li><a href=""><img src="img/4.png" alt=""></a></li>
+				</ul>
+				<section class="arrow leftArrow">&lt;</section>
+				<section class="arrow rightArrow">&gt;</section>
+				<ol class="pointList">
+					<li class="active"></li>
+					<li></li>
+				</ol>
+			</div>
+		</div>
+		<script src="./../../../自定义插件/ajax/_ajax_proto.js"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			let box1 = new Carousel(".box1",0);
+			let box2 = new Carousel(".box2",1);
+			
+			// console.log(box1);
+			// console.log(box2);
+			
+		</script>
+	</body>
+</html>

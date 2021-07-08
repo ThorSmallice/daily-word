@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none; }
+
+.web {
+  width: 100%; }
+  .box1{
+  	top: 25%;
+  }
+  .box2{
+  	top: 75%;
+  }
+  .web .box {
+    width: 40%;
+    padding-top: 22.4%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden; }
+    .web .box ul {
+      white-space: nowrap;
+      font-size: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+	  transition: all .3s;
+       }
+      .web .box ul li {
+        display: inline-block; }
+        .web .box ul li a {
+          display: block; }
+          .web .box ul li a img {
+            width: 100%; }
+    .web .box .arrow {
+      width: 20%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      font-size: 4vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all .3s;
+      cursor: pointer; }
+    .web .box .leftArrow {
+      left: 0;
+      background: linear-gradient(90deg, gray, transparent);
+      transform: translateX(-100%); }
+    .web .box .rightArrow {
+      right: 0;
+      background: linear-gradient(90deg, transparent, gray);
+      transform: translateX(100%); }
+    .web .box:hover .arrow {
+      transform: translateX(0%); }
+    .web .box .pointList {
+      white-space: nowrap;
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%); }
+      .web .box .pointList li {
+        cursor: pointer;
+        width: 1vw;
+        height: 1vw;
+        display: inline-block;
+        background-color: #fff;
+        margin: 0 .5vw;
+        border-radius: 50%; }
+      .web .box .pointList .active {
+        background-color: #f00; }
+
+/*# sourceMappingURL=index.css.map */

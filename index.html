@@ -82,27 +82,17 @@
         </div>
     </article>
     <footer></footer>
+    <script src="./自定义插件/ajax/_promise_ajax.js"></script>
     <script>
-        
+        _promise("http://student.0melon0.cn/index/wheel/get_prize_list").then(res => {
+            console.log(res);
+            return _promise("http://student.0melon0.cn/index/wheel/get_prize_list")
+        }).then(res => {
+            console.log(res);
+        })
          
         
-        // for(var i = 0; i < arr.length; i++){
-        //     console.log(i);
-        //     j = i;
-        // }
-        // console.log(j);
-        let swift = document.querySelectorAll(".swift ul li");
-        // for(var i = 0; i < 5; i++) {
-        //     console.log(i);
-        // }     
-        // for (var i = 1; i < 6; i++) {
-        //     console.log(i);
-        // }
-        for(let i = 0; i < swift.length; i++ ){
-            swift[i].addEventListener("mouseleave",function() {
-                console.log(i);
-            })
-        }
+        
     </script>
 </body>
 </html>
