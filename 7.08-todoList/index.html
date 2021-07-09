@@ -37,7 +37,7 @@
                     @after-enter="toggleChangeStatus"    
                     @after-leave="toggleChangeStatus">
                         <template  v-for="(item, index) in loginList">
-                            <li :key="index">
+                            <li :key="item.id">
                                 <div class="content">
                                     <input type="checkbox" @change="changeStatus(item)" :checked="item.isFinish"> 
                                     {{item.text}} 
@@ -56,7 +56,7 @@
                     </div>
                     <transition-group tag="ul" enter-active-class="animate__animated animate__bounceInRight" leave-active-class="animate__animated animate__bounceOutLeft">
                         <template  v-for="(item,index) in finishList"> 
-                            <li :key="index"> 
+                            <li :key="item.id"> 
                                 <div class="content">
                                     <input type="checkbox" @change="changeStatus(item)" :checked="item.isFinish"> 
                                     {{ item.text }} 
