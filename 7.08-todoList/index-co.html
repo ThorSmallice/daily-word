@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="./css/index-co.css">
+</head>
+<body>
+    <div id="app"> 
+        <header>
+            <div class="container">
+                <h2>todoList</h2>
+                <div>
+                    <input 
+                    class="textInp" 
+                    type="text" 
+                    v-model.lazy.trim="inputText" 
+                    @keyup.enter="addItem" 
+                    placeholder="输入你即将要做的事情吧~" 
+                    :disabled="isDisabled"> 
+                    <input class="dateInp" type="datetime-local" v-model.lazy="inputDate">
+                    <button @click="sure" v-if="showSureBtn">恢复</button>
+                    <button @click="addItem" >添加</button>
+                    
+                    <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut">
+                        <p class="aleat-box" v-if="!hasContent">
+                            请填写内容和时间哦~
+                        </p>
+                    </transition>
+                </div>
+            </div>
+        </header>
+        <main>
+            <event-list 
+                :data-arr="loginList" 
+                title-text="正在进行" 
+                class="listbox1">
+            </event-list>
+
+            <event-list 
+                :data-arr="finishList" 
+                title-text="已经完成" 
+                class="listbox2">
+            </event-list>
+
+            <event-list 
+                @recover-item="recoveItem"
+                :data-arr="overtimeList" 
+                title-text="已经过期" 
+                class="listbox3">
+            </event-list>
+        </main>
+       
+        
+    </div>
+
+    <template id="eventlist" >
+        <div class="listbox">
+            <div class="title">
+                <h2>{{ titleText }}</h2>
+                <span>{{dataArr.length}}</span>
+            </div>
+            <transition-group tag="ul" 
+            enter-active-class="animate__animated animate__bounceInRight" leave-active-class="animate__animated animate__bounceOutLeft"
+            @after-enter="toggleChangeStatus"    
+            @after-leave="toggleChangeStatus">
+                <template  v-for="item in dataArr">
+                    <li :key="item.id">
+                        <div class="content">
+                            <input type="checkbox" @change="changeStatus(item)" :checked="item.isFinish" :disabled="item.isOver"> 
+                            {{item.text}} 
+                        </div>
+                        <div class="button-wrap">
+                            <button @click="recove(item)" v-if="item.isOver">恢复</button>
+                            <button @click="delItem(item)">删除</button>
+                        </div>
+                    </li>
+                </template>
+            </transition-group>
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./js/index-co.js"></script>
+</body>
+</html>

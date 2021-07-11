@@ -14,12 +14,13 @@
             <div class="container">
                 <h2>todoList</h2>
                 <div>
-                    <input type="text" v-model.lazy.trim="inputText" @keyup.enter="addItem" placeholder="输入你即将要做的事情吧~"> 
+                    <input class="textInp" type="text" v-model.lazy.trim="inputText" @keyup.enter="addItem" placeholder="输入你即将要做的事情吧~"> 
+                    <input class="dateInp" type="datetime-local" v-model.lazy="inputDate">
                     <button @click="addItem" >添加</button>
                     
                     <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut">
                         <p class="aleat-box" v-if="!hasContent">
-                            没填内容哦~
+                            请填写内容和时间哦~
                         </p>
                     </transition>
                 </div>
@@ -54,8 +55,34 @@
                         <h2>已经完成</h2>
                         <span>{{finishList.length}}</span>
                     </div>
-                    <transition-group tag="ul" enter-active-class="animate__animated animate__bounceInRight" leave-active-class="animate__animated animate__bounceOutLeft">
+                    <transition-group tag="ul" 
+                    enter-active-class="animate__animated animate__bounceInRight" leave-active-class="animate__animated animate__bounceOutLeft"
+                    @after-enter="toggleChangeStatus"    
+                    @after-leave="toggleChangeStatus">
                         <template  v-for="(item,index) in finishList"> 
+                            <li :key="item.id"> 
+                                <div class="content">
+                                    <input type="checkbox" @change="changeStatus(item)" :checked="item.isFinish"> 
+                                    {{ item.text }} 
+                                </div>
+                                <button @click="delItem(item)">删除</button>
+                            </li>
+                        </template>
+                    </transition-group>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="listbox listbox3">
+                    <div class="title">
+                        <h2>已经过期</h2>
+                        <span>{{overtimeList.length}}</span>
+                    </div>
+                    <transition-group tag="ul" 
+                    enter-active-class="animate__animated animate__bounceInRight" leave-active-class="animate__animated animate__bounceOutLeft"
+                    @after-enter="toggleChangeStatus"    
+                    @after-leave="toggleChangeStatus">
+                        <template  v-for="(item,index) in overtimeList"> 
                             <li :key="item.id"> 
                                 <div class="content">
                                     <input type="checkbox" @change="changeStatus(item)" :checked="item.isFinish"> 
@@ -71,8 +98,6 @@
        
         
     </div>
-
-    
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
     <script src="./js/index.js"></script>
 </body>

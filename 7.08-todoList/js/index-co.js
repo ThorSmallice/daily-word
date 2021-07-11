@@ -7,7 +7,10 @@ let app = new Vue({
         hasContent: true,
         canChange: true,
         nowDate: new Date(),
-        dateTimer: null
+        dateTimer: null,
+        showSureBtn : false,
+        isDisabled : false,
+        recoveObj: null
     },
     methods: {
         addItem () {
@@ -23,7 +26,6 @@ let app = new Vue({
                     })
                     this.inputText = "";
                     this.inputDate = "";
-                    console.log(this.inputList);
                 } else {
                     this.hasContent = false;
                     setTimeout(() => {
@@ -33,19 +35,6 @@ let app = new Vue({
                 }
             } 
         },
-        changeStatus (item) {
-            if (this.canChange) {
-                this.canChange = false;
-                item.isFinish = !item.isFinish 
-            }
-        },
-        delItem (oitem) {
-            if(this.canChange) {
-                this.inputList = this.inputList.filter((item) => {
-                    return item.id != oitem.id
-                })
-            }
-        },
         getinfoList () {
             if (localStorage.getItem("inputList"))  {
                 this.inputList = JSON.parse(localStorage.getItem("inputList"))
@@ -53,8 +42,21 @@ let app = new Vue({
                 this.inputList = []
             }
         },
-        toggleChangeStatus() {
-            this.canChange = true; 
+        recoveItem (item) {
+            this.isDisabled = true;
+            this.inputText = item.text;
+            this.showSureBtn = true;
+            this.recoveObj = item
+        },
+        sure() {
+            this.isDisabled = false;
+            this.showSureBtn = false;
+            this.recoveObj.overDate = (new Date(this.inputDate).getTime()) / 1000;
+            this.recoveObj.isOver = this.isover;
+            this.inputText = "";
+            this.inputDate = "";
+            this.recoveObj = null;
+            this.showSureBtn = false;
         },
         // 监控系统时间 更改事项过期状态
         toggleOver () {
@@ -106,5 +108,38 @@ let app = new Vue({
     created() {
         this.getinfoList();
         this.toggleOver();
+    },
+    components: {
+        "event-list" : {
+            template: "#eventlist",
+            props: ["data-arr","title-text"],
+            data: function() {
+                return {
+                   
+                }
+            },
+            methods: {
+                toggleChangeStatus() {
+                    this.$parent.canChange = true; 
+                },
+                changeStatus(item) {
+                    if(this.$parent.canChange) {
+                        this.$parent.canChange = false;
+                        item.isFinish = !item.isFinish 
+                    } 
+                },
+                delItem(obj) {
+                    if (this.$parent.canChange) {
+                        this.$parent.canChange = false;
+                        this.$parent.inputList = this.$parent.inputList.filter(item => {
+                            return item.id != obj.id
+                        })
+                    }
+                },
+                recove(item) {
+                    this.$emit("recover-item",item)
+                }
+            }
+        }
     }
 })
