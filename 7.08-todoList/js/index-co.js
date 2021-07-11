@@ -49,14 +49,23 @@ let app = new Vue({
             this.recoveObj = item
         },
         sure() {
-            this.isDisabled = false;
-            this.showSureBtn = false;
-            this.recoveObj.overDate = (new Date(this.inputDate).getTime()) / 1000;
-            this.recoveObj.isOver = this.isover;
-            this.inputText = "";
-            this.inputDate = "";
-            this.recoveObj = null;
-            this.showSureBtn = false;
+            if (this.inputDate) {
+                this.isDisabled = false;
+                this.showSureBtn = false;
+                this.recoveObj.overDate = (new Date(this.inputDate).getTime()) / 1000;
+                this.recoveObj.isOver = this.isover;
+                this.inputText = "";
+                this.inputDate = "";
+                this.recoveObj = null;
+                this.showSureBtn = false;
+            }else {
+                this.hasContent = false;
+                setTimeout(() => {
+                    this.hasContent = true;
+                },2000)
+                this.canChange = true
+            }
+            
         },
         // 监控系统时间 更改事项过期状态
         toggleOver () {

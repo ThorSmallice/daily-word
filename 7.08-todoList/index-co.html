@@ -72,6 +72,7 @@
                         <div class="content">
                             <input type="checkbox" @change="changeStatus(item)" :checked="item.isFinish" :disabled="item.isOver"> 
                             {{item.text}} 
+                            {{ new Date(item.overDate*1000).toISOString() }}
                         </div>
                         <div class="button-wrap">
                             <button @click="recove(item)" v-if="item.isOver">恢复</button>
