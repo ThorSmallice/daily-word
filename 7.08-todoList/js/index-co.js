@@ -56,8 +56,7 @@ let app = new Vue({
                 this.recoveObj.isOver = this.isover;
                 this.inputText = "";
                 this.inputDate = "";
-                this.recoveObj = null;
-                this.showSureBtn = false;
+                this.recoveObj = null; 
             }else {
                 this.hasContent = false;
                 setTimeout(() => {
