@@ -1,5 +1,38 @@
 <template>
     <div id="Index">
+        <transition
+        enter-active-class="animate__animated animate__fadeIn" 
+        leave-active-class="animate__animated animate__fadeOut"
+        > 
+            <div class="diaglog-box" v-if="showDiaglog">
+                <div class="diaglog">
+                    <div class="close-box">
+                        <span @click="cancelRecove">x</span>
+                    </div>
+                    <div class="inp-box">
+                        <h3>恢复事项</h3>
+                        <input type="text" disabled v-model.lazy.trim="recoveObj.text">
+                        
+                        <h3>选择过期时间</h3>
+                        <input type="datetime-local" v-model="recoveOverDate">
+                        <transition 
+                            enter-active-class="animate__animated animate__fadeIn" 
+                            leave-active-class="animate__animated animate__fadeOut"
+                            >
+                                <p class="aleat-date" v-if="showDateAleat">
+                                    请选择正确的时间,必须大于系统时间！
+                                </p>
+                        </transition>
+
+                    </div>
+                    <div class="btn-box">
+                        <button class="btn-sure" @click="sure">确认</button>
+                        <button class="btn-no" @click="cancelRecove">取消</button>
+                    </div>
+                </div>
+            </div>
+        </transition>
+
         <header>
             <div class="container">
                 <h2>todoList</h2>
@@ -10,23 +43,26 @@
                     v-model.lazy.trim="inputText" 
                     @keyup.enter="addItem" 
                     placeholder="输入你即将要做的事情吧~" 
-                    :disabled="isDisabled"> 
+                    > 
                     <input class="dateInp" type="datetime-local" v-model.lazy="inputDate">
-                    <button @click="sure" v-if="showSureBtn">确认</button>
-                    <button @click="addItem" >新增</button>
                     
+                    <button @click="addItem" >新增</button>
+                     
                     <transition 
                     enter-active-class="animate__animated animate__fadeIn" 
                     leave-active-class="animate__animated animate__fadeOut"
                     >
                         <p class="aleat-box" v-if="noInputContent">
-                            请填写内容和时间哦~
+                            请正确填写内容和未来时间哦~
                         </p>
                     </transition>
+
+                    
                 </div>
             </div>
 
         </header>
+
         <main>
             <todo-box 
             title="正在进行" 
@@ -70,12 +106,14 @@ export default {
             inputText: "",                              // 用户输入的文本
             inputDate: "",                              // 用户选择的过期时间
             todoArr: [],                                // 所有事项的数据列表 
-            systemDate: new Date().getTime() / 1000,   // 当前(实时)系统时间 单位:s
-            isDisabled: false,                         // 输入框是否禁用 默认否
-            showSureBtn: false,                        // 恢复按钮是否显示 默认否
+            systemDate:  Date.now(),                    // 当前(实时)系统时间  
+            showDiaglog: false,                        // 恢复按钮是否显示 默认否
             noInputContent: false,       // 控制输入提示 默认不提示 用户添加事项时若没有输入内容或时间再提示
             dateTimer: null,             // 监视系统时间更改过期事项状态的定时器
-            recoveObj: null              // 临时存储要恢复的事项
+            recoveObj: null,             // 临时存储要恢复的事项
+            recoveOverDate: "",
+            showDateAleat: false
+            
         }
     },
     // 方法
@@ -84,14 +122,14 @@ export default {
         addItem () {
            if (this.canHandle) { // 允许操作 
                 this.canHandle = false;  // 禁止操作 
-                if (this.inputText && this.inputDate) {
-                    // 有输入文本和选择时间 就向数组添加一个新事项对象
+                if (this.inputText && this.inputDate && new Date(this.inputDate).getTime() > this.systemDate) {
+                    // 有输入文本和选择时间 并且选择的时间要在未来 也就是大于系统时间 就向数组添加一个新事项对象
                     this.todoArr.push({
                         id: Date.now(),                                         // 事项id
                         text: this.inputText,                                   // 事项内容
                         isFinish: false,                                        // 事项是否完成 默认未完成
-                        overDate:  new Date(this.inputDate).getTime()  / 1000,    // 事项的过期时间 单位:s
-                        isOver: this.isover                                     // 事项是否过期 根据用户选择的时间戳计算返回 ==> computed：isover进行计算返回
+                        overDate: new Date(this.inputDate).getTime(),          // 事项的过期时间戳
+                        isOver: false                                           // 事项默认不过期
                     })
                     this.inputText = "";        // 重置输入框
                     this.inputDate = "";        // 重置日期选择 
@@ -127,36 +165,45 @@ export default {
         // 恢复事项
         recoveItem (item) {
             if (this.canHandle) {
-                this.canHandle = false;     // 禁止操作
-                this.isDisabled = true;     // 输入框禁止输入
-                this.inputText = item.text; // 输入框内容为恢复事项文本
-                this.showSureBtn = true;    // 显示恢复按钮
-                this.recoveObj = item       // 保存要恢复的事项
+                
+                this.canHandle = false;     // 禁止操作 
+                this.recoveObj = item          // 保存要恢复的事项
+                this.recoveOverDate = new Date(item.overDate + 60*60*8*1000).toISOString().substr(0,16);
+                this.showDiaglog = true;       // 显示提示弹窗
             }
-            this.canHandle = true;      // 允许操作
+            this.canHandle = true;      // 允许操作  
         },
         // 确认恢复
         sure () {
             if (this.canHandle) { 
                 this.canHandle = false;   // 禁止操作
-                if (this.inputDate) {   // 有选择日期
-                    this.recoveObj.overDate = (new Date(this.inputDate).getTime()) / 1000;  // 更新过期时间
-                    this.recoveObj.isOver = this.isover;                                    // 更改过期状态
-                    this.isDisabled = false;        // 输入框恢复可输入
-                    this.showSureBtn = false;       // 隐藏恢复确认按钮
-                    this.inputText = "";            // 重置输入框
-                    this.inputDate = "";            // 重置日期
+                if (this.recoveObj.overDate && new Date(this.recoveOverDate).getTime()  > this.systemDate) {   // 有选择日期 并且时间是未来时
+                    this.recoveObj.overDate = new Date(this.recoveOverDate).getTime();  // 更新过期时间
+                    this.recoveObj.isOver = false;                                    // 更改过期状态
+                     
+                    this.showDiaglog = false;           // 隐藏弹窗 
                     this.recoveObj = null;          // 重置临时存储事项 
+                    this.recoveOverDate = "";       // 重置临时存储事项日期
                 }else {                             // 没有选择日期
-                    this.noInputContent = true;     // 显示提示 2s后隐藏显示
+                    this.showDateAleat = true;     // 显示提示 2s后隐藏显示
                     setTimeout(() => {          
-                        this.noInputContent = false;
+                        this.showDateAleat = false;
                     },2000)
                    
                 }
                 this.canHandle = true;             // 允许操作
             }
             
+        },
+        // 取消恢复
+        cancelRecove() {
+            if (this.canHandle) {
+                this.canHandle = false;         // 禁止操作 
+                this.recoveObj = null;          // 重置临时存储的恢复事项
+                this.recoveOverDate = "";       // 重置临时存储事项日期
+                this.showDiaglog = false;       // 隐藏提示弹窗
+            }
+            this.canHandle = true;             // 允许操作
         },
         // 获取本地存储中的事项列表 
         getTodoArr () {
@@ -165,10 +212,10 @@ export default {
         // 监控系统时间 更改事项过期状态
         toggleOver () {
             this.dateTimer = setInterval(() => {
-                this.systemDate = new Date().getTime() / 1000;
+                this.systemDate =  Date.now();
                 if (this.todoArr) {
                     this.todoArr.forEach(item => {
-                        if (item.overDate < this.systemDate) {
+                        if (item.overDate < this.systemDate && item.isFinish == false) {
                             item.isOver = true
                         }
                     })
@@ -187,25 +234,15 @@ export default {
         // 已经完成的事项数据列表
         finishArr : function () {
             return this.todoArr.filter(item => {
-                return (item.isFinish) && (!item.isOver) 
+                return item.isFinish
             })
         },
         // 已经过期的事项数据列表
         overArr : function () {
             return this.todoArr.filter(item => {
-                return item.isOver
+                return item.isOver && !item.isFinish
             })
-        },
-        // 返回用户新添加的事项选择的日期是否过期
-        isover : function () {
-            // 有选择日期 并且 选择日期的时间戳小于实时系统时间戳 为已过期 否则 未过期
-            if ( this.inputDate && ( new Date(this.inputDate).getTime() / 1000   <  this.systemDate) ) {
-                return true
-            } else {
-                return false
-            } 
-        }
-
+        } 
     },
     created() {
         // 获取本地事项列表数据
@@ -221,7 +258,7 @@ export default {
             },
             deep: true
         }
-    },
+    }, 
     // 组件
     components: {
         todoBox
@@ -230,6 +267,114 @@ export default {
 </script>
 
 <style lang="scss" >
+.diaglog-box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+    .diaglog {
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%,-50%); 
+        padding: 2%;
+        display: flex; 
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        border-radius: 15px;
+        width: 40%; 
+        height: 450px;
+        background: #fff;
+        box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.2);
+        .close-box {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            span { 
+                user-select: none;
+                cursor: pointer;
+                display: block;
+                border: 2px solid #87ceeb;
+                border-radius: 3px;
+                color: red;
+                font-size: 18px;
+                font-weight: 700;
+                background-color: #fff;
+                width: 25px; 
+                height: 25px;
+                line-height: 21px;
+                text-align: center;
+                &:hover {
+                    background-color: #ccc; 
+                    color: #fff;
+                } 
+            }
+        } 
+        .inp-box {
+            position: relative;
+            width: 100%;
+            input {
+                width: 70%;
+                padding: 5px 10px;
+                height: 30px;
+                line-height: 30px; 
+                border-radius: 15px;
+                margin-right: 10px; 
+                font-size: 16px;
+                outline: none;
+                border: 2px solid #87ceeb;
+            }
+            .aleat-date {
+                position: absolute;
+                left: 40px;
+                bottom: -40px;
+                padding: 10px 15px;
+                border: 2px solid red;
+                background-color: #F7A440;
+                border-radius: 8px;
+                color: #fff;
+                font-weight: 600;
+                font-size: 16px; 
+            }
+        }
+        .btn-box {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            button {
+                cursor: pointer;
+                user-select: none;
+                width: 20%;
+                height: 70%; 
+                font-size: 20px;
+                text-align: center;
+                letter-spacing: 5px;
+                margin-left: 20px;
+                border-radius: 10px;
+                font-weight: 700;
+                &:hover {
+                    background-color: #ccc;
+                    color: red;
+                }
+            }
+            .btn-sure {
+                background-color: #87ceeb;
+                border: 2px solid #000;
+                color: #fff;
+               
+            }
+            .btn-no{
+                background-color: #fff;
+                border: 2px solid #000;
+            }
+        }
+        
+    }
+}
+
 .container {
     width: 70%;
     height: 100%;
@@ -287,25 +432,25 @@ header {
             position: absolute;
             left: 428px;
             top: 55px;
-            display: block;
-            width: 140px;
+            display: block; 
             font-size: 13px;
             text-align: center;
             line-height: 50px;
             height: 50px;
             z-index: 20;
             background-color: #fff;
-            border-radius:  50% / 50%;
+            padding: 5px 10px;
+            border-radius: 10px;
             border: 2px dotted #87ceeb;
             color: #687980;
             &::after {
                 content: "";
                 display: block;
                 position: absolute;
-                transform: rotate(120deg);
+                transform: rotate(134deg);
                 z-index: 1;
-                left: 17px;
-                top: -6px;
+                left: 45px;
+                top: -12px;
                 width: 20px;
                 height:20px;
                 border-left: 2px dotted #87ceeb;

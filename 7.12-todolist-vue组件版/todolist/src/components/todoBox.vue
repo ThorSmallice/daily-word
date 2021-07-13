@@ -13,7 +13,7 @@
                     <div class="content">
                         <input type="checkbox" @change="changeFinishStatus(item)" :checked="item.isFinish" :disabled="item.isOver"> 
                         {{item.text}} 
-                        {{ item.overDate*1000 | formatTime}}
+                        {{ {item, systemDate} | formatTime }}
                     </div>
                     <div class="button-wrap">
                         <button @click="recoveItem(item)" v-if="item.isOver">恢复</button>
@@ -30,11 +30,12 @@ export default {
     props:[ // 接收传入的数据列表
         "title" ,       // 标题
         "data-arr",     // 要渲染的数组 
-        "can-handle"    // 是否允许操作( 删除 更改完成状态 恢复)
+        "can-handle",   // 是否允许操作( 删除 更改完成状态 恢复) 
     ],
     data: function () {
         return {
-
+            systemDate: Date.now(),
+            systemTimer: null
         }
     },
     methods: {
@@ -51,22 +52,44 @@ export default {
         recoveItem (currentItem) {
             // 派发 `recover-item ` 事件交至父组件处理
             this.$emit("recover-item",currentItem)
-        }
+        },
+        // 实时更新系统当前时间
+        setTimer() {
+            this.systemTimer = setInterval(() => {
+                this.systemDate = Date.now()
+            }, 1000);
+        } 
+    },
+    created() {
+        this.setTimer();    // 实时更新系统当前时间
     },
     filters: {
-        formatTime : function (value) {
-            if (!value) return "时间错误" ;
-            let date = new Date(value);
-            
-            let year = date.getFullYear();
-            let month = date.getMonth() + 1;
-            let day = date.getDate();
-            
-            let hour = date.getHours();
-            let minute = date.getMinutes(); 
-            hour = hour < 10? String(hour).padStart(2,"0") : hour;
-            minute = minute < 10? String(minute).padStart(2,"0") : minute;
-            return `${year}年${month}月${day}日   ${hour}:${minute}`
+        formatTime : function (data) {
+            if (!data.item.overDate) return "时间错误" ;         // 过期时间不存在 返回时间错误
+            if ( data.item.isFinish || data.item.isOver ) {          // 如果事项已经完成，或者已经过期 返回格式化的过期时间 
+                let date = new Date(data.item.overDate);
+                // 获取年月日
+                let year = date.getFullYear();
+                let month = date.getMonth() + 1;
+                let day = date.getDate();
+                // 获取小时、分钟
+                let hour = date.getHours();
+                let minute = date.getMinutes(); 
+                // 小时、分钟不满两位数的 用0补齐
+                hour = hour < 10? String(hour).padStart(2,"0") : hour;
+                minute = minute < 10? String(minute).padStart(2,"0") : minute;
+
+                return `${year}年${month}月${day}日   ${hour}:${minute}`
+            } 
+            // 如果事项是未完成的  并且距离过期时间不足24小时的 返回剩余时间
+            if( (!data.item.isFinish) && ( data.item.overDate - data.systemDate < 60*60*24*1000) ) {  
+                let timeDifference = parseInt((data.item.overDate - data.systemDate) / 1000);  // 过期时间距离系统时间的时间差 单位s
+                let days = parseInt(timeDifference / 86400);                // 计算天
+                let hours = parseInt(timeDifference % 86400 / 3600);        // 计算小时
+                let minu = parseInt(timeDifference % 86400 % 3600 / 60);    // 计算分钟
+                let seconds = parseInt(timeDifference % 86400 % 3600 % 60); // 计算秒
+                return `还有${ days = days > 0 ? days : ''}${ days > 0 ? '天' : ''} ${hours}时${minu}分${seconds}秒过期  `
+            }
         }
     }
 }
