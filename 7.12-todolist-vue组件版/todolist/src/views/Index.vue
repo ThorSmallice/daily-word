@@ -1,5 +1,6 @@
 <template>
     <div id="Index">
+        <!-- 弹窗 -->
         <transition
         enter-active-class="animate__animated animate__fadeIn" 
         leave-active-class="animate__animated animate__fadeOut"
@@ -34,8 +35,11 @@
         </transition>
 
         <header>
+            <!-- 头部 -->
             <div class="container">
+                <!-- 标题 -->
                 <h2>todoList</h2>
+                <!-- 输入框 日期选择 操作按钮 -->
                 <div>
                     <input 
                     class="textInp" 
@@ -64,6 +68,7 @@
         </header>
 
         <main>
+            <!-- 事项列表 -->
             <todo-box 
             title="正在进行" 
             class="listbox1"
@@ -268,7 +273,7 @@ export default {
 
 <style lang="scss" >
 .diaglog-box{
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     left: 0;
