@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 #app {
-    width: 80%; 
+    width: 1366px; 
     margin: 0 auto;
 }
 </style>
