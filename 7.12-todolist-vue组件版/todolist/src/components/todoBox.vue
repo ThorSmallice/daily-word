@@ -88,6 +88,11 @@ export default {
                 let hours = parseInt(timeDifference % 86400 / 3600);        // 计算小时
                 let minu = parseInt(timeDifference % 86400 % 3600 / 60);    // 计算分钟
                 let seconds = parseInt(timeDifference % 86400 % 3600 % 60); // 计算秒
+
+                days = days < 10 ? String(days).padStart(2,"0") : days;
+                hours = hours < 10 ? String(hours).padStart(2,"0") : hours;
+                minu = minu < 10 ? String(minu).padStart(2,"0") : minu;
+                seconds = seconds < 10 ? String(seconds).padStart(2,"0") : seconds;
                 return `还有${ days = days > 0 ? days : ''}${ days > 0 ? '天' : ''} ${hours}时${minu}分${seconds}秒过期  `
             }
         }
