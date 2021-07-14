@@ -74,18 +74,32 @@
             class="listbox1"
             :data-arr="unfinishArr" 
             :can-handle="canHandle"
-            @del-item="delItem" 
-            @change-finish-status="changeFinishStatus"
-            ></todo-box>
+            @del-item="delItem"  
+            >
+                <template v-slot:checkbox="res">
+                    <input type="checkbox" 
+                    @change="changeFinishStatus(res.data)"
+                    :checked="res.data.isFinish" 
+                    :disabled="res.data.isOver"
+                    />
+                </template>
+            </todo-box>
 
             <todo-box 
             title="已经完成" 
             :data-arr="finishArr"  
             class="listbox2"
             :can-handle="canHandle"
-            @del-item="delItem"
-            @change-finish-status="changeFinishStatus"
+            @del-item="delItem" 
             >
+
+                <template v-slot:checkbox="res">
+                    <input type="checkbox" 
+                    @change="recoveItem(res.data)"
+                    :checked="res.data.isFinish" 
+                    :disabled="res.data.isOver"
+                    />
+                </template>
             </todo-box>
 
             <todo-box 
@@ -95,8 +109,13 @@
             :can-handle="canHandle"
             @del-item="delItem"
             @recover-item="recoveItem"
-            @change-finish-status="changeFinishStatus"
             >
+                <template v-slot:checkbox="res">
+                    <input type="checkbox"
+                    :checked="res.data.isFinish" 
+                    :disabled="res.data.isOver"
+                    />
+                </template>
             </todo-box>
         </main>
     </div>
@@ -150,12 +169,13 @@ export default {
            }
         },
         // 更改事项状态
-        changeFinishStatus (currentItem) {
+        changeFinishStatus (item) {
             if(this.canHandle) {
                 this.canHandle = false;  // 禁止操作
-                currentItem.isFinish = !currentItem.isFinish // 改变事项状态
+                item.isFinish = !item.isFinish // 改变事项状态
                 this.canHandle = true;  // 允许操作
             }
+            // console.log(res);
         },
         // 删除事项
         delItem (selectId) {
@@ -172,7 +192,7 @@ export default {
             if (this.canHandle) {
                 
                 this.canHandle = false;     // 禁止操作 
-                this.recoveObj = item          // 保存要恢复的事项
+                this.recoveObj = item          // 保存要恢复的事项 
                 this.recoveOverDate = new Date(item.overDate + 60*60*8*1000).toISOString().substr(0,16);
                 this.showDiaglog = true;       // 显示提示弹窗
             }
@@ -185,7 +205,7 @@ export default {
                 if (this.recoveObj.overDate && new Date(this.recoveOverDate).getTime()  > this.systemDate) {   // 有选择日期 并且时间是未来时
                     this.recoveObj.overDate = new Date(this.recoveOverDate).getTime();  // 更新过期时间
                     this.recoveObj.isOver = false;                                    // 更改过期状态
-                     
+                    this.recoveObj.isFinish = false;
                     this.showDiaglog = false;           // 隐藏弹窗 
                     this.recoveObj = null;          // 重置临时存储事项 
                     this.recoveOverDate = "";       // 重置临时存储事项日期
@@ -251,7 +271,9 @@ export default {
     },
     created() {
         // 获取本地事项列表数据
-        this.getTodoArr();
+        this.getTodoArr(); 
+    },
+    mounted() {
         // 监控系统时间 更改事项过期状态
         this.toggleOver()
     },
@@ -473,6 +495,14 @@ main {
     background-color: #FFEACA;
     padding: 20px 0 5px;
     border-radius: 0px 0px 20px 20px; 
+    .listbox {
+        input {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    }
     .listbox1 {
         background-color: #A2DBFA;
         border: 5px solid #343F56;

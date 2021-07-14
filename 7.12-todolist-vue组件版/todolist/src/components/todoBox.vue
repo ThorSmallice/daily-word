@@ -11,7 +11,7 @@
             <template  v-for="item in dataArr">
                 <li :key="item.id">
                     <div class="content">
-                        <input type="checkbox" @change="changeFinishStatus(item)" :checked="item.isFinish" :disabled="item.isOver"> 
+                        <slot name="checkbox" :data="item"></slot> 
                         {{item.text}} 
                         {{ {item, systemDate} | formatTime }}
                     </div>
@@ -60,7 +60,7 @@ export default {
             }, 1000);
         } 
     },
-    created() {
+    mounted() {
         this.setTimer();    // 实时更新系统当前时间
     },
     filters: {
@@ -131,13 +131,7 @@ export default {
             justify-content: space-between;
             align-items: center;
             line-height: 60px;
-            font-size: 26px; 
-            input {
-                width: 30px;
-                height: 30px;
-                vertical-align: middle;
-                margin-right: 10px;
-            }
+            font-size: 26px;  
             button { 
                 margin-left: 10px;
                 cursor: pointer;
