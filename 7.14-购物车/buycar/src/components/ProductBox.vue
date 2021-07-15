@@ -21,7 +21,7 @@
                         </span>
                         <span>{{ item.productName }} </span>
                         <span> {{ item.productPrice }} </span>
-                        <span> <input class="inpcount" type="number" v-model.number="item.productCount"></span>
+                        <span> <input class="inpcount" type="number" v-model.number="item.productCount" min="1" @change="changeNum(item)"></span>
                         <span> {{  (item.productPrice * item.productCount).toFixed(2)  }} </span>
                         <span> 
                             <button class="delbtn" @click="delItem(item.id)">删除</button>    
@@ -59,7 +59,25 @@ export default {
         },
         checkChangeAll () {
             this.$emit("change-all")
-        } 
+        },
+        changeNum (item) {
+            if (item.productCount < 1) {
+                item.productCount = 1;
+                alert("数量最少是1")
+            }
+        }
+        // changeNum () {
+        //     this.dataList = [
+        //         {
+        //             id: 1,
+        //             productName:  "篮球",
+        //             productPrice:  "50",
+        //             productCount:  "2",
+        //             isCheck: false
+        //         }
+        //     ]
+             
+        // }
     },
     computed: {
         getTotalPrice () {
@@ -136,9 +154,13 @@ export default {
             }
             .table-footer { 
                 div{ 
-                    
                     background-color: #fff;
                     border-radius: 0 0 20px 20px  ; 
+                    span {
+                        display: inline-block;
+                        width: 25%;
+                        margin-right: 10px;
+                    }
                 } 
             }
             .table-tr { 

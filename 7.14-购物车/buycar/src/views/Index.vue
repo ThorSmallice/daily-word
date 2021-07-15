@@ -5,7 +5,7 @@
                 <div class="input-box">
                     <input class="inp-name" type="text" placeholder="商品名称" v-model.lazy.trim="inpName"> 
                     <input class="inp-price" type="text" placeholder="商品单价" v-model.lazy.number="inpPrice">
-                    <input class="inp-count" type="number" min="0" v-model.lazy="inpCount">
+                    <input class="inp-count" type="number" min="1" v-model.lazy="inpCount">
                 </div>
                 
                 <div class="btn-box">
@@ -36,7 +36,7 @@ export default {
         return {
             inpName: "",        // 输入框 商品名
             inpPrice: "",       // 输入框 商品单价
-            inpCount: 0,        // 输入框 商品数量 
+            inpCount: 1,        // 输入框 商品数量 
             productArr: [       // 购物车的商品列表
                 {
                     id: 1,
@@ -57,7 +57,7 @@ export default {
         addProduct() {
             if (this.canHandle) {
                 if (this.inpName && this.inpPrice && this.inpCount) {
-                    if (Number(this.inpPrice)) {
+                    if ( Number(this.inpPrice) > 0 && this.inpCount > 0 ) {
                         this.productArr.push({
                             id: Date.now(),         // 商品id 
                             productName: this.inpName,  // 名称
@@ -68,10 +68,10 @@ export default {
                         }) 
                         this.inpName = "";
                         this.inpPrice = "";
-                        this.inpCount = 0;
+                        this.inpCount = 1;
                     } else {
                         this.inpPrice = "";
-                        alert("请输入正确的商品数量，必须是数字")
+                        alert("请输入正确的商品数量，必须是数字,不能为负数")
                     }
                 }
             }
@@ -122,11 +122,15 @@ export default {
     watch: {
         productArr : {
             handler: function () {
-                this.allCheck = this.productArr.every(item => {
-                    return item.isCheck
-                });
-
                 localStorage.setItem("productArr",JSON.stringify(this.productArr));
+
+                if (this.productArr.length) {
+                    this.allCheck = this.productArr.every(item => {
+                        return item.isCheck
+                    });
+                } else {
+                    this.allCheck = false
+                } 
             },
             deep : true
         }
