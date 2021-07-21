@@ -8,6 +8,11 @@ const routes = [
     path: '/',
     name: 'Index', 
     component: () => import('../views/Index.vue')
+  },
+  {
+    path: '/user/:id/:phone',
+    name: 'User',
+    component: () => import('../views/User.vue')
   }
 ]
 
