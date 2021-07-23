@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" cellspacing="0" cellpadding="10" id="table">
+        <tr> 
+            <th>姓名</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+        </tr>
+    </table>
+
+    <script>
+        let arr = [
+            {
+                id:1,
+                name: "胡杭",
+                kemu: "css",
+                chengji: 100
+            },
+            {
+                id:2,
+                name: "胜明",
+                kemu: "js",
+                chengji: 120
+            },
+            {
+                id:3,
+                name: "军毅",
+                kemu: "vuejs",
+                chengji: 80
+            }
+        ]
+
+        
+
+        let table = document.querySelector("#table");
+        
+        
+        function xuanran () {
+            let tableInner = `
+                <tr> 
+                    <th>姓名</th>
+                    <th>科目</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+            ` 
+            arr.forEach(function(item, index) {
+                    tableInner += `
+                        <tr> 
+                            <td>${item.name}</td>
+                            <td>${item.kemu}</td>
+                            <td>${item.chengji}</td>
+                            <td><button class="delbtn" data-index=${item.id}>删除</button></td>
+                        </tr> 
+                    ` 
+            })
+            table.innerHTML = tableInner;
+        }
+
+        xuanran ()
+
+        let btnlist = document.querySelectorAll(".delbtn");
+        // console.log(btnlist);
+        btnlist.forEach(function(item,index) {
+            item.addEventListener("click",function () {
+                arr =  arr.filter(function (item, index) {
+                    return  item.id !=  
+                })
+            })
+            xuanran ()
+
+        })
+
+    </script>
+</body>
+</html>
