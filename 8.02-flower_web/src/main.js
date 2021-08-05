@@ -3,12 +3,23 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 const _axios = require('./utils/_axios');
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 
 import 'ant-design-vue/dist/antd.css';
 import { message,Modal,Select } from 'ant-design-vue'; 
 
 Vue.config.productionTip = false
 
+_axios.interceptors.request.use((res) => {
+    NProgress.start();
+    return res;
+})
+_axios.interceptors.response.use(res => {
+    NProgress.done()
+    return res.data
+})
+ 
 Vue.prototype.axios = _axios;
 Vue.prototype.$message = message;
 Vue.prototype.$modal = Modal;
@@ -43,12 +54,4 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
-
-// _axios.interceptors.request.use(res => {
-//     console.log(res);
-// },err => {
-//     console.log(err);
-// })
-_axios.interceptors.response.use(res => {
-    return res.data
-})
+ 

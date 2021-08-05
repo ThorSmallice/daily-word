@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router' 
-
+ 
 Vue.use(VueRouter)
 
 const routes = [
@@ -25,4 +25,16 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to,from,next) => {
+    const ignore = ['/'];
+    if (ignore.includes(to.path)){
+        next()
+    } else {
+        if (document.cookie && document.cookie.split("=")[1] ) {
+            next()
+        }else {
+            next('/')
+        }
+    }
+})
 export default router

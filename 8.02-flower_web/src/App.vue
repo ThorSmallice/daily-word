@@ -1,6 +1,8 @@
 <template>
         <div id="app">
-            <router-view></router-view>
+            <transition enter-active-class="animate__animated animate__zoomIn" leave-active-class="animate__animated animate__zoomOut">
+                <router-view></router-view> 
+            </transition>
         </div>
 </template>
 
@@ -31,10 +33,10 @@ export default {
         getuserInfo(cookie) {
             this.axios.get(`/api/appointment/show?token=${cookie}`)
             .then(res => { 
-                // console.log(res);
+                console.log(res);
                 this.$store.commit("updataUserAppoint", {
-                    appoint: res.data.data[0].is_appointment,
-                    sessionid: res.data.data[0].sessions_id
+                    appoint: res.data[0].is_appointment,
+                    sessionid: res.data[0].sessions_id
                 })
             }) 
         }

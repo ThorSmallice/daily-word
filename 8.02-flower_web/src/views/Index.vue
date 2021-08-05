@@ -18,32 +18,36 @@
                     <input type="text" v-model.trim="inpIdCard">
                 </li>
 
-                 <li class="input-box inpCode" v-if="showZhuce"> 
-                    <input type="text" v-model.trim="inpCode" placeholder="请输入验证码~" >
-                    <button @click="sendCode" class="sendCode">发送验证码</button>
-                </li>
+                <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeOutLeft">
+                    <li class="input-box inpCode" v-if="showZhuce"> 
+                        <input type="text" v-model.trim="inpCode" placeholder="请输入验证码~" >
+                        <button @click="sendCode" class="sendCode">发送验证码</button>
+                    </li>
+                </transition>
             </ul> 
         </section>
         <footer>  
                 
+            <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut"> 
+                <div class="operation-wrap" v-if="isLogin === 0">  
+                        <div class="operation-wrap" v-if="showZhuce">
+                            <button class="login-btn opera-btn" @click="tologin">去登录</button>
+                            <button class="login-btn opera-btn" @click="registered" >确定注册</button> 
+                        </div>
 
-                <div class="operation-wrap" v-if="isLogin === 0">
-                    <div class="operation-wrap" v-if="showZhuce">
-                        <button class="login-btn opera-btn" @click="tologin">去登录</button>
-                        <button class="login-btn opera-btn" @click="registered" >确定注册</button> 
-                    </div>
+                        <div class="operation-wrap" v-else>
+                            <button class="zhuce-btn opera-btn" @click="toregistered">去注册</button>
+                            <button class="login-btn opera-btn" @click="login">登录</button>
+                        </div> 
+                </div> 
+            
 
-                    <div class="operation-wrap" v-else>
-                        <button class="zhuce-btn opera-btn" @click="toregistered">去注册</button>
-                        <button class="login-btn opera-btn" @click="login">登录</button>
-                    </div>
-                   
-                </div>
- 
+            
                 <div class="operation-wrap" v-else>
                     <router-link :to="`/myappoint/${$store.state.userInfo.token}`" class="yuyue-btn opera-btn">我的预约</router-link>
                     <router-link to="/appointment" class="start-btn opera-btn">开始预约</router-link>
-                </div> 
+                </div>
+             </transition>
         </footer>
     </div>
 </template>
@@ -119,9 +123,10 @@ export default {
                     // 更新vuex 里的用户信息userinfo 
                     this.updataVueXuser(res.data[0]);  
                 }).catch((err)=>{
-                    if (err.response.data.code === 409) {
-                        this.$message.info("该用户不存在")
-                    }  
+                    console.log(err.response);
+                    // if (err.response.code === 409) {
+                    //     this.$message.info("该用户不存在")
+                    // }  
                 })
             } else {
                 this.$message.warning("请正确填写信息~")
@@ -196,6 +201,7 @@ export default {
     }
     footer {
         .operation-wrap {  
+            transition: all ease-in 1s;
             display: flex;
             margin: 0 auto;
             justify-content: space-evenly; 
