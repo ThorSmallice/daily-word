@@ -60,9 +60,9 @@
 export default {
     data: () => {
         return {
-            inpName: "张三",    // 姓名
-            inpTel: "18812345678",       //  手机号
-            inpIdCard: "440506199910281122",  //  身份证号  
+            inpName: "",    // 姓名
+            inpTel: "",       //  手机号
+            inpIdCard: "",  //  身份证号  
             inpCode: "",         // 验证码
             isLogin: 0,      //  登录状态 1是0否
             showZhuce: false,   // 显示注册按钮 默认否
