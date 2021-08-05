@@ -73,14 +73,28 @@ export default {
             }
         },
         // 发送验证码
-        sendCode() {
+        sendCode(e) {
             if (this.inpTel) { 
+                // 发送验证码
                 this.axios.get(`/api/sms/new?phone=${this.inpTel}`).then(res => {
                     this.$modal.success({
                         title: `发送成功~`,
                         content: `您本次的验证码为${res.data.code}` 
                     });
                 })
+                // 禁用按钮 60S后重启按钮
+                e.target.disabled = true;
+                let seconds = 60;
+                let timer = setInterval(() => {
+                    seconds--;
+                    e.target.innerText = `${seconds}S`
+                    if (seconds === 0) {
+                        clearInterval(timer);
+                        e.target.disabled = false;
+                        e.target.innerText = "发送验证码"
+                    }
+                },1000)
+                
             } else {
                 this.$message.warning("请输入手机号码~")
             }
@@ -193,6 +207,7 @@ export default {
                 }
                 .sendCode {
                     border: none;
+                    transition: all .5s ease-in;
                     padding: .133333rem;
                     border-radius: .266667rem;
                 }
