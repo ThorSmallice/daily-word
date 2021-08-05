@@ -7,17 +7,23 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
 import 'ant-design-vue/dist/antd.css';
-import { message,Modal,Select } from 'ant-design-vue'; 
+import { message,Modal,Select } from 'ant-design-vue';  
 
 Vue.config.productionTip = false
 
-_axios.interceptors.request.use((res) => {
+_axios.interceptors.request.use((res) => { 
     NProgress.start();
     return res;
 })
 _axios.interceptors.response.use(res => {
+    console.log(res);
+    if (res.status === 200) {
+        NProgress.done()
+        return res.data
+    } 
+},err => { 
     NProgress.done()
-    return res.data
+    return  Promise.reject(err)
 })
  
 Vue.prototype.axios = _axios;

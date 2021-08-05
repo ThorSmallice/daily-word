@@ -17,8 +17,9 @@ export default {
         // 获取登录状态
         getLoginStatus() {
             // 读取客户端cookie值  
-            let cookie =  document.cookie && document.cookie.split("=")[1];  
-            if (cookie) {  
+            let cookie =  document.cookie && document.cookie.split("=")[1];   
+            if (cookie == true) {  
+                console.log(1);
                 // 更新vuex 里的token
                 this.updataVueXtoken(cookie);
                 // 更新用户信息

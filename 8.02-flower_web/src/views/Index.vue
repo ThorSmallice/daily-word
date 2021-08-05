@@ -1,6 +1,10 @@
 <template>
     <div id="index">
-        <header></header>
+        <header>
+            <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut"> 
+                <button @click="offLogin" v-if="isLogin">注销</button>
+            </transition>
+        </header>
         <section>
             <ul class="form-wrap">
                 <li class="input-box inpName">
@@ -128,23 +132,36 @@ export default {
                 // 信息填写完整 发送登录请求
                 this.axios.get(`/api/user/show?name=${this.inpName}&phone=${this.inpTel}&idCard=${this.inpIdCard}`)
                 .then(res => {
-                    // 登录成功 提示
-                    this.$message.success("登录成功");
-                    // 更改登录状态
-                    this.isLogin = 1; 
-                    // 写入cookie 过期时间7天 
-                    document.cookie = `token=${res.data[0].token};max-age=${60*60*24*7}`;
-                    // 更新vuex 里的用户信息userinfo 
-                    this.updataVueXuser(res.data[0]);  
-                }).catch((err)=>{
-                    console.log(err.response);
-                    // if (err.response.code === 409) {
-                    //     this.$message.info("该用户不存在")
-                    // }  
+                   
+                    if (res) {
+                         // 登录成功 提示
+                        this.$message.success("登录成功");
+                        // 更改登录状态
+                        this.isLogin = 1; 
+                        // 写入cookie 过期时间7天 
+                        document.cookie = `token=${res.data[0].token};max-age=${60*60*24*7}`;
+                        // 更新vuex 里的用户信息userinfo 
+                        this.updataVueXuser(res.data[0]);  
+                    } 
+                })
+                .catch(err => { 
+                    if (err.response.status === 409 ){
+                         this.$message.info("该用户不存在")
+                    }
                 })
             } else {
                 this.$message.warning("请正确填写信息~")
             }
+        },
+        // 注销
+        offLogin() { 
+            document.cookie = 'token=null';
+            this.isLogin = 0;
+            this.updataVueXuser({
+                token: null,
+                is_appointment: "",
+                sessions_id : ""
+            });  
         },
         // 切换到登录
         tologin() {
@@ -167,12 +184,27 @@ export default {
 #index {
     padding-top: 1.4rem; 
     header { 
+        // position: relative;
         margin: 0 auto;
         margin-bottom: 1.866667rem;
         width: 2.986667rem;
         height: 2.626667rem;
         background: url(./../assets/images/logo2.png) no-repeat;
         background-size: contain; 
+        button {
+            display: block;
+            position: absolute;
+            right: .666667rem;
+            top: 50px;
+            border-radius: .133333rem;
+            padding: .133333rem .266667rem;
+            outline: none;
+            font-size: .4rem;
+            text-align: center;
+            border: none;
+            color: #0075c1;
+            user-select: none;
+        }
     }
     section {
         margin-bottom: 1.04rem;

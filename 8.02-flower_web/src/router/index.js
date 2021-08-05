@@ -18,6 +18,10 @@ const routes = [
         path: "/myappoint/:id",
         name: "myAppointment",
         component: () => import('./../views/MyAppointment')
+    },
+    {
+        path:"*",
+        redirect: "/"
     }
 ]
 
@@ -30,7 +34,7 @@ router.beforeEach((to,from,next) => {
     if (ignore.includes(to.path)){
         next()
     } else {
-        if (document.cookie && document.cookie.split("=")[1] ) {
+        if (document.cookie && document.cookie.split("=")[1] == true ) {
             next()
         }else {
             next('/')
