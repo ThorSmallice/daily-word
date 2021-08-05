@@ -33,7 +33,7 @@ export default {
         getuserInfo(cookie) {
             this.axios.get(`/api/appointment/show?token=${cookie}`)
             .then(res => { 
-                console.log(res);
+                // console.log(res);
                 this.$store.commit("updataUserAppoint", {
                     appoint: res.data[0].is_appointment,
                     sessionid: res.data[0].sessions_id

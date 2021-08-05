@@ -11,8 +11,10 @@
 
             <div class="qrcode-wrap">
                 <img :src="userInfo.qrcode" v-if="userInfo.qrcode">
-                <p v-else>您暂未预约场次~</p>
-                <button class="savebtn" @click="downloadQrcode(userInfo.qrcode)"  v-if="userInfo.qrcode">保存图片</button>
+                <p v-else>您暂未预约场次~</p> 
+                <button class="savebtn" @click="downloadQrcode(userInfo.qrcode)"  v-if="userInfo.qrcode">
+                    保存图片 
+                </button>  
                 <p>请保存此页面，进入参观区域前向工作人员出示，谢谢！</p>
             </div>
 
@@ -30,7 +32,8 @@ export default {
     data: () => {
         return {
             userInfo: {},  // 用户预约信息
-            qrcode: ""
+            qrcode: "",     // 二维码url
+            
         }
     },
     methods: {
@@ -42,12 +45,12 @@ export default {
             }) 
         },
         // 下载二维码到本地
-        downloadQrcode(url) {
+        downloadQrcode(url) {  
             this.qrcode = `require('${url}')`
             let alink = document.createElement("a");
-            alink.href = this.qrcode;
+            alink.href = this.qrcode; 
             alink.download = Date.now(); 
-            alink.click(); 
+            alink.click();  
         },
         // 取消预约
         qsAppiont() { 
@@ -153,6 +156,8 @@ export default {
                 margin: 0 auto .266667rem;
             }
             button {
+                user-select: none;
+                outline: none;
                 display: block;
                 margin: 0 auto .6rem;
                 width: 2.493333rem;

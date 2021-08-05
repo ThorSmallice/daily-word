@@ -70,8 +70,7 @@ export default {
             this.axios.get(`/api/session/show?timeId=${timeID}`).then(res => {
                 this.sessionArr = res.data.sort((a,b) => {
                     return a.start_time - b.start_time
-                }); 
-                console.log(this.sessionArr);
+                });  
             })
         },
         // 更换选中日期
