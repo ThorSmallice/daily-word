@@ -18,8 +18,7 @@ export default {
         getLoginStatus() {
             // 读取客户端cookie值  
             let cookie =  document.cookie && document.cookie.split("=")[1];   
-            if (cookie == true) {  
-                console.log(1);
+            if (cookie.length !== 0) {  
                 // 更新vuex 里的token
                 this.updataVueXtoken(cookie);
                 // 更新用户信息
@@ -32,6 +31,7 @@ export default {
         },
         // 获取用户信息
         getuserInfo(cookie) {
+            // console.log(cookie);
             this.axios.get(`/api/appointment/show?token=${cookie}`)
             .then(res => { 
                 // console.log(res);

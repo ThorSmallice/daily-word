@@ -7,21 +7,25 @@
         </header>
         <section>
             <ul class="form-wrap">
-                <li class="input-box inpName">
-                    <span>姓名：</span>
-                    <input type="text" v-model.trim="inpName">
-                </li>
+                <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeOutLeft">
+                    <ul v-if="isLogin === 0">
+                        <li class="input-box inpName">
+                            <span>姓名：</span>
+                            <input type="text" v-model.trim="inpName">
+                        </li>
 
-                <li class="input-box inpPhone">
-                    <span>+86</span>
-                    <input type="tel" v-model.trim="inpTel">
-                </li>
+                        <li class="input-box inpPhone">
+                            <span>+86</span>
+                            <input type="tel" v-model.trim="inpTel">
+                        </li>
 
-                <li class="input-box inpIdCard">
-                    <span>身份证号码：</span>
-                    <input type="text" v-model.trim="inpIdCard">
-                </li>
-
+                        <li class="input-box inpIdCard">
+                            <span>身份证号码：</span>
+                            <input type="text" v-model.trim="inpIdCard">
+                        </li>
+                    </ul>
+                </transition>
+                
                 <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeOutLeft">
                     <li class="input-box inpCode" v-if="showZhuce"> 
                         <input type="text" v-model.trim="inpCode" placeholder="请输入验证码~" >
@@ -155,10 +159,10 @@ export default {
         },
         // 注销
         offLogin() { 
-            document.cookie = 'token=null';
+            document.cookie = 'token=';
             this.isLogin = 0;
             this.updataVueXuser({
-                token: null,
+                token: " ",
                 is_appointment: "",
                 sessions_id : ""
             });  
@@ -241,6 +245,7 @@ export default {
                     border: none;
                     transition: all .5s ease-in;
                     padding: .133333rem;
+                    white-space: nowrap;
                     border-radius: .266667rem;
                 }
             }

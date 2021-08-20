@@ -34,7 +34,7 @@ router.beforeEach((to,from,next) => {
     if (ignore.includes(to.path)){
         next()
     } else {
-        if (document.cookie && document.cookie.split("=")[1] == true ) {
+        if (document.cookie && document.cookie.split("=")[1].length !== 0 ) {
             next()
         }else {
             next('/')

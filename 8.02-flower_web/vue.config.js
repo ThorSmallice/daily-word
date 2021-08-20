@@ -1,5 +1,9 @@
 module.exports = {
     publicPath: './',
+    productionSourceMap:false,
+    chainWebpack:(config)=>{
+        config.plugins.delete('prefetch');
+    },
     devServer : {
         proxy: {
             '/api': {

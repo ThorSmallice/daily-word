@@ -16,7 +16,7 @@ _axios.interceptors.request.use((res) => {
     return res;
 })
 _axios.interceptors.response.use(res => {
-    console.log(res);
+    // console.log(res);
     if (res.status === 200) {
         NProgress.done()
         return res.data

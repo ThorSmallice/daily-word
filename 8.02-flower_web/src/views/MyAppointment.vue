@@ -10,12 +10,13 @@
             </div>
 
             <div class="qrcode-wrap">
-                <img :src="userInfo.qrcode" v-if="userInfo.qrcode">
+                <img :src="userInfo.qrcode" v-if="userInfo.qrcode" id="qrcodeimg">
                 <p v-else>您暂未预约场次~</p> 
-                <button class="savebtn" @click="downloadQrcode(userInfo.qrcode)"  v-if="userInfo.qrcode">
+                <!-- @click="downloadQrcode(userInfo.qrcode)" -->
+                <button class="savebtn"  v-if="userInfo.qrcode" @click="downloadQrcode(userInfo.qrcode)">
                     保存图片 
-                </button>  
-                <p>请保存此页面，进入参观区域前向工作人员出示，谢谢！</p>
+                </button>   
+                <p>请截图保存此页面，进入参观区域前向工作人员出示，谢谢！</p>
             </div>
 
         </section>
@@ -28,6 +29,8 @@
 </template>
 
 <script>
+// const html2canvas = require("html2canvas");
+
 export default {
     data: () => {
         return {
@@ -46,11 +49,15 @@ export default {
         },
         // 下载二维码到本地
         downloadQrcode(url) {  
-            this.qrcode = `require('${url}')`
-            let alink = document.createElement("a");
-            alink.href = this.qrcode; 
-            alink.download = Date.now(); 
-            alink.click();  
+            console.log(url);
+            let aLink = document.createElement("a");
+            aLink.style.display = "none";
+            aLink.href = url;
+            aLink.download = Date.now;
+            document.body.appendChild(aLink);
+            aLink.click();
+            aLink.remove()
+
         },
         // 取消预约
         qsAppiont() { 
