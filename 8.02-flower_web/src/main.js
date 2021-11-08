@@ -11,11 +11,17 @@ import { message,Modal,Select } from 'ant-design-vue';
 
 Vue.config.productionTip = false
 
-_axios.interceptors.request.use((res) => { 
+_axios.interceptors.request.use((req) => { 
+    // req.headers["Access-Control-Allow-Origin"]= "*"
+    // req.headers["Access-Control-Allow-Methods"] = "DELETE, POST, GET, OPTIONS";
+    // req.headers["Access-Control-Allow-Headers"] = "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+    // console.log(req);
     NProgress.start();
-    return res;
+    return req;
 })
 _axios.interceptors.response.use(res => {
+    // res.headers('Access-Control-Allow-Credentials', 'true');
+    // res.headers["Access-Control-Allow-Credentials"] = true
     // console.log(res);
     if (res.status === 200) {
         NProgress.done()

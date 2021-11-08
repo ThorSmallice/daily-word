@@ -84,8 +84,7 @@ startBtn.addEventListener("click",function() {
                 getPhoneNum = ''; // 用户手机号置空
                 isRun = true;   // 允许点击
                 alert(res.msg);  // 提示用户手机号错误
-            } else {
-                
+            } else { 
                 let binggoID = res.data.bingo_prize_id;  // 中奖奖品Id
                 // 根据中奖id找到奖品列表中的奖品，记录奖品所在dom节点的序号
                 let binggoIndex = discList.filter((item) => {

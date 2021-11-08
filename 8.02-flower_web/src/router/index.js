@@ -20,6 +20,11 @@ const routes = [
         component: () => import('./../views/MyAppointment')
     },
     {
+        path: '/test',
+        name:'test',
+        component: () => import('./../views/test.vue') 
+    },
+    {
         path:"*",
         redirect: "/"
     }
@@ -29,16 +34,16 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach((to,from,next) => {
-    const ignore = ['/'];
-    if (ignore.includes(to.path)){
-        next()
-    } else {
-        if (document.cookie && document.cookie.split("=")[1].length !== 0 ) {
-            next()
-        }else {
-            next('/')
-        }
-    }
-})
+// router.beforeEach((to,from,next) => {
+//     const ignore = ['/'];
+//     if (ignore.includes(to.path)){
+//         next()
+//     } else {
+//         if (document.cookie && document.cookie.split("=")[1].length !== 0 ) {
+//             next()
+//         }else {
+//             next('/')
+//         }
+//     }
+// })
 export default router

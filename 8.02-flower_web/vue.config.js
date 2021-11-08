@@ -4,13 +4,13 @@ module.exports = {
     chainWebpack:(config)=>{
         config.plugins.delete('prefetch');
     },
-    devServer : {
-        proxy: {
-            '/api': {
-                target: 'http://localhost:3000/',
-                ws: true,
-                changeOrigin: true
-            }
-        }
-    }
+    // devServer : {
+    //     proxy: {
+    //         "/api": {
+    //             target: "http://flowerserve.dbice.cn",
+    //             ws: true,
+    //             changeOrigin: true
+    //         }
+    //     }
+    // }
 }

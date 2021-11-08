@@ -30,7 +30,7 @@
 
 <script>
 // const html2canvas = require("html2canvas");
-
+// import axios from 'axios'
 export default {
     data: () => {
         return {
@@ -52,7 +52,7 @@ export default {
             console.log(url);
             let aLink = document.createElement("a");
             aLink.style.display = "none";
-            aLink.href = url;
+            aLink.href = url+"?type=download";
             aLink.download = Date.now;
             document.body.appendChild(aLink);
             aLink.click();
